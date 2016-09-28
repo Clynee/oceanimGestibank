@@ -1,0 +1,134 @@
+.container{
+  padding-top: 10px;
+  color: #CCCCCC;
+  background:linear-gradient(to right, #49658A, black);
+} 
+
+
+#bloc_page
+{
+ 
+    width: 900px;
+    margin: auto;
+}
+/*400 100px/1.3 */
+#titre_principal h1{
+	font-family:  'Berkshire Swash', Helvetica, sans-serif;
+  	color: white;
+  	font-size: 7em;
+    font-weight: normal;
+    margin: 0 0 0 0.5em;
+	text-shadow: 
+        1px 1px 1px #2b2b2b,
+        1px 2px 1px #2b2b2b,
+        1px 3px 1px #2b2b2b,
+        1px 4px 1px #2b2b2b,
+        1px 5px 1px #2b2b2b,
+        1px 6px 1px #2b2b2b,
+        1px 7px 1px #2b2b2b;
+}
+
+
+
+#titre_principal h2{
+	color: #CCCCCC;
+	font-size: 1.5em;
+    margin-top: 0em;
+    margin-left: 2em;
+    font-weight: normal;
+}
+
+#form div {
+  background: #CCCCCC;
+}
+
+
+
+
+/*#bloc_page header{
+	display: flex;
+	flex-direction: row;
+}*/
+
+
+#infos_deconnection {
+	/*float: right;*/
+	color: #CCCCCC;
+	margin-top: 0.1em;
+	margin-right: 1em;
+}
+
+.table-responsive{margin-top: 5em;}
+.table thead tr{background: black;}
+.table tbody tr:nth-child(odd) {background:  #4E5B5A;}
+.table tbody tr:nth-child(even) {background:  #BEC3C2;}
+.table tbody tr:hover{background: #ecfbd4;cursor:pointer;} 
+
+
+
+.form-control {
+    width: 250px;
+}
+
+
+form label{
+  float: left;
+}
+
+form input[name="email"]{
+  width: 300px;
+}
+
+
+
+
+form input[name="numrue"]{
+  width: 100px;
+}
+
+form  span{
+  width: 450px;
+  float: right;
+}
+
+.form-inline{
+  float:right;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-top: 2em;
+  margin-right:1em; 
+}
+
+.ouvrircompte{
+  float:right;
+  margin-top:8em;
+  margin-right:1em; 
+}
+
+
+    .row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.no2{
+  margin-top:5em;
+
+}
+
+.no2 a{
+  color:black;
+  font-weight: bolder;
+  font-size: 1.5em;
+}
+
+.nav{
+ list-style : none; /* on supprime le style par défaut de la liste */
+        line-height : 80px; /* on définit une hauteur pour chaque élément */
+        column-width: 300px;
+        text-align : center; /* on centre le texte qui se trouve dans la liste */
+        background-color: #CCCCCC;
+}
+
+
+

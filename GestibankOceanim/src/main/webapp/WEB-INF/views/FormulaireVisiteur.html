@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8">
+		<title>Ouvrir un compte</title>
+		<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+		<script type="text/javascript" src="../bower_components/angular-route/angular-route.js"></script>
+		<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+		<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script type="text/javascript" src="../MyGestiBank/authentiCtrl.js"></script>
+		<script src="../MyGestiBank/admin.js"></script>
+    	<script src="../MyGestiBank/stock.js"></script>
+		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+		<link rel="stylesheet" href="../MyGestiBank/style.css"/>
+		<link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-app="monApp" class="container">
+	<header>
+                    <div class="row">
+                          <div id="titre_principal" class="col-sm-5">
+                            <h1>Océanim</h1>    
+                            <h2>Votre banque en ligne</h2>
+                          </div>
+                    </div>       
+     </header>
+<section class="FormulaireVisiteur">
+<div class="container">
+<div id="formvisit" ng-controller="formCtrl">
+	<h3>Demande d'ouverture de compte </h3>
+	<br>
+	<form  name="FormVisiteur" ng-submit="formulaireVisiteur(FormVisiteur, name);" >
+<div class="row">
+    <div class="col-sm-6">
+		
+			<label for="name">Nom :&nbsp</label>
+			<input class="form-control" type="text" name="name" placeholder="Champ obligatoire" ng-model="form.name" required="required"/>
+			<br>
+			<label for="email">Email : &nbsp</label>
+			<input class="form-control" type="text" name="email" placeholder="Champ obligatoire" ng-model="form.email" required="required"/>
+			<br>
+			<label for="numrue">Numéro de rue : &nbsp</label>
+			<input class="form-control" type="number" name="numrue"ng-model="form.numrue"/>
+			<br>
+			<label for="cp">Code postal: &nbsp</label>
+			<input class="form-control" type="number" name="cp" ng-model="form.cp"/>
+			<br>
+	</div>
+	<div class="col-sm-6">
+			<label for="lastname">Prénom :&nbsp</label>
+			<input class="form-control" type="text" name="lastName" placeholder="Champ obligatoire" ng-model="form.lastname" required="required"/>
+			<br>
+			<label for="tel">Téléphone : &nbsp</label>
+			<input class="form-control" type="number" name="tel" ng-model="form.telephone"/>
+			<br>
+			<label for="nomrue">Nom de la rue : &nbsp</label>
+			<input class="form-control" type="text" name="nomrue" ng-model="form.nomrue"/>
+			<br>
+			<label for="ville">Ville :&nbsp </label>
+			<input class="form-control" type="text" name="ville" ng-model="form.ville"/>
+	</div>
+	</form>
+</div>
+	<br>
+	<div>
+	UPLOADER VOS DOCUMENTS ICI 
+	</div>
+
+	<div class="container">
+	<center>
+			<button class="btn btn-primary btn-lg" ng-disabled="FormVisiteur.$invalid" >Valider</button>
+
+			<!--Ici mettre fonction reset sur le bouton réinitialiser-->
+			<button class="btn btn-primary btn-lg ">Réinitialiser</button>
+	</center>
+	</div>
+
+	
+
+</div>
+</section>
+</body>
+</html>
