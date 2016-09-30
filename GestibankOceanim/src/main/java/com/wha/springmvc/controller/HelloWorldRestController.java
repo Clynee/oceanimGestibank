@@ -19,7 +19,6 @@ import com.wha.springmvc.service.UserService;
  
 @RestController
 public class HelloWorldRestController {
- 
     @Autowired
     UserService userService;  //Service which will do all data retrieval/manipulation work
  

@@ -1,10 +1,12 @@
-app.config(['$routeProvider',
-	function ($routeProvider){
+App.config(function ($routeProvider){
 	//Système de routage
 	$routeProvider
 	.when('/FormulaireVisiteur',{
-		templateUrl:'/FormulaireVisiteur.html',
+		templateUrl:'static/views/FormulaireVisiteur.html',
+		controller: 'formCtrl'
+	})
+	.when('/seConnecter',{
+		templateUrl:'static/views/tempConnexion.html',
+		controller: 'connexionController'
 	});
-}])
-
-//Problème au niveau du routage de la page formulaire à partir du bouton "ouvrir un compte"
+})

@@ -6,47 +6,47 @@
 <meta charset="utf-8">
 		<title>Oceanim votre banque en ligne</title>
 	
-		<!--  <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script> -->
-		<!-- <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
 		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="<c:url value= '/static/css/styleaccueil.css' />"/>
 		<link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
 </head>
-<body ng-app="monApp" class="container">
+<body ng-app="myApp" class="container">
 	<header class="row">
-		
         <div class="row">
              <div id="titre_principal" class="col-sm-5">
                   <h1>Océanim</h1>    
                      <h2>Votre banque en ligne</h2>
-              </div>
+              </div >
+				<div class="ouvrircompte" ng-controller="AccordionDemoCtrl">
+				  <accordion>
+				    <accordion-group heading="Ouvrir un compte" ng-click="click('/FormulaireVisiteur')">
+				       <div ng-view></div>
+				    </accordion-group>
+				    <accordion-group heading="Se connecter" ng-click="click('/seConnecter')">
+				       <div ng-view></div>
+				    </accordion-group>
+				  </accordion>
+				</div>
+			
+			<!-- 
+				
               <div class="ouvrircompte">
-				<a href="./FormulaireVisiteur.html" class="btn btn-danger btn-lg">Ouvrir un compte</a>
+				<a href="#/FormulaireVisiteur" class="btn btn-danger btn-lg">Ouvrir un compte</a>
 			</div>
+			
+			 -->	
          </div>
 
 
 
 
-		<div ng-controller="formCtrl">
-				<form class="form-inline" name="monForm" ng-submit="authenticate(monForm, auth);">
-		 			 <div class="form-group">
-		   				 <label for="username">Identifiant : &nbsp</label>
-		    			<input type="text" class="form-control" name="username" placeholder="Identifiant" ng-model="auth.username" required="required"/>
-		 			</div>
-		 			<div class="form-group">
-		    			<label for="password">Mot de passe : &nbsp</label>
-		    			<input type="password" class="form-control" name="password" placeholder="Mot de passe" ng-model="auth.password"required="required"/>
-		  			</div>
-		  		<a href="../MyGestiBank/FormulaireVisiteur.html" ><button type="submit" class="btn btn-default" ng-disabled="monForm.$invalid">Valider</button></a>
-				</form>
-			</div>
+		
                
      </header>
 
      
-     <div ng-view></div>
+    <div ng-view></div>
     
      <div class="row no2 container ">
    		
@@ -59,7 +59,7 @@
 	
 		<div class="tab-content">
    			<div id="accueil" class="tab-pane fade in active">
-   				<img src="<c:url value= '/static/images/photoArgent.jpg' />" alt="image accueil"style="width:804px;height:408px">
+   				<img src="<c:url value= '/static/images/imageaccueil.jpg' />" alt="image accueil"style="width:804px;height:408px">
    			</div>
    			<div id="produits" class="tab-pane fade">
    			
@@ -93,13 +93,18 @@
   <center>Ici se trouvera notre super convertisseur de devises!</center>
   </div>				     
 	<br>
+
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
-	<script type="text/javascript" src="<c:url value= '/static/js/controller/authentiCtrl.js' />"></script>
+	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+	<script src="<c:url value='/static/js/app.js' />"></script>
 	<script type="text/javascript" src="<c:url value= '/static/js/controller/config.js' />"></script>
+	<script src="<c:url value='/static/js/controller/authentiCtrl.js' />"></script>
+	<script src="<c:url value='/static/js/service/connexion_service.js' />"></script>
+	<script src="<c:url value='/static/js/controller/connexionController.js' />"></script>
 	<!--  <script src="../MyGestiBank/admin.js"></script>
     <script src="../MyGestiBank/stock.js"></script>
     <script src="../MyGestiBank/config.js"></script>-->

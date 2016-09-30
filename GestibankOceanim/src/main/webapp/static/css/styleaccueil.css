@@ -131,4 +131,8 @@ form  span{
 }
 
 
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
+.panel-default {
+    vertical-align: top;
+}

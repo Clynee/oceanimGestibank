@@ -7,14 +7,14 @@ public class Client extends User {
 	
 //-------------------------attributs--------------------------------------------
     
-	private long id;
+	private int id;
 	private String nom;
 	private String prenom;
 	private String email;
 	private String adresse;
-    private Date dateDemande;
-	private Date dateCreaCompte;
+    private Date dateCreaCompte;
 	private List<Compte> comptes;
+	private List<Demande> demandes;
 	
 //-------------------------constructeurs----------------------------------------
     
@@ -22,14 +22,13 @@ public class Client extends User {
 		
 		id=0;
 }
-    public Client(long id, String nom, String prenom, String email, String addresse, Date dateDemande, Date dateCreaCompte){
+    public Client(int id, String nom, String prenom, String email, String addresse, Date dateCreaCompte){
 		
 		this.id=id;
 		this.nom="nom";
 		this.prenom="prenom";
 		this.email="email";
 		this.adresse="adresse";
-		this.dateDemande=dateDemande;
 		this.dateCreaCompte=dateCreaCompte;
 		this.comptes=comptes;
 }
@@ -45,7 +44,7 @@ public class Client extends User {
 	public long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getNom() {
@@ -72,28 +71,28 @@ public class Client extends User {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public Date getDateDemande() {
-		return dateDemande;
-	}
-	public void setDateDemande(Date dateDemande) {
-		this.dateDemande = dateDemande;
-	}
 	public Date getDateCreaCompte() {
 		return dateCreaCompte;
 	}
 	public void setDateCreaCompte(Date dateCreaCompte) {
 		this.dateCreaCompte = dateCreaCompte;
 	}
-		
-	
+	public List<Demande> getDemandes() {
+		return demandes;
+	}
+	public void setDemandes(List<Demande> demandes) {
+		this.demandes = demandes;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
+		result = prime * result + ((adresse == null) ? 0 : adresse.hashCode());
+		result = prime * result + ((comptes == null) ? 0 : comptes.hashCode());
 		result = prime * result + ((dateCreaCompte == null) ? 0 : dateCreaCompte.hashCode());
-		result = prime * result + ((dateDemande == null) ? 0 : dateDemande.hashCode());
+		result = prime * result + ((demandes == null) ? 0 : demandes.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + id;
 		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
 		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
 		return result;
@@ -107,15 +106,25 @@ public class Client extends User {
 		if (getClass() != obj.getClass())
 			return false;
 		Client other = (Client) obj;
+		if (adresse == null) {
+			if (other.adresse != null)
+				return false;
+		} else if (!adresse.equals(other.adresse))
+			return false;
+		if (comptes == null) {
+			if (other.comptes != null)
+				return false;
+		} else if (!comptes.equals(other.comptes))
+			return false;
 		if (dateCreaCompte == null) {
 			if (other.dateCreaCompte != null)
 				return false;
 		} else if (!dateCreaCompte.equals(other.dateCreaCompte))
 			return false;
-		if (dateDemande == null) {
-			if (other.dateDemande != null)
+		if (demandes == null) {
+			if (other.demandes != null)
 				return false;
-		} else if (!dateDemande.equals(other.dateDemande))
+		} else if (!demandes.equals(other.demandes))
 			return false;
 		if (email == null) {
 			if (other.email != null)
@@ -138,10 +147,10 @@ public class Client extends User {
 	}
 	@Override
 	public String toString() {
-		return "Client [getId()=" + getId() + ", getNom()=" + getNom() + ", getPrenom()=" + getPrenom()
-				+ ", getEmail()=" + getEmail() + ", getAdresse()=" + getAdresse() + ", getDateDemande()="
-				+ getDateDemande() + ", getDateCreaCompte()=" + getDateCreaCompte() + "]";
+		return "Client [getComptes()=" + getComptes() + ", getId()=" + getId() + ", getNom()=" + getNom()
+				+ ", getPrenom()=" + getPrenom() + ", getEmail()=" + getEmail() + ", getAdresse()=" + getAdresse()
+				+ ", getDateCreaCompte()=" + getDateCreaCompte() + ", getDemandes()=" + getDemandes() + ", hashCode()="
+				+ hashCode() + "]";
 	}
-	
 
 }

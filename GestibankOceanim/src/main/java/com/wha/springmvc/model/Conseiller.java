@@ -17,7 +17,6 @@ public class Conseiller extends User {
     
 	public Conseiller(){
 		
-		matricule=515;
 }
     public Conseiller(long matricule, String nom, String prenom, String email, String addresse, Date dateEntree){
 		
