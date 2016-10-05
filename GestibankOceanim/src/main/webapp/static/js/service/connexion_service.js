@@ -8,9 +8,9 @@ App.factory('ConnexionService', ['$http', '$q', function($http, $q){
     
     	return factory; 
     
-    function seConnecter(ident,mtp){
+    function seConnecter(user){
     	        var deferred = $q.defer();
-    	        $http.get(REST_SERVICE_URI + ident)
+    	        $http.post(REST_SERVICE_URI,user)
     	            .then(
     	            function (response) {
     	                deferred.resolve(response.data);

@@ -1,5 +1,6 @@
 'use strict';
 // declaration de module
-var App = angular.module('myApp',['ngRoute','ui.bootstrap']);
+var App = angular.module('myApp',['ngRoute','ngAnimate', 'ngSanitize','ui.bootstrap']);
+
 
 

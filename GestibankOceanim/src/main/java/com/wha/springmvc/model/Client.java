@@ -3,8 +3,10 @@ package com.wha.springmvc.model;
 import java.util.Date;
 import java.util.List;
 
+import com.wha.springmvc.model.User.Roles;
+
 public class Client extends User {
-	
+	public static final Roles ROLE = Roles.client;
 //-------------------------attributs--------------------------------------------
     
 	private int id;

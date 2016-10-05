@@ -2,6 +2,7 @@ package com.wha.springmvc.model;
 
 
 public class Admin extends User{
+	public static final Roles ROLE = Roles.admin;
 	
 //----------------attributs------------------------------------------
 

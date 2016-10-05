@@ -1,41 +1,44 @@
 'use strict';
-//angular.module('myApp')
-App.controller('connexionController',
-		[ '$scope', 'ConnexionService','$location', function($scope, ConnexionService,$location) {
-			//var self = this;
-		//	self.auth = {
-		//			username : '',
-		//		password:''
-		// };
+App.controller('connexionController', [
+		'$scope',
+		'ConnexionService',
+		'$location',
+		'$window',
+		'$sce',
+		function($scope, ConnexionService, $location, $window, $sce) {
 
-			//self.authenticate = authenticate;
-			//self.reset = reset;
-			$scope.conseiller=null
-			
+			$scope.dynamicPopover = {
+				content : 'Hello, World!',
+				templateUrl : 'static/views/tempConnexion.html',// 'myPopoverTemplate.html',//
+				title : 'Title'
+			};
+			$scope.placement = {
+				options : [ 'top', 'top-left', 'top-right', 'bottom',
+						'bottom-left', 'bottom-right', 'left', 'left-top',
+						'left-bottom', 'right', 'right-top', 'right-bottom' ],
+				selected : 'bottom-right'
+			};
 
-			function seConnecter(ident, mtp) {
+			$scope.authenticate = function(user) {
+				console.log(user.username)
 				console.log("1111");
-				ConnexionService.seConnecter(ident, mtp).then(function(d) {
-					$scope.conseiller = d;
+				ConnexionService.seConnecter(user).then(function(d) {
+					$scope.userConnecte = d;
+					console.log($scope.userConnecte)
+					if ($scope.userConnecte !== null) {
+						$location.path('/'+ $scope.userConnecte.ROLE);
+						// $window.location.href="static/views/ConseillerComptes.html"
+					} else {
+						$scope.monForm.$setPristine();
+						console.log("conseiller est vide !!! ")
+					}
+
 				}, function(errResponse) {
 					console.error('Error while fetching Users');
 				});
-
 			}
-
-			$scope.authenticate = function() {
-				seConnecter($scope.auth.username, $scope.auth.password)
-				if($scope.conseiller===null){
-					$scope.reset();
-				}else{
-					$location.url("/conseiller");
-				}
-			}
-
-			$scope.reset=function() {
-				console.log("1111");
-				$scope.monForm.$setPristine(); // reset Form
-				
-			}
+			/*
+			 * $scope.reset = function() { // reset Form }
+			 */
 
 		} ]);

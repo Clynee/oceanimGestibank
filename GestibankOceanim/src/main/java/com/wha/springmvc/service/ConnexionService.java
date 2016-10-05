@@ -1,8 +1,8 @@
 package com.wha.springmvc.service;
 
-import com.wha.springmvc.model.Conseiller;
+
+import com.wha.springmvc.model.User;
 
 public interface ConnexionService {
-	public Conseiller seConnecter(String identifiant, String motDePasse);
-
+	public User seConnecter(String identifiant, String motDePasse);
 }

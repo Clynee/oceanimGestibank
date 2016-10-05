@@ -1,7 +1,13 @@
 package com.wha.springmvc.model;
 
-public class User {
+import com.wha.springmvc.model.User.Roles;
 
+public class User {
+	public enum Roles{user,admin,conseiller,client};
+	
+	
+	
+	public static final Roles ROLE = Roles.user;
 	private long id;
 	
 	private String username;
@@ -10,15 +16,27 @@ public class User {
 	
 	private String email;
 	
+	private String password;
+
+	
 	public User(){
-		id=0;
 	}
 	
-	public User(long id, String username, String address, String email){
+	public User(long id, String username, String address, String email,String password){
 		this.id = id;
 		this.username = username;
 		this.address = address;
 		this.email = email;
+		this.password = password;
+	}
+
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public long getId() {

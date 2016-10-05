@@ -4,6 +4,8 @@
   background:linear-gradient(to right, #49658A, black);
 } 
 
+.form-control {width:20em;}
+.popover {max-width:20em;}
 
 #bloc_page
 {
@@ -136,3 +138,5 @@ form  span{
 .panel-default {
     vertical-align: top;
 }
+
+

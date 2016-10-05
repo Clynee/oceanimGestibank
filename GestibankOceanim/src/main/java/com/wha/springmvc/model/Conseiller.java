@@ -2,8 +2,10 @@ package com.wha.springmvc.model;
 
 import java.util.Date;
 
+
+
 public class Conseiller extends User {
-	
+	public static final Roles ROLE = Roles.conseiller;
 //-------------------------attributs--------------------------------------------
     
 	private long matricule;
