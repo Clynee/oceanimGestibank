@@ -1,11 +1,13 @@
+
+
 .container{
   padding-top: 10px;
   color: #CCCCCC;
   background:linear-gradient(to right, #49658A, black);
 } 
 
-.form-control {width:20em;}
-.popover {max-width:20em;}
+.form-control {width:200em;}
+.popover {max-width:300em;}
 
 #bloc_page
 {
@@ -14,6 +16,8 @@
     margin: auto;
 }
 /*400 100px/1.3 */
+
+/*Header commun*/
 #titre_principal h1{
 	font-family:  'Berkshire Swash', Helvetica, sans-serif;
   	color: white;
@@ -52,13 +56,21 @@
 	flex-direction: row;
 }*/
 
-
+/*Header option selon pages*/
 #infos_deconnection {
 	/*float: right;*/
 	color: #CCCCCC;
 	margin-top: 0.1em;
 	margin-right: 1em;
 }
+
+.ouvrircompte{
+  float:right;
+  margin-top:8em;
+  margin-right:1em; 
+}
+
+/*Responsive*/
 
 .table-responsive{margin-top: 5em;}
 .table thead tr{background: black;}
@@ -68,10 +80,10 @@
 
 
 
+/*Tableau central page d'accueil*/
 .form-control {
     width: 250px;
 }
-
 
 form label{
   float: left;
@@ -97,22 +109,14 @@ form  span{
   float:right;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color:black;
-  /*margin-top: 2em;
-  margin-right:1em;*/ 
-}
-
-.form-inline button{
-	margin-top: 1em;
-}
-.ouvrircompte{
-  float:right;
-  margin-top:8em;
+  margin-top: 2em;
   margin-right:1em; 
 }
 
 
- .row {
+
+
+    .row {
   margin-right: -15px;
   margin-left: -15px;
 }
@@ -129,18 +133,67 @@ form  span{
 }
 
 .nav{
- list-style : none; /* on supprime le style par défaut de la liste */
-        line-height : 80px; /* on définit une hauteur pour chaque élément */
+ list-style : none; /* on supprime le style par dÃ©faut de la liste */
+        line-height : 80px; /* on dÃ©finit une hauteur pour chaque Ã©lÃ©ment */
         column-width: 300px;
         text-align : center; /* on centre le texte qui se trouve dans la liste */
         background-color: #CCCCCC;
 }
 
-
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
-
-.panel-default {
-    vertical-align: top;
+.menuvertical{
+ list-style : none; /* on supprime le style par défaut de la liste */
+        line-height : 80px; /* on définit une hauteur pour chaque élément */
+        column-width: 250px;
+        text-align : center; /* on centre le texte qui se trouve dans la liste */
+        background-color: #CCCCCC;
+        font-weight: bolder;
+        margin-top:2em;
+        position:absolute;
+        margin-left:3em;
 }
+.menuverticalee{
+ list-style : none; /* on supprime le style par défaut de la liste */
+        line-height : 80px; /* on définit une hauteur pour chaque élément */
+        column-width: 250px;
+        text-align : center; /* on centre le texte qui se trouve dans la liste */
+        background-color: #CCCCCC;
+        font-weight: bolder;
+        margin-top:25em;
+        position:absolute;
+        margin-left:2em;
+}
+
+      
+/*tableau central*/
+
+section{
+ float: right;
+ width:60%;
+ height: 70%;
+ margin-left: :60em;
+ margin-top:2em;
+ margin-right: 5em;
+
+}
+#menucentral{
+   padding-top:0px;
+   padding-right: 20em;
+   font-weight: bold;
+   font-color: #CCCCCC;
+}
+
+#Mes_informations{
+  padding-top: 5em;
+  padding-bottom:5em;
+}
+
+#menucentral ul {
+ 
+  width:60%;
+  float: right;
+  
+
+}
+
 
 
