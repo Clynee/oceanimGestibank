@@ -1,8 +1,13 @@
-.container{
+/*.container{*/
+body{
   padding-top: 10px;
   color: #CCCCCC;
   background:linear-gradient(to right, #49658A, black);
 } 
+
+body header{
+	margin-bottom: 2em;
+}
 
 .form-control {width:20em;}
 .popover {max-width:20em;}

@@ -1,20 +1,25 @@
 
-
-.container{
+/*.container{*/
+body{
   padding-top: 10px;
   color: #CCCCCC;
   background:linear-gradient(to right, #49658A, black);
 } 
 
+body header{
+	margin-bottom: 2em;
+}
+
 .form-control {width:200em;}
 .popover {max-width:300em;}
-
+/*
 #bloc_page
 {
  
     width: 900px;
     margin: auto;
 }
+*/
 /*400 100px/1.3 */
 
 /*Header commun*/
