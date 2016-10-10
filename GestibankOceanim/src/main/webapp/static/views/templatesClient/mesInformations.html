@@ -1,2 +1,80 @@
+<meta charset="utf-8">
 <h1>Vos informations</h1>
-<img src="../images/chantier.jpg" style="width: 804px; height: 408px">
+<div id="Mes_informations" >
+	<!-- Vérifier avec nom des variables données car pas finies -->
+	<div class="col-sm-6">
+		Nom :&nbsp; {{client.nom}} <br> <br> Email
+		:&nbsp;{{client.email}} <br> <br> Numéro de la rue : &nbsp;
+		{{client.numRue}} <br> <br> Code postal :
+		&nbsp;{{client.cp}}&nbsp;&nbsp;&nbsp; <br> <br> Situation
+		maritale :&nbsp;{{client.situMaritale}}&nbsp;&nbsp;&nbsp;
+	</div>
+	<div class="col-sm-6">
+		Prénom :&nbsp; {{client.prenom}} <br> <br> Téléphone
+		:&nbsp;{{client.telephone}} <br> <br> Nom de la rue :
+		&nbsp;{{client.nomRue}} <br> <br> Ville
+		:&nbsp;{{client.ville}} <br> <br> Nombre d'enfants :
+		&nbsp;{{client.nbEnfant}}
+
+	</div>
+
+
+	<div>
+		<center>
+			<button class="btn btn-secondary" ng-click="modif()">Modifier</button>
+		</center>
+		</div>
+		</div>
+		<div ng-show="showMe">
+
+			<form class="formModif">
+				<div class="row">
+					<div class="col-sm-6">
+
+						<label for="name">Nom :&nbsp</label> <input class="form-control"
+							type="text" name="name" /> <br> <label for="email">Email
+							: &nbsp</label> <input class="form-control" type="text" name="email" />
+						<label for="numrue">Numéro de rue : &nbsp</label> <input
+							class="form-control" type="number" name="numrue" /> <br> <label
+							for="cp">Code postal: &nbsp</label> <input class="form-control"
+							type="number" name="cp" /> <br> <label
+							for="situation matrimoniale"> Situation matrimoniale
+							:&nbsp</label> <select class="form-control">
+							<option>Célibataire</option>
+							<option>Concubinage</option>
+							<option>Pacte civil de solidarité</option>
+							<option>Vie maritale</option>
+						</select>
+					</div>
+					<div class="col-sm-6">
+						<label for="lastname">Prénom :&nbsp</label> <input
+							class="form-control" type="text" name="lastName" /> <br> <label
+							for="tel">Téléphone : &nbsp</label> <input class="form-control"
+							type="text" name="tel" /> <br> <label for="nomrue">Nom
+							de la rue : &nbsp</label> <input class="form-control" type="text"
+							name="nomrue" /> <br> <label for="ville">Ville
+							:&nbsp </label> <input class="form-control" type="text" name="ville" />
+						<br> <label for="nombre d'enfants"> Nombre d'enfants
+							:&nbsp</label> <select class="form-control">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5 et plus</option>
+						</select>
+					</div>
+
+				</div>
+			</form>
+			<br>
+			<center>
+				<button class="btn btn-secondary">Confirmer</button>
+			</center>
+		</div>
+
+	</div>
+
+</div>
+ <!-- 
+<img src="static/images/chantier.jpg" style="width: 804px; height: 408px">
+ -->

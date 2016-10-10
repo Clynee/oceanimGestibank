@@ -1,0 +1,44 @@
+<meta charset="utf-8">
+<section class="FormulaireVisiteur">
+	<div class ="row" id="formvisit">
+		<form name="FormVisiteur"
+			ng-submit="formulaireVisiteur(FormVisiteur, name);">
+				<div class="col-sm-6">
+					<label for="name">Nom :</label> <input class="form-control"
+						type="text" name="name" placeholder="Champ obligatoire"
+						ng-model="form.name" required="required" /> <br> <label
+						for="email">Email :</label> <input class="form-control"
+						type="text" name="email" placeholder="Champ obligatoire"
+						ng-model="form.email" required="required" /> <br> <label
+						for="numrue">Numéro de rue : </label> <input
+						class="form-control" type="number" name="numrue"
+						ng-model="form.numrue" /> <br> <label for="cp">Code
+						postal: </label> <input class="form-control" type="number" name="cp"
+						ng-model="form.cp" /> <br>
+				</div>
+				<div class="col-sm-6">
+					<label for="lastname">Prénom :</label> <input
+						class="form-control" type="text" name="lastName"
+						placeholder="Champ obligatoire" ng-model="form.lastname"
+						required="required" /> <br> <label for="tel">Téléphone
+						: </label> <input class="form-control" type="number" name="tel"
+						ng-model="form.telephone" /> <br> <label for="nomrue">Nom
+						de la rue : </label> <input class="form-control" type="text"
+						name="nomrue" ng-model="form.nomrue" /> <br> <label
+						for="ville">Ville : </label> <input class="form-control"
+						type="text" name="ville" ng-model="form.ville" />
+				</div>
+		</form>
+	</div>
+	<div class="row">
+		<div>UPLOADER VOS DOCUMENTS ICI</div>
+		<center>
+			<button class="btn btn-primary btn-lg"
+				ng-disabled="FormVisiteur.$invalid">Valider</button>
+			<!--Ici mettre fonction reset sur le bouton réinitialiser-->
+			<button class="btn btn-primary btn-lg ">Réinitialiser</button>
+		</center>
+	</div>
+
+
+</section>

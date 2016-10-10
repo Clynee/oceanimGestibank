@@ -6,10 +6,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.wha.springmvc.model.Admin;
-import com.wha.springmvc.model.Client;
-import com.wha.springmvc.model.Conseiller;
-import com.wha.springmvc.model.User;
+import com.wha.springmvc.entities.Admin;
+import com.wha.springmvc.entities.Client;
+import com.wha.springmvc.entities.Conseiller;
+import com.wha.springmvc.entities.User;
+
+
 
 @Service("connexionService")
 public class ConnexionServiceImp implements ConnexionService {

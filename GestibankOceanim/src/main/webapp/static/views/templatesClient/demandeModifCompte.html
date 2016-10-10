@@ -1,2 +1,43 @@
+<meta charset="utf-8">
 <h1>Demande des modifications sur un compte</h1>
-<img src="../images/chantier.jpg" style="width: 804px; height: 408px">
+
+<div>
+   <form>
+	<center><h2>Demande de modifications de compte :</h2></center>
+	<label for="choixCompte"> Choix du compte :&nbsp;</label>
+			<select class="form-control">
+				<option>{{compte.typeCompte}} {{compte.numCompte}} Compte courant 12345678910 &nbsp;&nbsp;&nbsp; </option>
+				<option>{{compte.typeCompte}} {{compte.numCompte}} Compte courant 6574352689 &nbsp;&nbsp;&nbsp; </option>
+			</select><br><br>
+					 <div class="checkbox">
+    					<label>
+     						 <input type="checkbox" id="modifDecouvert" value="modifDecouvert"> Demander une modification du montant du découvert autorisé</label>
+  					</div>
+  					<br>
+  					 <div class="checkbox">
+    					<label>
+     						 <input type="checkbox" id="modifType" value="modifType"> Demander une modification du type de compte</label>
+  					</div>
+
+  					<br>
+            <div class="checkbox">
+              <label>
+                 <input type="checkbox" id="modifType" value="modifType"> Demander une modification du montant de la rémunération du compte</label>
+            </div>
+            <br>
+  					<div class="form-group">
+  					 <label for="comment">Autres demandes et complément d'informations sur votre demande:</label><br>
+  					<textarea class="form-control" rows="10" cols="60"></textarea>
+  					</div>
+
+
+
+   </form>
+		<button class="btn btn-secondary" >Soumettre</button>
+	
+
+</div>
+
+<!--  
+<img src="static/images/chantier.jpg" style="width: 804px; height: 408px">
+-->

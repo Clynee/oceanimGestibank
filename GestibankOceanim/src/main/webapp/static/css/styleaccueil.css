@@ -9,8 +9,17 @@ body header{
 	margin-bottom: 2em;
 }
 
-.form-control {width:20em;}
-.popover {max-width:20em;}
+.form {width:400em;}
+.popover {
+	max-width:400em;
+	font-size: 20px;
+  	color:black;
+	}
+.popover-title{
+	font-size: 20px;
+  	color:black;
+}
+
 
 #bloc_page
 {
@@ -74,38 +83,43 @@ body header{
 
 
 .form-control {
-    width: 250px;
+    width: 25em;
 }
 
-
+/*
 form label{
   float: left;
 }
+*/
 
 form input[name="email"]{
-  width: 300px;
+  width: 25em;
 }
 
 
 
 
 form input[name="numrue"]{
-  width: 100px;
+  width: 25em;
 }
 
+
+/*
 form  span{
   width: 450px;
   float: right;
 }
-
-.form-inline{
-  float:right;
+*/
+form{
+  /*float:right;*/
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   color:black;
   /*margin-top: 2em;
-  margin-right:1em;*/ 
+  margin-right:1em;
+  */ 
 }
+/*
 
 .form-inline button{
 	margin-top: 1em;
@@ -115,7 +129,7 @@ form  span{
   margin-top:8em;
   margin-right:1em; 
 }
-
+*/
 
  .row {
   margin-right: -15px;
@@ -135,8 +149,9 @@ form  span{
 
 .nav{
  list-style : none; /* on supprime le style par défaut de la liste */
-        line-height : 80px; /* on définit une hauteur pour chaque élément */
-        column-width: 300px;
+ 
+        line-height : 6em; /* on définit une hauteur pour chaque élément */
+        column-width: 20em;
         text-align : center; /* on centre le texte qui se trouve dans la liste */
         background-color: #CCCCCC;
 }

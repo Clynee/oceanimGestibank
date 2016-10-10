@@ -1,24 +1,23 @@
-
+<meta charset="utf-8">
 	<section class="blocCentral">
 		<div class="titreVirement">
 		<h4>Effectuer un virement </h4>
 		</div>
 			<div class="blocVirement">
-				<center><label for="choixCompteDebit"> Compte à débiter :&nbsp;</label>
+				<center><label for="choixCompteDebit"> Compte à  débiter :&nbsp;</label>
 				<select class="form-control">
-					 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 12345678910 &nbsp;&nbsp;&nbsp; 250,00€  </option>
-					 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 6574352689 &nbsp;&nbsp;&nbsp; 900,00€  </option>
+					 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 12345678910 &nbsp;&nbsp;&nbsp; 250,00â‚¬  </option>
+					 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 6574352689 &nbsp;&nbsp;&nbsp; 900,00â‚¬  </option>
 					</select>
 					</center>
 				<div class="blocVirement">
 			<center><label for="choixCompteCredit"> Compte à créditer :&nbsp;</label>
 			<select class="form-control">
-				 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 12345678910 &nbsp;&nbsp;&nbsp; 250,00€  </option>
-				 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 6574352689 &nbsp;&nbsp;&nbsp; 900,00€  </option>
+				 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 12345678910 &nbsp;&nbsp;&nbsp; 250,00â‚¬  </option>
+				 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 6574352689 &nbsp;&nbsp;&nbsp; 900,00â‚¬  </option>
 			</select>
 				</center>
 		</div>
-		<br>
 		<center><form class="formVirement">
 			<label for="montantVirement">Montant:</label>
 			<input class="form-control" type="text" name="montantVirement" ng-model="montantVirement"/>
@@ -31,23 +30,18 @@
 			<button class="btn btn-secondary btn-lg" >Confirmer</button>
 			<!-- Relier le virement aux transactions -->
 		</div>
-		<br>
-
-	
 		<div class="titreVirement">
 		<h4>Ajouter un bénéficiaire</h4>
 		</div>
-		<center> <form class="nvBénéficiaire">
+		<center> <form class="nvBeneficiaire">
 			<label for="nvCompteVirement">Numéro du compte à créditer:</label>
 			<input class="form-control" type="text" name="nvCompteVirement" ng-model="nvCompteVirement"/>
 		</form></center>
 		<br>
 		<center>
 			<button class="btn btn-secondary btn-lg" >Confirmer</button>
-			<!-- Ici le bouton enregistre un nouveau compte dans les comptes disponibles à créditer -->
+			<!-- Ici le bouton enregistre un nouveau compte dans les comptes disponibles Ã  crÃ©diter -->
 		</center>
-		
-		
 </section>
 	
 	

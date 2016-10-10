@@ -1,4 +1,13 @@
 <meta charset="utf-8">
+
+<div class="row">
+			<div id="infos_deconnection" class="col-sm-offset-10 col-sm-2">
+				<h5>Bonjour {{client.name}} {{client.lastname}}</h5>
+				<button class="btn btn-danger">Déconnection</button>
+			</div>
+</div>
+
+<!-- id="acceuilClient" -->
 <div class="row container">
 <!-- menuvertical id="menucentral" -->
 <nav class="col-sm-3">
@@ -10,33 +19,35 @@
 		<li><a  data-toggle="pill">Mes opérations</a></li>
 		<li><a ui-sref=".virement" href="#Effectuer_virement">Effectuer un virement</a></li>
 		<li><a ui-sref=".editerRIB" href="#Editer_un_RIB">Editer un RIB</a></li>
-		<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mes demandes <span class="caret"></span></a>
+		<!-- <a class="dropdown-toggle" data-toggle="dropdown" >Mes demandes <span class="caret"></span></a> 
+		<li class="dropdown"> Mes demandes
 			<ul class="dropdown-menu dropdown-menu-right">
-				<li><a ui-sref=".demandeModifCompte"  href="#Demande_modif_compte">Demander un chéquier</a></li>
-				<li><a ui-sref=".demandeChequier"  href="#Demande_chequier">Modification de compte</a></li>
-				<li><a ui-sref=".demandeOuvertureCompte"  href="#Demande_ouverture_compte">Ouverture de compte</a></li>
 			</ul>
 		</li>
+		-->
+		<li><a ui-sref=".demandeChequier"  href="#Demande_modif_compte">Demander un chéquier</a></li>
+		<li><a ui-sref=".demandeModifCompte"  href="#Demande_chequier">Modification de compte</a></li>
+		<li><a ui-sref=".demandeOuvertureCompte"  href="#Demande_ouverture_compte">Ouverture de compte</a></li>
+			
+		
 	</ul>
 </nav>
 
 <div class="col-sm-9">
 	<!--   Menu central -->
 	
-	<div class="row " >
+	<div class="row" >
+	<div class="col-sm-offset-2 col-sm-10">
 		<ul class="nav nav-tabs">
 			<li><a ui-sref=".mesInformations"  >Mes informations</a></li>
 			<li><a ui-sref=".mesAlertes"  href="#Mes_alertes">Mes alertes</a></li>
 			<li><a ui-sref=".synthese"  href="#synthese">Synthèse des comptes</a></li>
 			<!--  Renvoi à la même page que "Mes comptes" du menu vertical -->
 		</ul>
+		</div>
 	</div>
 	<div class="row">	
 		<div ui-view></div>
 	</div>
 </div>
-
 </div>
-
-
-

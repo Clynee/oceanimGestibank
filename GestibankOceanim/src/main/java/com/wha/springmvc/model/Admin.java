@@ -69,8 +69,11 @@ public class Admin extends User{
 	}
 	@Override
 	public String toString() {
-		return "Admin [getEmail()=" + getEmail() + ", getNom()=" + getNom() + "]";
+		return "Admin [matricule=" + matricule + ", email=" + email + ", nom=" + nom + ", getPassword()="
+				+ getPassword() + ", getId()=" + getId() + ", getUsername()=" + getUsername() + "]";
 	}
+	
+	
 	
 	
 }
