@@ -1,10 +1,12 @@
 package com.wha.springmvc.entities;
 
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.Date;
 
-/*import javax.persistence.DiscriminatorColumn;
+
+import java.io.Serializable;
+import java.sql.Date;
+import java.util.Collection;
+
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,21 +19,20 @@ import javax.persistence.OneToMany;
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="TYPE_CPTE",discriminatorType=DiscriminatorType.STRING,length=2)
-
-*/
 public class Compte implements Serializable {
 
-	/*@Id*/
+	@Id
 	private String codeCompte;
 	private Date dateCreation;
 	private double solde;
-	/*@ManyToOne
-	@JoinColumn(name="CODE_CLI")*/
+	@ManyToOne
+	@JoinColumn(name="codeClient")
 	private Client client;
+	
 	/*@ManyToOne
 	@JoinColumn(name="CODE_CONSEIL")*/
 	private Conseiller conseiller;
-	/*@OneToMany(mappedBy="compte")*/
+	@OneToMany(mappedBy="compte")
 	private Collection<Transaction> operations;
 	
 	

@@ -1,9 +1,10 @@
 package com.wha.springmvc.entities;
 
+
 import java.io.Serializable;
 import java.util.Date;
 
-/*import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,19 +15,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="TYPE_OP",discriminatorType=DiscriminatorType.STRING,length=2)*/
+@DiscriminatorColumn(name="TYPE_OP",discriminatorType=DiscriminatorType.STRING,length=2)
+
 public class Transaction implements Serializable {
 	
-	/*@Id
-	@GeneratedValue*/
+	@Id
+	@GeneratedValue
 	private Long numeroOperation;
 	private Date dateOperation;
 	private double montant;
-	/*@ManyToOne
-	@JoinColumn(name="CODE_CPTE")*/
+	@ManyToOne
+	@JoinColumn(name="CODE_CPTE")
 	private Compte compte;
-	/*@ManyToOne
-	@JoinColumn(name="CODE_EMP")*/
+	@ManyToOne
+	@JoinColumn(name="CODE_EMP")
 	private Conseiller employe;
 	
 	

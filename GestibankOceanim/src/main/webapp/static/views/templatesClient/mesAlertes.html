@@ -1,10 +1,8 @@
 <meta charset="utf-8">
-<h1>Vos alertes</h1>
 <!-- Ici j'ai fait 3 tableaux distincts afin de classifier les notifications reçues par le client (mouvements du compte car quand un virement passe, il reçoit une alerte; état de ses demandes: commande de chéquier ou autre envoi notif pour dire ok; et les messages de son conseiller) -->
-
 <div>
 	<div>
-	<h3>Mes alertes</h3>
+	<h2>Mes alertes</h2>
 		<h4>Mouvements de mon compte</h4>
 			<table class="table table-striped">
 	                <thead>
@@ -15,6 +13,7 @@
 	                </thead>
 	                <tbody>
 	               <!--  Noter fonction ng-repeat dans le controller -->
+	               		<tr>
 	                      <td>{{notification.dateNotif}}</td>
 	                      <td>{{notification.libelleNotif}}</td>
 	                    </tr>

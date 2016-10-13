@@ -1,0 +1,20 @@
+<div>
+   <h3>Demande d'ouverture d'un nouveau compte</h3>
+	<div>
+
+		Demande de {{client.prenom}} {{client.nom}}
+		Le {{dem.date}}
+
+		Type de compte souhaité: {{dem.typeCompte}}
+		Souhait d'un découvert autorisé:{{dem.decouvert <!-- (oui ou non) -->}}
+	</div>
+	<div>
+	<button class="btn btn-secondary">Refuser</button>
+	<!-- Envoi notification au client -->
+	<!-- Indique dans tableau du conseiller demandeClients.html dans la colonne Etat : refusée -->
+	<button class="btn btn-secondary">Créer compte </button>
+	<!-- Création du compte avec les paramètres demandés (type+ découvert oui ou non) associé au client qui l'a demandé-->
+	<!-- Indique dans tableau du conseiller demandeClients.html dans la colonne Etat : acceptée -->
+	</div>
+
+</div>

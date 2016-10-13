@@ -1,14 +1,18 @@
 package com.wha.springmvc.entities;
 
-import java.util.Date;
 
-/*import javax.persistence.DiscriminatorValue;
+
+
+
+import java.sql.Date;
+
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 
 @Entity
 @DiscriminatorValue("CC")
-*/
+
 public class CompteCourant extends Compte {
 	
 	private double decouvert;

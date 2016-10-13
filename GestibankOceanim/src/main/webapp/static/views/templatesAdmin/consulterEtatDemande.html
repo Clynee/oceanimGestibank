@@ -1,0 +1,82 @@
+<meta charset="UTF-8">
+<div>
+
+	<table>
+	  <thead>
+		<tr>
+			<th>Date</th>
+			<th>Demandeur</th>
+			<th>Conseiller</th>
+			<th>Etat</th>
+		</tr>
+	  </thead>
+	  <tbody>
+	  		<td>{{demandeInscription.dateDemande}}</td>
+	  		<td>{{demandeInscription.user}}</td>
+	  		<td>{{demandeInscription.conseillerAffecte}}</td>
+	  		<td>{{demandeInscription.etat}}></td>
+	  </tbody>
+	</table>
+	<div>
+		<div class="col-sm-6">
+				Nom : &nbsp;{{ficheInscription.nom}}
+				<br>
+				<br>
+        		Email : &nbsp;{{ficheInscription.email}}
+        		<br>
+        		<br>
+        		NumÃ©ro de la rue : &nbsp; {{ficheInscription.numRue}}
+        		<br>
+        		<br>
+        		Code postal : &nbsp;{{ficheInscription.cp}}&nbsp;&nbsp;&nbsp;
+        		<br>
+        		<br>
+        		Situation matrimoniale : &nbsp; {{ficheInscription.situtionMatrimoniale}}
+        		<br>
+        		<br>
+        	</div>
+          	<div class="col-sm-6">
+          		PrÃ©nom : &nbsp; {{ficheInscription.prenom}}
+          		<br>
+          		<br>
+	            TÃ©lÃ©phone :&nbsp;{{ficheInscription.telephone}}
+	            <br>
+	            <br>
+	            Nom de la rue : &nbsp;{{ficheInscription.nomRue}}
+	            <br>
+	            <br>
+	            Ville :&nbsp;{{ficheInscription.ville}}
+	            <br>
+	            <br>
+	            Nombre d'enfants : &nbsp; {{ficheInscription.nbreEnfant}}
+	         </div>
+			<div>
+				
+					<h4>Documents tÃ©lÃ©chargÃ©s</h4>
+				
+					{{ficheInscriptions.documentsUploades}}
+			<br>
+			<br>
+					
+			</div>
+	</div>
+
+	<div>
+		<h4>Commentaires du conseiller :</h4>
+		{{ficheInscriptionsAffectee.commentaire}}
+	</div>
+	<br>
+	<br>
+	<div>
+		<label for="choixConseiller"> RÃ©affecter Ã   :&nbsp;</label>
+							        <select class="form-control">
+							           <option>{{conseiller.mle}} {{conseiller.nomConseiller}} </option>
+							          <option>{{conseiller.mle}} {{conseiller.nomConseiller}} </option>
+							          <option>{{conseiller.mle}} {{conseiller.nomConseiller}} </option>
+							          <option>{{conseiller.mle}} {{conseiller.nomConseiller}} </option>
+							          <option>{{conseiller.mle}} {{conseiller.nomConseiller}} </option>
+							          </select></td>
+			                      <td><button class="btn btn-secondary">Confirmer</button>
+	</div>
+
+</div>

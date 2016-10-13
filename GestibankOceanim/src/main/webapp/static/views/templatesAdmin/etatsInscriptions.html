@@ -5,16 +5,19 @@
                   <tr>
                       <th>Date</th>
                       <th>Demandeur</th>
-                      <th>Etat de la demande</th>
                       <th>Conseiller</th>
+                      <th>Etat de la demande</th>
+                      <th></th>
                   </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="(key,cpt) in listComptes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
           
-                      <td>{{cpt.nClient}}</td>
-                      <td>{{cpt.nom}}</td>
-                      <td>{{cpt.solde}}</td>               
+                      <td>{{ins.dateDemande}}</td>
+                      <td>{{ins.nomDemandeur}}</td>
+                      <td>{{ins.nomConseiller}}</td>
+                      <td>{{ins.etat}}</td>
+                      <td><button class="btn btn-secondary">Consulter</button></td>             
                     </tr>
                 </tbody>
             </table>

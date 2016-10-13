@@ -4,6 +4,7 @@ package com.wha.springmvc.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wha.springmvc.entities.Admin;
@@ -15,11 +16,14 @@ import com.wha.springmvc.entities.User;
 
 @Service("connexionService")
 public class ConnexionServiceImp implements ConnexionService {
+	@Autowired
+    IBanqueService banqueService;
 	@Override
 	public User seConnecter(String identifiant, String motDePasse) {
 		User user = null;
-		List<User> users = new ArrayList<User>();
-		
+		List<User> users = banqueService.findAllUsers();
+				
+		/*
 		User ad = new Admin();
 		ad.setUsername("admin");
 		ad.setPassword("1111");
@@ -35,7 +39,7 @@ public class ConnexionServiceImp implements ConnexionService {
 		cl.setUsername("cli");
 		cl.setPassword("1111");
 		users.add(2,cl);
-		
+		*/
 		for(User u : users){
 			if(u.getUsername().equals(identifiant)&&u.getPassword().equals(motDePasse)){
 				user = u;

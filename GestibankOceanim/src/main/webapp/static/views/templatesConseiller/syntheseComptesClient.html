@@ -1,0 +1,27 @@
+<div id="synthese" class="tab-pane fade in active">
+        		<table class="table table-striped">
+                <thead>
+                  <tr>
+                      <th>Type de compte</th>
+                      <th>N° de compte</th>
+                      <th>Solde</th>
+                      <th>Devise</th>
+                      <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+               <!--  Noter fonction ng-repeat dans le controller -->
+               <!-- <tr ng-repeat="(key,compte) in listComptesv | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
+                    <!-- </tr> --> -->
+
+
+                      <td>{{compte.typeCompte}}</td>
+                      <td>{{compte.numCompte}}</td>
+                      <td>{{compte.solde}}</td>
+                      <td>EUROS</td> 
+                      <td><button class="btn btn-secondary">Consulter</button></td>              
+                    </tr>
+                </tbody>
+            </table>
+
+        	</div>

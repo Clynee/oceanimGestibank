@@ -1,4 +1,4 @@
-/*package com.wha.springmvc.controller;
+package com.wha.springmvc.controller;
 
 
 import java.util.List;
@@ -27,8 +27,7 @@ public class BanqueController {
   }
   
   @RequestMapping(value="/chargerCompte")
-  //@Valid
-  public String charger( BanqueForm bf,BindingResult bindingResult,Model model){
+  public String charger(@Valid BanqueForm bf,BindingResult bindingResult,Model model){
 	  if(bindingResult.hasErrors()){
 		  return "banque";
 	  }
@@ -39,8 +38,7 @@ public class BanqueController {
   }
   
   @RequestMapping(value="/saveOperation")
-  //@Valid
-  public String saveOp( BanqueForm bf,BindingResult bindingResult){
+  public String saveOp(@Valid BanqueForm bf,BindingResult bindingResult){
 	  
 	
 		  try {
@@ -65,11 +63,11 @@ if (bf.getAction()!=null) {
   
   
   }
-   
+   /*
   if (bindingResult.hasErrors()) {
 			  return "banque";
   }	  
-  
+  */
 chargerCompte(bf);
 		  } catch (Exception e) {
 				bf.setException(e.getMessage());
@@ -95,4 +93,3 @@ chargerCompte(bf);
   }
 }
 
-*/

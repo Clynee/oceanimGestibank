@@ -1,11 +1,12 @@
 package com.wha.springmvc.entities;
 
+
 import java.util.Date;
-/*
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 @Entity
-@DiscriminatorValue("R")*/
+@DiscriminatorValue("R")
 public class Debit extends Transaction {
 
 	public Debit() {

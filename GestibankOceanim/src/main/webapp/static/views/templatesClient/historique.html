@@ -1,0 +1,34 @@
+<section class="pave">
+    
+    
+              <label for="accesCompte"> Accès rapide à vos comptes :&nbsp;</label>
+              <select class="form-control">
+                  <option>{{compte.typeCompte}} {{compte.numCompte}} Exemple de compte </option>
+                  <option>{{compte.typeCompte}} {{compte.numCompte}} Exemple de compte</option>
+              </select>
+              <!-- Type et num du compte dont s'affiche l'historique: -->
+                <h4>{{compte.typeCompte}} {{compte.numCompte}} Compte courant 1234566777 &nbsp; &nbsp; &nbsp;solde au <!-- datedujour -->"datedujour" &nbsp; &nbsp; &nbsp;{{compte.solde}} 12 000 €</h4><br>
+                <h4>Découvert autorisé : &nbsp; {{compte.decouvert}} 28 000€</h4>
+            
+            <table class="table table-striped" id="historique">
+              <thead>
+              <th>Historique des opérations</th>
+                <tr>
+                  <th>Date</th>
+                  <th>Libellé</th>
+                  <th>Montant en Euros</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <!-- <tr ng-repeat="(key,transaction) in transactions | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
+                  <td>{{transaction.dateTransaction}} 12/09/2016</td>
+                              <td>{{transaction.libelleTransaction}} Virement vers compte 238746534</td>
+                              <td>{{transaction.montantTransaction}} 200 €</td>               
+                            </tr>
+                </tbody>
+            </table>
+            
+            <!-- GRAPHIQUE
+
+            TELECHARGEMENT RELEVE MENSUEL EN PDF POUR IMPRESSION -->
+        </section>

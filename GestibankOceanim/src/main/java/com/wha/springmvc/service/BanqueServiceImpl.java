@@ -4,15 +4,10 @@ package com.wha.springmvc.service;
 import java.util.Date;
 import java.util.List;
 
-import com.wha.springmvc.entities.Client;
-import com.wha.springmvc.entities.Compte;
-import com.wha.springmvc.entities.Conseiller;
-import com.wha.springmvc.entities.Credit;
-import com.wha.springmvc.entities.Debit;
-import com.wha.springmvc.entities.Transaction;
-
-
-//import org.springframework.transaction.annotation.Transactional;
+import org.hibernate.service.spi.InjectService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 //annotation Transactional : dans la couche dao ont a pas gerer les transaction alors pour faire ca on demande a spring de gerer les transaction 
 //en ajoutant l'annootation transactional dans BanquemetierImp le faite d ajouter transactional 
 //ca veut dire vous etes entrain de dire a spring toutes les methodes sont transactional 
@@ -21,11 +16,22 @@ import com.wha.springmvc.entities.Transaction;
 //il execute la methode ,si la methode genere une exception il fait un rollback
 //sinon il fait un commit ,c a dire ont a delegeur la gestion des transaction a spring 
 //et ca grace a la dependence que ont a ajouter ds le fichier pom.xml:spring-tx
-/*
-@Transactional*/
+
+import com.wha.springmvc.dao.IBanqueDao;
+import com.wha.springmvc.entities.Client;
+import com.wha.springmvc.entities.Compte;
+import com.wha.springmvc.entities.Conseiller;
+import com.wha.springmvc.entities.Credit;
+import com.wha.springmvc.entities.Debit;
+import com.wha.springmvc.entities.Transaction;
+import com.wha.springmvc.entities.User;
+
+@Service("banqueService")
+@Transactional
 public class BanqueServiceImpl implements IBanqueService{
 	
-	//private IBanqueDao dao;
+	@Autowired
+	private IBanqueDao dao;
 	
 	
 	
@@ -68,9 +74,9 @@ public class BanqueServiceImpl implements IBanqueService{
 	}
 
 	@Override
-	public Conseiller ajouterConseiller(Conseiller e,Long codeSup) {
+	public Conseiller ajouterConseiller(Conseiller e) {
 		
-		return dao.ajouterConseiller(e, codeSup);
+		return dao.ajouterConseiller(e);
 	}
 
 
@@ -82,9 +88,9 @@ public class BanqueServiceImpl implements IBanqueService{
 	}
 
 	@Override
-	public Compte ajouterCompte(Compte c, Long numCli, Long numEmp) {
+	public Compte ajouterCompte(Compte c, Long numCli) {
 		// TODO Auto-generated method stub
-		return dao.ajouterCompte(c, numCli, numEmp);
+		return dao.ajouterCompte(c, numCli);
 	}
 
 	@Override
@@ -196,5 +202,17 @@ public class BanqueServiceImpl implements IBanqueService{
 		// TODO Auto-generated method stub
 		
 		dao.miseAjourConseiller(conseiller);
+		
 	}
+
+	@Override
+	public List<User> findAllUsers() {
+		
+		return dao.findAllUsers();
+	}
+
+	
+
+	
+
 }

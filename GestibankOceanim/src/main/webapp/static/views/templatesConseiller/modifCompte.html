@@ -1,0 +1,27 @@
+<div> 
+          <div>
+             <!--  Div ouverte grâce au bouton "modifier" de detailCompte Client.html -->
+             <h3>Modification du compte {{compte.numCompte}} de {{client.prenom}}{{client.nom}}</h3>
+                   <label for="modifTypeCompte"> Modification du type de compte :&nbsp;</label>
+                        <select class="form-control">
+                           <option>Compte courant</option>
+                           <option>Compte rémunéré</option>
+                        </select>
+                    <button class="btn btn-secondary">Valider</button>
+                   <!--  Envoi notification au client et modifie le type de compte. Calcul rémunération si compte rémunéré -->
+            </div>
+            <div>
+              <label>Modification du montant du découvert autorisé :</label> 
+              <!-- Ici attention il faut attaché le calcul du découvert pour bloquer un montant trop important -->
+                <input type="text" class="form-control"/> EUROS
+                <button class="btn btn-secondary">Valider</button>
+               <!--  Envoi une notification au client et modifie son compte -->
+            </div>
+            <div>
+              <label>Modification de la rémunération :</label> 
+                <!-- possible que si compte est rémunéré -->
+                  <input type="text" class="form-control"/> EUROS
+                  <button class="btn btn-secondary">Valider</button>
+                 <!-- Etablir une règle de rémunération comme 2% montant compte tous les 1000euros tous les 15 jours? Envoi une notification au client et modifie son compte -->
+              </div>
+</div>

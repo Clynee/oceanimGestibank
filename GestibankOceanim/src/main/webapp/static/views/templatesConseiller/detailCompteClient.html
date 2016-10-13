@@ -1,0 +1,35 @@
+<div>
+  <div>
+  <h4>{{compte.typeCompte}} {{compte.numCompte}} &nbsp; &nbsp; &nbsp;<!-- datedujour -->"datedujour" &nbsp; &nbsp; &nbsp;{{compte.solde}} </h4><br>
+                <h4>Découvert autorisé : &nbsp; {{compte.decouvert}} </h4>
+            
+            <table class="table table-striped" id="historique">
+              <thead>
+              <th>Historique des opérations</th>
+                <tr>
+                  <th>Date</th>
+                  <th>Libellé</th>
+                  <th>Montant en Euros</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <!-- <tr ng-repeat="(key,transaction) in transactions | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
+                  <td>{{transaction.dateTransaction}} </td>
+                              <td>{{transaction.libelleTransaction}} </td>
+                              <td>{{transaction.montantTransaction}} </td>               
+                            </tr>
+                </tbody>
+            </table>
+  </div>
+  <div>
+    <button class="btn btn-secondary">Contacter le client</button>
+   <!--  Ce bouton ouvre page contacterClient -->
+    <button class="btn btn-secondary">Désactiver le compte</button>
+    <!-- Ici le compte n'est plus actif suppression des fichiers mais reste dans la base de donnée comme désactivé -->
+    <button class="btn btn-secondary">Modifier le compte</button>
+   <!--  Ce bouton ouvre modifCompte.html -->
+  </div>
+  <br>
+  <br>
+            
+</div>

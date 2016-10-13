@@ -66,13 +66,30 @@ App.controller('LoginController', function ($scope,$location, $rootScope, AUTH_E
 			selected : 'bottom-right'
 		};
 		
-	
+		$scope.formulairePopover = {
+				content : 'Hello, World!',
+				templateUrl : 'static/views/templatesAcceuil/FormulaireVisiteur.html',// 'myPopoverTemplate.html',//
+				title : "Demande d'ouverture de compte"
+			};
+		$scope.form={}
+		 var oriPerson = angular.copy($scope.form);
+		$scope.resetForm = function ()
+	    {
+	      $scope.form = angular.copy(oriPerson);
+	      $scope.FormVisiteur.$setPristine();
+	    };
+
+	    $scope.isPersonChanged = function ()
+	    {
+	      return !angular.equals($scope.form, oriPerson);
+	    };
 	/* 
 	$scope.credentials = {
 	    username: '',
 	    password: ''
 	  };*/
 	  $scope.login = function (credentials) {
+		  console.log(credentials)
 	    AuthService.login(credentials).then(function (user) {
 	      $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
 	      $scope.setCurrentUser(user);

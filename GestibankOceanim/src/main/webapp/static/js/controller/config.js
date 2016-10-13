@@ -20,9 +20,9 @@ App.config(function ($stateProvider,$urlRouterProvider){
 		controller: ''
 	})
 	
-	.state('espaceAdmin.gestionCoseillers', {
-        url: '/gestionCoseillers',
-        templateUrl: 'static/views/templatesAdmin/gestionCoseillers.html',//'partial-home-list.html',
+	.state('espaceAdmin.gestionConseillers', {
+        url: '/gestionConseillers',
+        templateUrl: 'static/views/templatesAdmin/gestionConseillers.html',//'partial-home-list.html',
         controller: ''
     })
     
@@ -147,8 +147,7 @@ App.config(function ($stateProvider,$urlRouterProvider){
         }
     });
     
-	
-	
+		
 	
 	/*
 	.when('/seConnecter',{

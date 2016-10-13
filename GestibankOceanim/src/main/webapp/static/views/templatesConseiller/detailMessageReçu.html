@@ -1,0 +1,23 @@
+<div>
+	<div>
+		Message de {{message.prenomEmetteur}} {{client.nomEmetteur}}
+		le {{message.date}}
+		Libellé: {{message.libelle}}
+	</div>
+	<div>
+		{{message.contenu}}
+	</div>
+	<button class="btn btn-secondary">Répondre</button>
+	<!-- La div du dessous ne s'affiche que quand on click sur répondre -->
+	<div class="form-group">
+  			<label for="comment">Ma réponse :</label><br>
+  				<label for="libelle">Libellé</label>
+					<input class="form-control" type="text">
+					<br>
+					<br>
+  				<textarea class="form-control" rows="10" cols="60"></textarea>
+  			
+
+
+	</div>
+</div>

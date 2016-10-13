@@ -1,27 +1,27 @@
 package com.wha.springmvc.entities;
 
+
 import java.util.List;
-/*
+
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Size;
 
-import org.gestionbanque.bp.entities.Compte;
-import org.gestionbanque.bp.entities.Transaction;
+
 import org.hibernate.validator.constraints.NotEmpty;
-*/
+
 public class BanqueForm {
-	/*@NotEmpty
-	@Size(min=3,max=10)*/
+	@NotEmpty
+	@Size(min=3,max=10)
 	private String code;
 	private Compte compte;
 	private String typeCompte;
 	private String exception;
 	private List<Transaction> operations ;
 	private String  typeOperation;
-	/*@DecimalMin(value="50")*/
+	@DecimalMin(value="50")
 	private double montant=50;
-	/*@NotEmpty
-	@Size(min=3,max=10)*/
+	@NotEmpty
+	@Size(min=3,max=10)
 	private String code2="XXX";
 	private String action;
 	

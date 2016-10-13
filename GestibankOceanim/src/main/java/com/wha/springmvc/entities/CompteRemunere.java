@@ -1,11 +1,13 @@
 package com.wha.springmvc.entities;
 
-import java.util.Date;
 
-/*import javax.persistence.DiscriminatorValue;
+
+import java.sql.Date;
+
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 @Entity
-@DiscriminatorValue("CE")*/
+@DiscriminatorValue("CE")
 public class CompteRemunere extends Compte {
 	
 	private double  taux ;

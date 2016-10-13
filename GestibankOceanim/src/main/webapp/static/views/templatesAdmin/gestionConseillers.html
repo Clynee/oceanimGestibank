@@ -1,0 +1,34 @@
+<meta charset="UTF-8">
+<div>
+	<div>
+        <select class="form-control">
+	           <option>Recherche par nom : </option>
+	          <option>Recherche par matricule : </option>
+          </select>
+          	<input class="form-control" type="text" name="recherche"/>
+          	<button class="btn btn-secondary">Rechercher</button>
+     </div>
+     <div>
+          <table class="table table-striped">
+                <thead>
+                  <tr>
+                      <th>N° de conseiller</th>
+                      <th>Nom du conseiller</th>
+                      <th>Nombre de clients</th>
+                      <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="(key,cpt) in listConseillers | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
+          
+                      <td>{{conseiller.matricule}}</td>
+                      <td>{{conseiller.nomConseiller}</td>
+                      <td>{{conseiller.nbreClient}}</td>
+                      <td><button class="btn btn-secondary">Consulter</button></td>             
+                    </tr>
+                </tbody>
+            </table>
+             <ul ng-if="bigTotalItems > itemsPerPage" uib-pagination  total-items="bigTotalItems"  ng-model="bigCurrentPage" items-per-page= "itemsPerPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></ul>
+  					<button class="btn btn-secondary">Ajouter un conseiller</button>
+  	</div>
+  </div>

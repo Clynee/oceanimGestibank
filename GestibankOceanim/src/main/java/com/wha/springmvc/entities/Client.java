@@ -1,13 +1,14 @@
 package com.wha.springmvc.entities;
 
+
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-import com.wha.springmvc.constants.TypeRole;
-/*
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,28 +20,26 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.wha.springmvc.constants.TypeRole;
 @Entity
-@Table(name="CLIENTS")*/
+@DiscriminatorValue("CL")
 public class Client extends User implements Serializable {
-	/*@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="CODE_CLI")*/
+	//@Id
+	//@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column
 	private Long codeClient ;
 	private String nomClient;
-	/*@OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(
-           name="adresse_client",
-         referencedColumnName="idAdresse"
-     )*/
-	private Adresse adresseClient;
 	
-	/*@OneToMany(mappedBy="client",fetch=FetchType.LAZY)*/
+	/*@OneToMany(mappedBy="client")*/
+	@Transient
 	private Collection<Compte> comptes;
 	
 	
 	
-	/*@ManyToOne
-	@JoinColumn(name="CODE_CONSEIL")*/
+	@ManyToOne
+	@JoinColumn(name="CODE_CONSEIL")
 	private Conseiller conseiller;
 	
     private Date dateCreation;
@@ -48,9 +47,17 @@ public class Client extends User implements Serializable {
 
 
 
+
+
+
+
 	public Date getDateCreation() {
 		return dateCreation;
 	}
+
+
+
+
 
 
 
@@ -106,8 +113,8 @@ public class Client extends User implements Serializable {
 
 	public Client() {
 		super();
-		// TODO Auto-generated constructor stub
 		setRoleUsers(TypeRole.CLIENT);
+		// TODO Auto-generated constructor stub
 	}
 	
 	
@@ -117,9 +124,9 @@ public class Client extends User implements Serializable {
 	
 	
 	public Client(String nomClient, Adresse adresseClient) {
-		super();
+		this();
 		this.nomClient = nomClient;
-		this.adresseClient = adresseClient;
+		super.setAddress(adresseClient); //adresseClient = adresseClient;
 	}
 
 
@@ -140,12 +147,15 @@ public class Client extends User implements Serializable {
 	public void setNomClient(String nomClient) {
 		this.nomClient = nomClient;
 	}
+	
+	/*
 	public Adresse getAdresseClient() {
 		return adresseClient;
 	}
 	public void setAdresseClient(Adresse adresseClient) {
 		this.adresseClient = adresseClient;
 	}
+	*/
 	public Collection<Compte> getComptes() {
 		return comptes;
 	}

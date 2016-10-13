@@ -1,12 +1,14 @@
 package com.wha.springmvc.entities;
 
-/*import javax.persistence.Column;
+
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name="adresses")*/
+@Table
 public class Adresse {
 	
 	/**
@@ -14,18 +16,18 @@ public class Adresse {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	/*@Id
-    @GeneratedValue*/
+	@Id
+    @GeneratedValue
 	private int idAdresse ;
 	//@Column(name="nom_adresse")
 	//private String nomAdresse;
-	/*@Column(name="numero_rue")*/
+	@Column(name="numero_rue")
 	private int numDeRue;
-	/*@Column(name="nom_rue")*/
+	@Column(name="nom_rue")
 	private String nomRue;
-	/*@Column(name="code_postale")*/
+	@Column(name="code_postale")
 	private int codePostale;
-	/*@Column(name="nom_ville")*/
+	@Column(name="nom_ville")
 	private String ville;
 	
 	

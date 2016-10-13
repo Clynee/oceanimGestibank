@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<div>
+	<div>
+		<h3>Message de mon conseiller {{client.nomConseiller}} du {{notification.dateNotif}}</h3>
+			<p>
+			{{notification.contenuMessage}}
+			</p>
+			<button class="btn btn-secondary">RÃ©pondre</button>
+	</div>
+	 <!-- La div du dessous ne s'affiche que quand le client click sur le bouton "RÃ©pondre".
+	 La rÃ©ponse doit se trouver dans messages reÃ§us/envoyÃ©s du conseiller -->
+	<div class="form-group">
+  			<label for="comment">Ma rÃ©ponse :</label><br>
+  				<textarea class="form-control" rows="10" cols="60"></textarea>
+  				<button class="btn btn-secondary">Envoyer</button>
+  			<!-- 	Ici le bouton envoi le message au conseiller -->
+	</div>
+  			
+
+
+	</div>
+</div>

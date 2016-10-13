@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <section class="FormulaireVisiteur">
 	<div class ="row" id="formvisit">
+	  <h3>Ouvrir un compte</h3>
 		<form name="FormVisiteur"
 			ng-submit="formulaireVisiteur(FormVisiteur, name);">
 				<div class="col-sm-6">
@@ -31,14 +32,21 @@
 		</form>
 	</div>
 	<div class="row">
-		<div>UPLOADER VOS DOCUMENTS ICI</div>
+		Joindre la copie de votre dernier avis d'imposition, une copie de votre carte d'identité et un justificatif de domicile.
+		<form action="UploadDownloadFileServlet" method="post" enctype="multipart/form-data">
+			Sélectionner le fichier à télécharger:<input type="file" name="fileName">
+			<br>
+			<input type="submit" value="Upload">
+		</form>
+		
 		<center>
 			<button class="btn btn-primary btn-lg"
 				ng-disabled="FormVisiteur.$invalid">Valider</button>
 			<!--Ici mettre fonction reset sur le bouton réinitialiser-->
-			<button class="btn btn-primary btn-lg ">Réinitialiser</button>
+			<button 
+              ng-click="resetForm()"
+              ng-disabled="!isPersonChanged()"class="btn btn-primary btn-lg ">Réinitialiser</button>
 		</center>
 	</div>
-
 
 </section>

@@ -28,7 +28,7 @@ public class ConnexionController {
 	ConnexionService connexionService;
 	@RequestMapping(value = "/seConnecter/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List> getUser(@RequestBody User u,HttpServletRequest request) {
-        System.out.println("Fetching User with id " + u.getUsername());
+        System.out.println("Fetching User with id " + u);
         User  user = connexionService.seConnecter(u.getUsername(), u.getPassword());
         if (user == null) {
             System.out.println("User with id " + u.getUsername() + " not found");

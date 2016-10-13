@@ -1,20 +1,44 @@
 package com.wha.springmvc.entities;
 
-/*import javax.persistence.Transient;
 
-*/
+import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Transient;
+
+@Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="ROLE",discriminatorType=DiscriminatorType.STRING,length=2)
 public class User {
-	/*@Transient*/
+	//@Transient
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
-	/*@Transient*/
+	//@Transient
 	private String username;
-	/*@Transient*/
+	//@Transient
+	@OneToOne(cascade = {CascadeType.ALL})
+    /*@JoinColumn(
+           name="idAdresse",
+         referencedColumnName="idAdresse"
+     )*/
+	@JoinColumn(name="idAdresse")
 	private Adresse address;
-	/*@Transient*/
+	
+	
+	//@Transient
 	private String email;
-	/*@Transient*/
+	//@Transient
     private String password;
-	/*@Transient*/
+	//@Transient
 	private int roleUsers;
 
 	public User(){
