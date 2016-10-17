@@ -11,6 +11,9 @@ import com.wha.springmvc.entities.User;
 public interface IBanqueDao {
 	
 	public List<User> findAllUsers();
+	public User updateUser(User user);
+	
+	
 	public void miseAjourClient(Client client);
 	public void miseAjourCompte(Compte cpte);
 	public void saveCompte(Compte cpte);
@@ -18,7 +21,7 @@ public interface IBanqueDao {
 	public Conseiller ajouterConseiller(Conseiller e);
 	public void affectConseillerToClient(Long idConseil,Long idCli);
 	public Compte ajouterCompte(Compte c,Long numCli);
-	public Transaction ajouterOperation(Transaction op,String numCpte,Long codeConseil);
+	public Transaction ajouterOperation(Transaction op,String numCpte);
 	public Compte consulterCompte(String numCpte);
 	public List<Transaction> consulterOperations(String codeCompte,int position,int nboperation);
 	public Client consulterClient(Long codeClient);
@@ -26,7 +29,7 @@ public interface IBanqueDao {
 	public List<Compte> getComptesByClient(long codeCli);
 	public List<Compte> getComptesByConseiller(long codeConseil);
 	public List<Conseiller> getConseillers();
-	public long getNombreOperation(String numCpte);
+	public int getNombreOperation(String numCpte);
 	public void supprimerClient(Client client);
 	public List<Client> findAllClients();
 	public Client findClientById(long clientId);

@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="TYPE_CPTE",discriminatorType=DiscriminatorType.STRING,length=2)
@@ -25,17 +27,41 @@ public class Compte implements Serializable {
 	private String codeCompte;
 	private Date dateCreation;
 	private double solde;
+	private Date dateMiseAjour;
+	private double decouvert;
+	
 	@ManyToOne
 	@JoinColumn(name="codeClient")
 	private Client client;
 	
-	/*@ManyToOne
-	@JoinColumn(name="CODE_CONSEIL")*/
-	private Conseiller conseiller;
+	@JsonIgnore
 	@OneToMany(mappedBy="compte")
 	private Collection<Transaction> operations;
 	
 	
+	public Compte() {
+		super();
+		this.dateCreation = new Date((new java.util.Date()).getTime());
+	}
+	
+	public Compte(String codeCompte, double solde,double decouvert) {
+		this();
+		this.codeCompte = codeCompte;
+		this.solde = solde;
+		this.decouvert = decouvert;
+	}
+	
+	
+	
+	
+	public double getDecouvert() {
+		return decouvert;
+	}
+
+	public void setDecouvert(double decouvert) {
+		this.decouvert = decouvert;
+	}
+
 	public Date getDateMiseAjour() {
 		return dateMiseAjour;
 	}
@@ -45,26 +71,7 @@ public class Compte implements Serializable {
 	public void setDateMiseAjour(Date dateMiseAjour) {
 		this.dateMiseAjour = dateMiseAjour;
 	}
-	private Date dateMiseAjour;
 	
-	
-	
-	
-	public Compte() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-	
-	public Compte(String codeCompte, Date dateCreation, double solde) {
-		super();
-		this.codeCompte = codeCompte;
-		this.dateCreation = dateCreation;
-		this.solde = solde;
-	}
-
-
 
 	public String getCodeCompte() {
 		return codeCompte;
@@ -90,18 +97,6 @@ public class Compte implements Serializable {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	
-	public Conseiller getConseiller() {
-		return conseiller;
-	}
-
-
-
-	public void setConseiller(Conseiller conseiller) {
-		this.conseiller = conseiller;
-	}
-
-
 
 	public Collection<Transaction> getOperations() {
 		return operations;

@@ -128,12 +128,7 @@ App.controller('AccordionDemoCtrl', function($scope, $location) {
 
 /*------ De Céline --------*/
 
-App.controller("modifInfo", function($scope) {
-	$scope.showMe = false;
-	$scope.modif = function() {
-		$scope.showMe = !$scope.showMe;
-	}
-});
+
 
 App.controller('tempCtrl', [
 		'$scope',

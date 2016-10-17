@@ -17,8 +17,8 @@ public class CompteRemunere extends Compte {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CompteRemunere(String codeCompte, Date dateCreation, double solde, double taux) {
-		super(codeCompte, dateCreation, solde);
+	public CompteRemunere(String codeCompte, double solde,double decouvert, double taux) {
+		super(codeCompte, solde,decouvert);
 		this.taux = taux;
 	}
 

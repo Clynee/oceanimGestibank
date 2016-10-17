@@ -5,16 +5,13 @@ package com.wha.springmvc.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
 @Table
 public class Adresse {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	
 	@Id
     @GeneratedValue
@@ -30,6 +27,7 @@ public class Adresse {
 	@Column(name="nom_ville")
 	private String ville;
 	
+
 	
 	public Adresse(int numDeRue, String nomRue, int codePostale, String ville) {
 		super();
@@ -42,6 +40,16 @@ public class Adresse {
 	public Adresse() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+	public int getIdAdresse() {
+		return idAdresse;
+	}
+
+	public void setIdAdresse(int idAdresse) {
+		this.idAdresse = idAdresse;
 	}
 
 	public int getNumDeRue() {
@@ -124,7 +132,6 @@ public class Adresse {
 	}
 
 	
-
 
 
 }

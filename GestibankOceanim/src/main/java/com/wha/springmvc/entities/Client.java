@@ -1,7 +1,5 @@
 package com.wha.springmvc.entities;
 
-
-
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -22,148 +20,94 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.wha.springmvc.constants.TypeRole;
+
 @Entity
 @DiscriminatorValue("CL")
-public class Client extends User implements Serializable {
-	//@Id
-	//@GeneratedValue(strategy=GenerationType.AUTO)
+public class Client extends User implements Serializable  {
+	// @Id
+	// @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column
-	private Long codeClient ;
-	private String nomClient;
+	private Long codeClient;
+	private String situationMaritale;
+	private int nbrEnfants;
+	private Date dateCreation;
+	private Date dateMiseAjour;
 	
-	/*@OneToMany(mappedBy="client")*/
-	@Transient
+	@JsonIgnore
+	@OneToMany(mappedBy="client") 
 	private Collection<Compte> comptes;
-	
-	
-	
+
 	@ManyToOne
-	@JoinColumn(name="CODE_CONSEIL")
+	@JoinColumn(name = "CODE_CONSEIL")
 	private Conseiller conseiller;
+
+	public Client() {
+		super();
+		setRoleUsers(TypeRole.CLIENT);
+	}
 	
-    private Date dateCreation;
-    private Date dateMiseAjour;
+	public Client(String nomClient, Adresse adresseClient) {
+		this();
+		super.setAddress(adresseClient); // adresseClient = adresseClient;
+	}
+	
+	public String getSituationMaritale() {
+		return situationMaritale;
+	}
 
+	public void setSituationMaritale(String situationMaritale) {
+		this.situationMaritale = situationMaritale;
+	}
 
+	public int getNbrEnfants() {
+		return nbrEnfants;
+	}
 
-
-
-
+	public void setNbrEnfants(int nbrEnfants) {
+		this.nbrEnfants = nbrEnfants;
+	}
 
 	public Date getDateCreation() {
 		return dateCreation;
 	}
 
-
-
-
-
-
-
 	public void setDateCreation(Date dateCreation) {
 		this.dateCreation = dateCreation;
 	}
-
-
-
-
-
-
 
 	public Date getDateMiseAjour() {
 		return dateMiseAjour;
 	}
 
-
-
-
-
-
-
 	public void setDateMiseAjour(Date dateMiseAjour) {
 		this.dateMiseAjour = dateMiseAjour;
 	}
 
-
-
-
-
-
-
 	public Conseiller getConseiller() {
 		return conseiller;
 	}
-
-
-
-
-
-
 
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
 	}
 
 
-
-
-
-
-
-	public Client() {
-		super();
-		setRoleUsers(TypeRole.CLIENT);
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-	
-	
-	
-	
-	
-	public Client(String nomClient, Adresse adresseClient) {
-		this();
-		this.nomClient = nomClient;
-		super.setAddress(adresseClient); //adresseClient = adresseClient;
-	}
-
-
-
-
-
-
-
 	public Long getCodeClient() {
 		return codeClient;
 	}
+
 	public void setCodeClient(Long codeClient) {
 		this.codeClient = codeClient;
 	}
-	public String getNomClient() {
-		return nomClient;
-	}
-	public void setNomClient(String nomClient) {
-		this.nomClient = nomClient;
-	}
-	
-	/*
-	public Adresse getAdresseClient() {
-		return adresseClient;
-	}
-	public void setAdresseClient(Adresse adresseClient) {
-		this.adresseClient = adresseClient;
-	}
-	*/
+
 	public Collection<Compte> getComptes() {
 		return comptes;
 	}
+
 	public void setComptes(Collection<Compte> comptes) {
 		this.comptes = comptes;
 	}
-	
 
-	
-	
 }

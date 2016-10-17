@@ -1,14 +1,16 @@
+<meta charset="UTF-8">
 <div>
+  <h3>Historique de compte </h3>
   <div>
-  <h4>{{compte.typeCompte}} {{compte.numCompte}} &nbsp; &nbsp; &nbsp;<!-- datedujour -->"datedujour" &nbsp; &nbsp; &nbsp;{{compte.solde}} </h4><br>
-                <h4>Découvert autorisé : &nbsp; {{compte.decouvert}} </h4>
+  <h4>{{compte.typeCompte}} {{compte.numCompte}} &nbsp; &nbsp; &nbsp;<!-- datedujour -->"datedujour" &nbsp; &nbsp; &nbsp; solde : {{compte.solde}} </h4><br>
+                <h4>DÃ©couvert autorisÃ© : &nbsp; {{compte.decouvert}} </h4>
             
             <table class="table table-striped" id="historique">
               <thead>
-              <th>Historique des opérations</th>
+              <th>Historique des opÃ©rations</th>
                 <tr>
                   <th>Date</th>
-                  <th>Libellé</th>
+                  <th>LibellÃ©</th>
                   <th>Montant en Euros</th>
                 </tr>
                 </thead>
@@ -25,7 +27,7 @@
     <button class="btn btn-secondary">Contacter le client</button>
    <!--  Ce bouton ouvre page contacterClient -->
     <button class="btn btn-secondary">Désactiver le compte</button>
-    <!-- Ici le compte n'est plus actif suppression des fichiers mais reste dans la base de donnée comme désactivé -->
+    <!-- Ici le compte n'est plus actif suppression des fichiers mais reste dans la base de donnÃ©e comme dÃ©sactivÃ© -->
     <button class="btn btn-secondary">Modifier le compte</button>
    <!--  Ce bouton ouvre modifCompte.html -->
   </div>

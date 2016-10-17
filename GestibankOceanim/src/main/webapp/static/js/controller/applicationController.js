@@ -38,6 +38,8 @@ App.controller('ApplicationController', function ($scope,
  
   $scope.setCurrentUser = function (user) {
     $scope.currentUser = user;
+    window.currentUser = user;
+ 
   };
 })
 

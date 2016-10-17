@@ -15,8 +15,17 @@
 						class="form-control" type="number" name="numrue"
 						ng-model="form.numrue" /> <br> <label for="cp">Code
 						postal: </label> <input class="form-control" type="number" name="cp"
-						ng-model="form.cp" /> <br>
-				</div>
+						ng-model="form.cp" /> 
+						<label for="salaire">Salaire moyen net</label><input class="form-control" type="text" name="salaire" ng-model="form.salaire"/>EUROS
+						<br><label for="situation matrimoniale"> Situation matrimoniale :&nbsp;</label>
+						<select class="form-control">
+						  <option>Célibataire</option>
+						  <option>Concubinage</option>
+						  <option>Pacte civil de solidarité</option>
+						  <option>Vie maritale</option>
+						  </select>
+				  </div>
+						<br>
 				<div class="col-sm-6">
 					<label for="lastname">Prénom :</label> <input
 						class="form-control" type="text" name="lastName"
@@ -28,6 +37,13 @@
 						name="nomrue" ng-model="form.nomrue" /> <br> <label
 						for="ville">Ville : </label> <input class="form-control"
 						type="text" name="ville" ng-model="form.ville" />
+						<select class="form-control">
+							  <option>1</option>
+							  <option>2</option>
+							  <option>3</option>
+							  <option>4</option>
+							  <option>5 et plus</option>
+						</select>
 				</div>
 		</form>
 	</div>

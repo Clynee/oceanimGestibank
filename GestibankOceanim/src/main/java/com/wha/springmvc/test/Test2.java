@@ -25,8 +25,8 @@ public class Test2 {
 
 		System.out.println("Solde :" + cp.getSolde());
 		System.out.println("Date :" + cp.getDateCreation());
-		System.out.println("Client:" + cp.getClient().getNomClient());
-		System.out.println("Conseiller :" + cp.getConseiller().getNomConseiller());
+		//System.out.println("Client:" + cp.getClient().getNomClient());
+		//System.out.println("Conseiller :" + cp.getConseiller().getNomConseiller());
 
 		List<Transaction> ops = metier.consulterOperations("CC1", 0, 10);
 

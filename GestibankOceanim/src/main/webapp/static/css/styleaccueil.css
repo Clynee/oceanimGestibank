@@ -77,9 +77,10 @@ body header{
 .table-responsive{margin-top: 5em;}
 .table thead tr{background: black;}
 .table tbody tr:nth-child(odd) {background:  #4E5B5A;}
-.table tbody tr:nth-child(even) {background:  #BEC3C2;}
-.table tbody tr:hover{background: #ecfbd4;cursor:pointer;} 
+.table tbody tr:nth-child(even) {background:  #BEC3C2;color:black;}
+/*.table tbody tr:hover{background: #ecfbd4;cursor:pointer;}*/ 
 
+/**/
 
 
 .form-control {

@@ -1,27 +1,29 @@
+<meta charset="UTF-8">
 <div> 
           <div>
-             <!--  Div ouverte grâce au bouton "modifier" de detailCompte Client.html -->
+             <!--  Div ouverte grÃ¢ce au bouton "modifier" de detailCompte Client.html -->
+             <h3>Demande {{demande.num}}</h3>
              <h3>Modification du compte {{compte.numCompte}} de {{client.prenom}}{{client.nom}}</h3>
                    <label for="modifTypeCompte"> Modification du type de compte :&nbsp;</label>
                         <select class="form-control">
                            <option>Compte courant</option>
-                           <option>Compte rémunéré</option>
+                           <option>Compte rÃ©munÃ©rÃ©</option>
                         </select>
                     <button class="btn btn-secondary">Valider</button>
-                   <!--  Envoi notification au client et modifie le type de compte. Calcul rémunération si compte rémunéré -->
+                   <!--  Envoi notification au client et modifie le type de compte. Calcul rÃ©munÃ©ration si compte rÃ©munÃ©rÃ© -->
             </div>
             <div>
-              <label>Modification du montant du découvert autorisé :</label> 
-              <!-- Ici attention il faut attaché le calcul du découvert pour bloquer un montant trop important -->
+              <label>Modification du montant du dÃ©couvert autorisÃ© :</label> 
+              <!-- Ici attention il faut attachÃ© le calcul du dÃ©couvert pour bloquer un montant trop important -->
                 <input type="text" class="form-control"/> EUROS
                 <button class="btn btn-secondary">Valider</button>
                <!--  Envoi une notification au client et modifie son compte -->
             </div>
             <div>
-              <label>Modification de la rémunération :</label> 
-                <!-- possible que si compte est rémunéré -->
+              <label>Modification de la rÃ©munÃ©ration :</label> 
+                <!-- possible que si compte est rÃ©munÃ©rÃ© -->
                   <input type="text" class="form-control"/> EUROS
                   <button class="btn btn-secondary">Valider</button>
-                 <!-- Etablir une règle de rémunération comme 2% montant compte tous les 1000euros tous les 15 jours? Envoi une notification au client et modifie son compte -->
+                 <!-- Etablir une rÃ¨gle de rÃ©munÃ©ration comme 2% montant compte tous les 1000euros tous les 15 jours? Envoi une notification au client et modifie son compte -->
               </div>
 </div>

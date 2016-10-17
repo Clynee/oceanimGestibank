@@ -34,38 +34,6 @@ public class Conseiller extends User implements Serializable {
 	private Date dateCreation;
 	private Date dateMiseAjour;
 
-	
-
-	/*
-	 * @ManyToOne
-	 * 
-	 * @JoinColumn(name="CODE_EMP_SUP")
-	 */
-	//@Transient
-	//private Conseiller employeSup;
-	/*
-	 * @ManyToMany
-	 * 
-	 * @JoinTable(name="EMP_GR",joinColumns =
-	 * 
-	 * @JoinColumn(name = "CODE_CONSEIL"), inverseJoinColumns = @JoinColumn(name
-	 * = "CODE_GROUPE"))
-	 */
-	/*@Transient
-	@OneToOne(cascade = { CascadeType.ALL })
-	/*
-	 * @JoinColumn( name="adresse_client", referencedColumnName="idAdresse" )
-	 */
-	/*
-	private Adresse adresse;
-		*/
-	// @OneToMany
-	/*
-	 * @JoinTable(name="Conseil_Client",joinColumns =
-	 * 
-	 * @JoinColumn(name = "CODE_CONSEIL"), inverseJoinColumns = @JoinColumn(name
-	 * = "CODE_CLI"))
-	 */
 
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "conseiller")
@@ -122,24 +90,6 @@ public class Conseiller extends User implements Serializable {
 		this.salaire = salaire;
 	}
 
-	/*public Conseiller getEmployeSup() {
-		return employeSup;
-	}
-*/
-	/*
-	public void setEmployeSup(Conseiller employeSup) {
-		this.employeSup = employeSup;
-	}
-*/
-	/*
-	public Adresse getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
-*/
 	public Collection<Client> getClients() {
 		return clients;
 	}

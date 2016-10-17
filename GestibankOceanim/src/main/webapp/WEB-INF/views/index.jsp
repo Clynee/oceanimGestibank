@@ -34,10 +34,17 @@
 	src="<c:url value= '/static/js/controller/config.js' />"></script>
 	<script type="text/javascript"
 	src="<c:url value= '/static/js/controller/applicationController.js' />"></script>
+	<script src="<c:url value='/static/js/service/clientServices.js' />"></script>
 <script src="<c:url value='/static/js/controller/authentiCtrl.js' />"></script>
+<script src="<c:url value='/static/js/controller/clientControllers.js' />"></script>
+
 <script src="<c:url value='/static/js/service/connexion_service.js' />"></script>
 <script
 	src="<c:url value='/static/js/controller/connexionController.js' />"></script>
+	
+	
+
+
 
 
 
@@ -50,7 +57,7 @@
 <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash'
 	rel='stylesheet' type='text/css'>
 </head>
-<body ng-app="myApp" ng-controller="ApplicationController" class="container">
+<body ng-app="myApp" ng-controller="ApplicationController as appCont" class="container">
 	<header class="row">
 		<div class="row">
 			<div id="titre_principal" class="col-sm-5">

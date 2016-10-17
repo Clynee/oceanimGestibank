@@ -15,27 +15,13 @@ import javax.persistence.Entity;
 
 public class CompteCourant extends Compte {
 	
-	private double decouvert;
-
 	public CompteCourant() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public CompteCourant(String codeCompte, Date dateCreation, double solde, double decouvert) {
-		super(codeCompte, dateCreation, solde);
-		this.decouvert = decouvert;
+	public CompteCourant(String codeCompte, double solde, double decouvert) {
+		super(codeCompte, solde,decouvert);
 	}
-
-	public double getDecouvert() {
-		return decouvert;
-	}
-
-	public void setDecouvert(double decouvert) {
-		this.decouvert = decouvert;
-	}
-	
-	
-	
 
 }

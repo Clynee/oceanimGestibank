@@ -13,9 +13,12 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
+import com.wha.springmvc.enums.TypeTransaction;
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="TYPE_OP",discriminatorType=DiscriminatorType.STRING,length=2)
+@DiscriminatorColumn(name="TYPE_OP",discriminatorType=DiscriminatorType.STRING,length=4)
 
 public class Transaction implements Serializable {
 	
@@ -24,40 +27,44 @@ public class Transaction implements Serializable {
 	private Long numeroOperation;
 	private Date dateOperation;
 	private double montant;
+	private String libelle;
+	
+	
 	@ManyToOne
 	@JoinColumn(name="CODE_CPTE")
 	private Compte compte;
-	@ManyToOne
-	@JoinColumn(name="CODE_EMP")
-	private Conseiller employe;
 	
-	
-	
-	
+	@Transient
+	private TypeTransaction typeTransaction;
 	
 	
 	public Transaction() {
 		super();
+		this.dateOperation = new Date();
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	
-	
-	
-	
-	
-	public Transaction(Date dateOperation, double montant) {
-		super();
-		this.dateOperation = dateOperation;
+	public Transaction( double montant) {
+		this();
 		this.montant = montant;
 	}
 
+	
+	public String getLibelle() {
+		return libelle;
+	}
 
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
 
+	public TypeTransaction getTypeTransaction() {
+		return typeTransaction;
+	}
 
-
-
+	public void setTypeTransaction(TypeTransaction typeTransaction) {
+		this.typeTransaction = typeTransaction;
+	}
 
 	public Long getNumeroOperation() {
 		return numeroOperation;
@@ -83,12 +90,7 @@ public class Transaction implements Serializable {
 	public void setCompte(Compte compte) {
 		this.compte = compte;
 	}
-	public Conseiller getEmploye() {
-		return employe;
-	}
-	public void setEmploye(Conseiller employe) {
-		this.employe = employe;
-	}
+	
 	
 	
 

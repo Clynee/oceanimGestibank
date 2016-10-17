@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.wha.springmvc.entities.Admin;
 import com.wha.springmvc.entities.Adresse;
 import com.wha.springmvc.entities.Client;
+import com.wha.springmvc.entities.Compte;
 import com.wha.springmvc.entities.CompteCourant;
 import com.wha.springmvc.entities.CompteRemunere;
 import com.wha.springmvc.entities.Conseiller;
@@ -38,32 +40,71 @@ public class HelloWorldRestController {
     
     @RequestMapping(value="/test", method = RequestMethod.GET)
     public ResponseEntity<Client> monTest(){
-    	Client cli = new Client("C1", new Adresse(2, "jack cartier", 2000, "nantes"));
-    	cli.setUsername("aissa");
-    	cli.setPassword("1111");
-    	banqueService.ajouterClient(cli);
-    	Client cli2=new Client("C2", new Adresse(3, "elvis longly", 06520, "rennes"));
-    	cli2.setUsername("noufel");
-    	cli2.setPassword("1111");
+    	/*----- Les addresses ------*/
+    	Adresse adresse1 = new Adresse();
+    	adresse1.setNumDeRue(5); adresse1.setNomRue("Camilles Desmoulins");
+    	adresse1.setCodePostale(35000); adresse1.setVille("Rennes");
+    	
+    	Adresse adresse2 = new Adresse();
+    	adresse2.setNumDeRue(7); adresse2.setNomRue("Albert Einstein");
+    	adresse2.setCodePostale(44300); adresse2.setVille("Nantes");
+    	
+    	
+    	
+    	/*---- L'admin ---*/
+    	Admin admin = new Admin();
+    	admin.setUsername("wajii");
+    	admin.setPassword("1111");
+    	
+    	
+    	/*---- Les conseillers ----- */
+    	Conseiller cons = new Conseiller();
+    	cons.setUsername("celine"); 
+    	cons.setPassword("1111");
+    	cons.setCodeConseiller(1L);
+    	
+    	
+    	/*-------- Les clients --------*/
+    	Client cli1 = new Client();
+    	cli1.setUsername("aissa"); cli1.setPassword("1111");
+    	cli1.setAddress(adresse1);cli1.setEmail("aissa@gesti.com");
+    	cli1.setNom("MEDJKOUNE"); cli1.setPrenom("Aissa");
+    	cli1.setSituationMaritale("marié");cli1.setNbrEnfants(3);
+    	cli1.setAddress(adresse1);cli1.setTel("0621345653");
+    	cli1.setCodeClient(1L);
+    	
+    	Client cli2 = new Client();
+    	cli2.setUsername("noufel"); cli2.setPassword("1111");
+    	cli2.setAddress(adresse2);cli2.setEmail("noufel@gesti.com");
+    	cli2.setNom("ADNANE"); cli2.setPrenom("Noufel");
+    	cli2.setSituationMaritale("marié");cli2.setNbrEnfants(3);
+    	cli2.setAddress(adresse2);cli2.setTel("0695385170");
+    	cli2.setCodeClient(2L);
+    	/*--- Les comptes ----*/ 
+    	
+    	Compte c1 = new CompteCourant("CC1", 9000, 8000);
+    	Compte c2 = new CompteRemunere("CE1", 40000,8000, 5.5);
+    	
+    	
+    	/*----- La persistence ----*/
+    	
+    	banqueService.ajouterConseiller(cons);
+    	banqueService.ajouterClient(cli1);
     	banqueService.ajouterClient(cli2);
     	
-    	Conseiller cons = new Conseiller("E1");
-    	cons.setUsername("celine");
-    	cons.setPassword("1111");
-    	banqueService.ajouterConseiller(cons);
-    	banqueService.ajouterConseiller(new Conseiller("E2"));
-    	banqueService.ajouterConseiller(new Conseiller("E3"));
-    	banqueService.affectConseillerToClient(3L, 1L);
-    	banqueService.affectConseillerToClient(3L, 2L);
-	
-    	/*
-    	banqueService.ajouterCompte(new CompteCourant("CC1", new Date((new java.util.Date()).getTime()), 9000, 8000), 1L);
-    	banqueService.ajouterCompte(new CompteRemunere("CE1", new Date((new java.util.Date()).getTime()), 40000, 5.5), 3L);
-	
-    	banqueService.crediter(5000, "CC1", 2L);
-    	banqueService.debiter(6000, "CC1", 2L);
-    	banqueService.virement(4000, "CC1", "CE1", 1L);*/
-    	return new ResponseEntity<Client>(cli,HttpStatus.OK);
+    	banqueService.affectConseillerToClient(1L, 2L);
+    	banqueService.affectConseillerToClient(1L, 3L);
+    	
+    	banqueService.ajouterCompte(c1, 2L);
+    	banqueService.ajouterCompte(c2, 2L);
+    	
+    	//banqueService.crediter(5000, "CC1");
+    	//banqueService.debiter(6000, "CC1");
+    	banqueService.virement(4000, "CC1", "CE1");
+    	banqueService.virement(2000, "CE1", "CC1");
+    	banqueService.virement(4000, "CC1", "CE1");
+    	banqueService.virement(2000, "CE1", "CC1");
+    	return new ResponseEntity<Client>(cli1,HttpStatus.OK);
     }
     
     
@@ -147,7 +188,7 @@ public class HelloWorldRestController {
     
      
     //------------------- Update a User --------------------------------------------------------
-     
+  /*   
     @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
     public ResponseEntity<User> updateUser(@PathVariable("id") long id, @RequestBody User user) {
         System.out.println("Updating User " + id);
@@ -167,7 +208,7 @@ public class HelloWorldRestController {
         return new ResponseEntity<User>(currentUser, HttpStatus.OK);
     }
  
-    
+    */
     
     //------------------- Delete a User --------------------------------------------------------
      

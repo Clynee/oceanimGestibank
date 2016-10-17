@@ -11,28 +11,23 @@ import com.wha.springmvc.constants.TypeRole;
 @DiscriminatorValue("AD")
 public class Admin extends User{
 
-	
-	
 	//----------------attributs------------------------------------------
 
 		//private int matricule;
 		
 		//private String typeuser="BIGBOSS" ;
 		
-	// ---------------constructeurs----------------------------------------
-		
-		
+	// ---------------constructeurs----------------------------------------	
 	public Admin() {
-		super();
-		// TODO Auto-generated constructor stub
 		setRoleUsers(TypeRole.ADMINISTRATEUR);
 	}
 
 	public Admin(long id, String username, Adresse address, String email) {
-		super(id, username, address, email);
-		// TODO Auto-generated constructor stub
-		
-		
+		this();
+		this.setAddress(address);
+		this.setEmail(email);
+		this.setId(id);
+		this.setUsername(username);
 	}
 	
 

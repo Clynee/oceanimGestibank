@@ -1,25 +1,21 @@
 <meta charset="utf-8">
-<<<<<<< HEAD
 <h2>Mes informations</h2>
-=======
-<h1>Vos informations</h1>
->>>>>>> branch 'master' of https://github.com/Clynee/oceanimGestibank.git
-<div id="Mes_informations" >
+<div id="Mes_informations">
 	<!-- Vérifier avec nom des variables données car pas finies -->
 	<div class="col-sm-6">
-		Nom :&nbsp; {{client.nom}} <br> <br> Email
-		:&nbsp;{{client.email}} <br> <br> Numéro de la rue : &nbsp;
-		{{client.numRue}} <br> <br> Code postal :
-		&nbsp;{{client.cp}}&nbsp;&nbsp;&nbsp; <br> <br> Situation
-		maritale :&nbsp;{{client.situMaritale}}&nbsp;&nbsp;&nbsp;
+		Nom :&nbsp; {{currentUser.nom}} <br> <br> Email
+		:&nbsp;{{currentUser.email}} <br> <br> Numéro de la rue :
+		&nbsp; {{currentUser.address.numDeRue}} <br> <br> Code
+		postal : &nbsp;{{currentUser.address.codePostale}}&nbsp;&nbsp;&nbsp; <br>
+		<br> Situation maritale
+		:&nbsp;{{currentUser.situationMaritale}}&nbsp;&nbsp;&nbsp;
 	</div>
 	<div class="col-sm-6">
-		Prénom :&nbsp; {{client.prenom}} <br> <br> Téléphone
-		:&nbsp;{{client.telephone}} <br> <br> Nom de la rue :
-		&nbsp;{{client.nomRue}} <br> <br> Ville
-		:&nbsp;{{client.ville}} <br> <br> Nombre d'enfants :
-		&nbsp;{{client.nbEnfant}}
-
+		Prénom :&nbsp; {{currentUser.prenom}} <br> <br> Téléphone
+		:&nbsp;{{currentUser.tel}} <br> <br> Nom de la rue :
+		&nbsp;{{currentUser.address.nomRue}} <br> <br> Ville
+		:&nbsp;{{currentUser.address.ville}} <br> <br> Nombre
+		d'enfants : &nbsp;{{currentUser.nbrEnfants}}
 	</div>
 
 
@@ -27,58 +23,59 @@
 		<center>
 			<button class="btn btn-secondary" ng-click="modif()">Modifier</button>
 		</center>
-		</div>
-		</div>
-		<div ng-show="showMe">
-
-			<form class="formModif">
-				<div class="row">
-					<div class="col-sm-6">
-
-						<label for="name">Nom :&nbsp</label> <input class="form-control"
-							type="text" name="name" /> <br> <label for="email">Email
-							: &nbsp</label> <input class="form-control" type="text" name="email" />
-						<label for="numrue">Numéro de rue : &nbsp</label> <input
-							class="form-control" type="number" name="numrue" /> <br> <label
-							for="cp">Code postal: &nbsp</label> <input class="form-control"
-							type="number" name="cp" /> <br> <label
-							for="situation matrimoniale"> Situation matrimoniale
-							:&nbsp</label> <select class="form-control">
-							<option>Célibataire</option>
-							<option>Concubinage</option>
-							<option>Pacte civil de solidarité</option>
-							<option>Vie maritale</option>
-						</select>
-					</div>
-					<div class="col-sm-6">
-						<label for="lastname">Prénom :&nbsp</label> <input
-							class="form-control" type="text" name="lastName" /> <br> <label
-							for="tel">Téléphone : &nbsp</label> <input class="form-control"
-							type="text" name="tel" /> <br> <label for="nomrue">Nom
-							de la rue : &nbsp</label> <input class="form-control" type="text"
-							name="nomrue" /> <br> <label for="ville">Ville
-							:&nbsp </label> <input class="form-control" type="text" name="ville" />
-						<br> <label for="nombre d'enfants"> Nombre d'enfants
-							:&nbsp</label> <select class="form-control">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5 et plus</option>
-						</select>
-					</div>
-
-				</div>
-			</form>
-			<br>
-			<center>
-				<button class="btn btn-secondary">Confirmer</button>
-			</center>
-		</div>
-
 	</div>
+</div>
+<div ng-show="showMe">
+
+	<form class="formModif">
+		<div class="row">
+			<div class="col-sm-6">
+
+				<label for="name">Nom :&nbsp</label> 
+				<input class="form-control"	type="text" name="name" value="{{currentUser.nom}}" ng-model="currentUser.nom"/> 
+					<br> <label	for="email">Email : &nbsp</label>
+					 <input class="form-control"type="text" name="email" value="{{currentUser.email}}" ng-model="currentUser.email"/> 
+					 <label for="numrue">Numéro de rue : &nbsp</label> 
+					 <input class="form-control" type="number" name="numrue" value="{{currentUser.address.numDeRue}}" ng-model="currentUser.address.numDeRue"/>
+				<br> <label for="cp">Code postal: &nbsp</label> 
+				<input class="form-control" type="number" name="cp" value="{{currentUser.address.codePostale}}" ng-model="currentUser.address.codePostale"/> <br> 
+				<label for="situation matrimoniale"> Situation matrimoniale :&nbsp</label>
+				<select class="form-control" ng-model="currentUser.situationMaritale">
+					<option>Célibataire</option>
+					<option>Concubinage</option>
+					<option>Pacte civil de solidarité</option>
+					<option>Vie maritale</option>
+				</select>
+			</div>
+			<div class="col-sm-6">
+				<label for="lastname">Prénom :&nbsp</label> 
+				<input class="form-control" type="text" name="lastName" value="{{currentUser.prenom}}" ng-model="currentUser.prenom"/> <br> 
+				<label for="tel">Téléphone : &nbsp</label> 
+				<input class="form-control" type="text" name="tel" value="{{currentUser.tel}}" ng-model="currentUser.tel"/> <br> 
+				<label for="nomrue">Nom de la rue : &nbsp</label> 
+				<input class="form-control" type="text" name="nomrue" value="{{currentUser.address.nomRue}}" ng-model="currentUser.address.nomRue"/> <br> 
+				<label for="ville">Ville :&nbsp	</label> 
+				<input class="form-control" type="text" name="ville" value="{{currentUser.address.ville}}" ng-model="currentUser.address.ville"/> <br>
+				<label for="nombre d'enfants"> Nombre d'enfants :&nbsp</label> 
+				<select	class="form-control" ng-model="currentUser.nbrEnfants">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5 et plus</option>
+				</select>
+			</div>
+		</div>
+	</form>
+	<br>
+	<center>
+		<button class="btn btn-secondary" ng-click="updateInfos(currentUser)">Confirmer</button>
+	</center>
+</div>
 
 </div>
- <!-- 
+
+</div>
+<!-- 
 <img src="static/images/chantier.jpg" style="width: 804px; height: 408px">
  -->

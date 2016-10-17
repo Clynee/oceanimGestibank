@@ -14,6 +14,7 @@ public interface IBanqueService {
 	
 	/* Tous les users */
 	public List<User> findAllUsers();
+	public User updateUser(User user); 
 	
 	/*OPERATIONS CLIENTS */
 	public List<Client> findAllClients();
@@ -50,7 +51,7 @@ public interface IBanqueService {
 	 * @param numCpte le compte en question 
 	 * @return 
 	 */
-	public long getNombreOperation(String numCpte);
+	public int getNombreOperation(String numCpte);
 	
 	/**
 	 * 
@@ -58,9 +59,9 @@ public interface IBanqueService {
 	 * @param cpte
 	 * @param codeConseil
 	 */
-	public void crediter(double montant,String cpte ,Long codeConseil );
-	public void debiter(double montant,String cpte ,Long codeConseil );
-	public void virement(double montant,String cpte1,String cpte2 ,Long codeConseil );
+	public void crediter(double montant,String cpte);
+	public void debiter(double montant,String cpte);
+	public void virement(double montant,String cpte1,String cpte2);
 	
 	
 

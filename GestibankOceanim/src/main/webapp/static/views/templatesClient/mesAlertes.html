@@ -29,13 +29,17 @@
 	        	<thead>
 	                  <tr>
 	                      <th>Date</th>
+	                      <th>N° de la demande</th>
 	                      <th>Libellé</th>
+	                      <th>Etat</th>
 	                  </tr>
 	                </thead>
 	                <tbody>
 	               <!--  Noter fonction ng-repeat dans le controller -->
 	                      <td>{{notification.dateNotif}}</td>
+	                      <td>{{demande.num}}</td>
 	                      <td>{{notification.libelleNotif}}</td>
+	                      <td>{{demande.etat}}</td>
 	                    </tr>
 	                </tbody>
 	        </table>

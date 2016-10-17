@@ -1,15 +1,15 @@
+
+<meta charset="utf-8">
 <section class="pave">
-    
-    
-              <label for="accesCompte"> Accès rapide à vos comptes :&nbsp;</label>
-              <select class="form-control">
-                  <option>{{compte.typeCompte}} {{compte.numCompte}} Exemple de compte </option>
-                  <option>{{compte.typeCompte}} {{compte.numCompte}} Exemple de compte</option>
+              <label for="accesCompte"> Accès rapide à  vos comptes :&nbsp;</label>
+              <select class="form-control" ng-model="compteSelected" ng-options ="compte.codeCompte for compte in listComptes" ng-change="getOperations()">
+                  <option  ng-value= {{compte}} ng-selected="{{compte.codeCompte == compteSelected.codeCompte}}" >
+                  {{compteSelected.codeCompte}} 
+                  </option>
               </select>
               <!-- Type et num du compte dont s'affiche l'historique: -->
-                <h4>{{compte.typeCompte}} {{compte.numCompte}} Compte courant 1234566777 &nbsp; &nbsp; &nbsp;solde au <!-- datedujour -->"datedujour" &nbsp; &nbsp; &nbsp;{{compte.solde}} 12 000 €</h4><br>
-                <h4>Découvert autorisé : &nbsp; {{compte.decouvert}} 28 000€</h4>
-            
+                <h4>Compte {{compteSelected.codeCompte}} {{compteSelected.codeCompte}} &nbsp; &nbsp; &nbsp;solde au {{date | date:'yyyy-MM-dd HH:mm:ss'}} &nbsp; &nbsp; &nbsp;{{compteSelected.solde |currency}} </h4><br>
+                <h4>Découvert autorisé : &nbsp; {{compteSelected.decouvert |currency}}</h4>
             <table class="table table-striped" id="historique">
               <thead>
               <th>Historique des opérations</th>
@@ -20,15 +20,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                  <!-- <tr ng-repeat="(key,transaction) in transactions | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
-                  <td>{{transaction.dateTransaction}} 12/09/2016</td>
-                              <td>{{transaction.libelleTransaction}} Virement vers compte 238746534</td>
-                              <td>{{transaction.montantTransaction}} 200 €</td>               
-                            </tr>
+                   <!--  <tr ng-repeat="(key,transaction) in transactions | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
+                   <tr ng-repeat="(key,transaction) in listOperations  track by $index">
+                  			<td>{{transaction.dateOperation | date:'yyyy-MM-dd HH:mm:ss'}} </td>
+                              <td>{{transaction.libelle}} </td>
+                              <td>{{transaction.montant |currency }}</td>            
+                     </tr>
                 </tbody>
             </table>
-            
             <!-- GRAPHIQUE
-
             TELECHARGEMENT RELEVE MENSUEL EN PDF POUR IMPRESSION -->
         </section>

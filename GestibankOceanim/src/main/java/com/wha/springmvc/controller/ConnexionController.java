@@ -21,11 +21,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wha.springmvc.entities.User;
 import com.wha.springmvc.service.ConnexionService;
+import com.wha.springmvc.service.IBanqueService;
 
 @RestController
 public class ConnexionController {
 	@Autowired
 	ConnexionService connexionService;
+	
+	@Autowired
+    IBanqueService banqueService;
+	
 	@RequestMapping(value = "/seConnecter/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List> getUser(@RequestBody User u,HttpServletRequest request) {
         System.out.println("Fetching User with id " + u);
@@ -39,18 +44,6 @@ public class ConnexionController {
         List l = new ArrayList<>();
         l.add(user);
         l.add(session.getId());
-        /*JSONObject userData = new JSONObject();
-        try {
-			//userData.put("sessionID",session.getId());
-			userData.put("user", user);
-			//session.setAttribute("user" , user);
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-        //System.out.println(userData);
-       // ResponseEntity<Object> a = new ResponseEntity<Object>(userData, HttpStatus.OK);
-        //System.out.println(a);
         return new ResponseEntity<List>(l, HttpStatus.OK);
     }
 }

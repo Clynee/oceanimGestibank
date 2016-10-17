@@ -79,17 +79,18 @@ App.config(function ($stateProvider,$urlRouterProvider){
 	/*-------------------------------------------------------*/
 	.state('espaceClient',{
 		url:'/client',
+		params:{
+        	listComptes:null
+        },
 		templateUrl:'static/views/espaceClient.html',
-		controller: ''
+		controller: 'clientCtrl'
 	})
 	
 	
 	.state('espaceClient.virement', {
         url: '/virement',
         templateUrl: 'static/views/templatesClient/virement.html',//'partial-home-list.html',
-        controller: function($scope) {
-            $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
-        }
+        controller: 'virementCtrl'
     })
     
     .state('espaceClient.editerRIB', {
@@ -142,12 +143,18 @@ App.config(function ($stateProvider,$urlRouterProvider){
     .state('espaceClient.synthese', {
         url: '/synthese',
         templateUrl: 'static/views/templatesClient/synthese.html',//'partial-home-list.html',
-        controller: function($scope) {
-            $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
-        }
-    });
+        controller: 'syntheseComptesCtrl'
+    })
     
-		
+	.state('espaceClient.historique', {
+        url: '/historique',
+        params: {
+            compte: null,
+            listComptes:null
+        },
+        templateUrl: 'static/views/templatesClient/historique.html',//'partial-home-list.html',
+        controller: 'historiqueCrtl'        
+    });
 	
 	/*
 	.when('/seConnecter',{

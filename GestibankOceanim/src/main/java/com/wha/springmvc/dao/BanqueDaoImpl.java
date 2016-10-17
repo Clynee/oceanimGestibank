@@ -25,11 +25,86 @@ public class BanqueDaoImpl implements IBanqueDao{
 	
 	
 	
-	
-	
+
 	//les methodes
 	
 	
+	@Override
+	
+	public List<Client> findAllClients(){
+		Query q = em.createQuery("SELECT c FROM Client c "); 
+		/*em.createNamedQuery("client.findAllClients");*/
+		return (List<Client>) q.getResultList();
+	}
+	
+	@Override
+	public void miseAjourClient(Client client){
+		Client c = em.find(Client.class, client.getId());
+		if (c != null){
+			c.setDateMiseAjour(new Date((new java.util.Date()).getTime()));
+			c.setAddress(client.getAddress()); c.setNom(client.getNom());
+			c.setPrenom(client.getPrenom());  c.setTel(client.getTel());
+			c.setEmail(client.getEmail());  c.setNbrEnfants(client.getNbrEnfants());
+			c.setSituationMaritale(client.getSituationMaritale());
+			em.merge(client);
+		}
+		
+	}
+	
+	
+	@Override
+	public Client ajouterClient(Client c) {
+		em.persist(c);
+		return c;
+	}
+	
+	
+	@Override
+	public Conseiller ajouterConseiller(Conseiller e) {
+		em.persist(e);
+		return e;
+	}
+	
+	@Override
+	public void affectConseillerToClient(Long idConseil,Long idCli){
+		Conseiller conseil=em.find(Conseiller.class, idConseil);
+		System.out.println(conseil);
+		Client c=em.find(Client.class, idCli);
+		conseil.getClients().add(c);
+		c.setConseiller(conseil);	
+	}
+	
+	
+	@Override
+	public List<User> findAllUsers() {
+		Query req = em.createQuery("select u from User u");
+		return req.getResultList();
+	}
+	@Override
+	public Compte ajouterCompte(Compte c, Long numCli) {
+		Client cli=em.find(Client.class, numCli);
+		//Conseiller e=em.find(Conseiller.class,numEmp);
+		c.setClient(cli);
+		//c.setConseiller(e);
+		em.persist(c);
+		return c;
+	}
+	
+	@Override
+	public Transaction ajouterOperation(Transaction op,String numCpte) {
+		Compte c=em.find(Compte.class, numCpte);
+		if((op.getMontant() + c.getSolde()+c.getDecouvert())>0){
+			op.setCompte(c);
+			c.getOperations().add(op);
+			c.setSolde(c.getSolde()+op.getMontant());
+			em.persist(op);
+		}else{
+			new RuntimeException();
+		}
+		return op;
+	}
+	
+	/* ----- Pas encore utilisées ---- */
 	
 	@Override
 	public void miseAjourConseiller(Conseiller conseiller){
@@ -64,7 +139,6 @@ return (List<Conseiller>) q.getResultList();
 		
 		Query q = em.createNamedQuery("conseiller.findConseillerById");
         q.setParameter("id", conseillerId);
-        
            return (Conseiller) q.getSingleResult();
 	}
 	
@@ -80,13 +154,6 @@ return (List<Conseiller>) q.getResultList();
     }
 	}
 	
-	@Override
-	
-	public List<Client> findAllClients(){
-		 Query q = em.createQuery("SELECT c FROM Client c "); 
-		 /*em.createNamedQuery("client.findAllClients");*/
-	        return (List<Client>) q.getResultList();
-	}
 	
 	@Override
 	public void supprimerClient(Client client){
@@ -98,14 +165,6 @@ return (List<Conseiller>) q.getResultList();
 	
 	
 	
-	@Override
-	public void miseAjourClient(Client client){
-		if (client != null){
-			  client.setDateMiseAjour(new Date((new java.util.Date()).getTime()));
-            em.merge(client);
-		}
-		
-	}
 	
 	@Override
 	public void miseAjourCompte(Compte cpte){
@@ -122,61 +181,8 @@ return (List<Conseiller>) q.getResultList();
             em.persist(cpte);
 	}
 
-	@Override
-	public Client ajouterClient(Client c) {
-		// TODO Auto-generated method stub
-		em.persist(c);
-		return c;
-	}
 
-	@Override
-	public Conseiller ajouterConseiller(Conseiller e) {
-		/*
-		if(codeSup!=null){
-			Conseiller empSup=em.find(Conseiller.class, codeSup);
-		e.setEmployeSup(empSup);
-		}*/
-		em.persist(e);
-		return e;
-	}
-/*
-	@Override
-	public TestEntiteG addGroupe(TestEntiteG g) {
-		em.persist(g);
-		return g;
-	}
-*/
-	@Override
-	public void affectConseillerToClient(Long idConseil,Long idCli){
-		Conseiller conseil=em.find(Conseiller.class, idConseil);
-		Client c=em.find(Client.class, idCli);
-		conseil.getClients().add(c);
-		c.setConseiller(conseil);
-		
-		//getEmployes().add(conseil);
-		//
-		
-	}
 
-	@Override
-	public Compte ajouterCompte(Compte c, Long numCli) {
-		Client cli=em.find(Client.class, numCli);
-		//Conseiller e=em.find(Conseiller.class,numEmp);
-		c.setClient(cli);
-		//c.setConseiller(e);
-		em.persist(c);
-		return c;
-	}
-
-	@Override
-	public Transaction ajouterOperation(Transaction op,String numCpte,Long numConseil) {
-		Compte c=em.find(Compte.class, numCpte);
-		Conseiller conseil=em.find(Conseiller.class, numConseil);
-		op.setEmploye(conseil);
-		op.setCompte(c);
-		em.persist(op);
-		return op;
-	}
 
 	@Override
 	public Compte consulterCompte(String numCpte) {
@@ -234,16 +240,21 @@ return (List<Conseiller>) q.getResultList();
 
 
 	@Override
-	public long getNombreOperation(String numCpte) {
-		Query req=em.createQuery("select count(o) from Transaction o where o.codeCompte=:x");
+	public int getNombreOperation(String numCpte) {
+		Query req=em.createQuery("select count(o) from Transaction o where o.compte.codeCompte=:x");
 		req.setParameter("x", numCpte);
 		return req.getFirstResult();
 	}
 
+
 	@Override
-	public List<User> findAllUsers() {
-		Query req = em.createQuery("select u from User u");
-		return req.getResultList();
+	public User updateUser(User user) {
+		User u = em.find(User.class, user.getId());
+		
+		u.setNom(user.getNom());
+		u.setAddress(user.getAddress());
+		em.merge(u);
+		return user;
 	}
 
 }

@@ -21,8 +21,8 @@ import com.wha.springmvc.dao.IBanqueDao;
 import com.wha.springmvc.entities.Client;
 import com.wha.springmvc.entities.Compte;
 import com.wha.springmvc.entities.Conseiller;
-import com.wha.springmvc.entities.Credit;
-import com.wha.springmvc.entities.Debit;
+import com.wha.springmvc.entities.Emis;
+import com.wha.springmvc.entities.Recu;
 import com.wha.springmvc.entities.Transaction;
 import com.wha.springmvc.entities.User;
 
@@ -34,7 +34,6 @@ public class BanqueServiceImpl implements IBanqueService{
 	private IBanqueDao dao;
 	
 	
-	
 	public void setDao(IBanqueDao dao) {
 		this.dao = dao;
 	}
@@ -44,13 +43,11 @@ public class BanqueServiceImpl implements IBanqueService{
 	@Override
 	
 	public void supprimerClient(Client client){
-		
 		dao.supprimerClient(client);
 	}
 	
 	@Override
 	public void miseAjourClient(Client client){
-		
 		dao.miseAjourClient(client);
 	}
 	
@@ -63,19 +60,16 @@ public class BanqueServiceImpl implements IBanqueService{
 	
 	@Override
 	public void saveCompte(Compte cpte){
-		
 		dao.saveCompte(cpte);
 	}
 
 	@Override
 	public Client ajouterClient(Client c) {
-		
 		return dao.ajouterClient(c);
 	}
 
 	@Override
 	public Conseiller ajouterConseiller(Conseiller e) {
-		
 		return dao.ajouterConseiller(e);
 	}
 
@@ -84,7 +78,6 @@ public class BanqueServiceImpl implements IBanqueService{
 	public void affectConseillerToClient(Long idConseil,Long idCli) {
 		// TODO Auto-generated method stub
 		dao.affectConseillerToClient(idConseil, idCli);
-		
 	}
 
 	@Override
@@ -92,30 +85,36 @@ public class BanqueServiceImpl implements IBanqueService{
 		// TODO Auto-generated method stub
 		return dao.ajouterCompte(c, numCli);
 	}
-
+	
 	@Override
-	public void crediter(double montant, String cpte, Long codeEmp) {
-		dao.ajouterOperation(new Credit(new Date(),montant), cpte, codeEmp);
-		Compte cp=dao.consulterCompte(cpte);
-		cp.setSolde(cp.getSolde()+montant);
+	public void crediter(double montant, String cpte) {
+//		dao.ajouterOperation(new Recu(new Date(),montant), cpte);
+//		Compte cp=dao.consulterCompte(cpte);
+//		cp.setSolde(cp.getSolde()+montant);
 	}
 
 	@Override
-	public void debiter(double montant, String cpte, Long codeEmp) {
-		dao.ajouterOperation(new Debit(new Date(),montant), cpte, codeEmp);
-		Compte cp=dao.consulterCompte(cpte);
-		cp.setSolde(cp.getSolde()-montant);
-		
+	public void debiter(double montant, String cpte) {
+//		dao.ajouterOperation(new Debit(new Date(),montant), cpte);
+//		Compte cp=dao.consulterCompte(cpte);
+//		cp.setSolde(cp.getSolde()-montant);
 	}
 
 	@Override
-	public void virement(double montant, String cpte1, String cpte2, Long codeEmp) {
-		if((cpte2==null)||(cpte1==null)) {throw new RuntimeException("Compte Introuvable");}
-		
-		else{
-		debiter(montant,cpte1,codeEmp);
-		crediter(montant,cpte2,codeEmp);}
-		
+	@Transactional
+	public void virement(double montant, String cpte1, String cpte2) {
+		if((cpte2==null)||(cpte1==null)) {
+			throw new RuntimeException("Compte Introuvable");
+			}else{
+			Emis opEmis = new Emis(montant); 
+			opEmis.setLibelle(opEmis.getLibelle() + cpte2);
+			Recu opRecu = new Recu(montant);
+			opRecu.setLibelle(opRecu.getLibelle() + cpte1);
+			dao.ajouterOperation(opEmis, cpte1);
+			dao.ajouterOperation(opRecu, cpte2);
+			//debiter(montant,cpte1);
+			//crediter(montant,cpte2);
+		}
 	}
 
 	@Override
@@ -126,7 +125,6 @@ public class BanqueServiceImpl implements IBanqueService{
 
 	@Override
 	public List<Transaction> consulterOperations(String codeCompte,int position,int nbOperation ) {
-		// TODO Auto-generated method stub
 		return dao.consulterOperations(codeCompte,position,nbOperation);
 	}
 
@@ -162,7 +160,7 @@ public class BanqueServiceImpl implements IBanqueService{
 	}
 
 	@Override
-	public long getNombreOperation(String numCpte) {
+	public int getNombreOperation(String numCpte) {
 		// TODO Auto-generated method stub
 		return dao.getNombreOperation(numCpte);
 	}
@@ -209,6 +207,11 @@ public class BanqueServiceImpl implements IBanqueService{
 	public List<User> findAllUsers() {
 		
 		return dao.findAllUsers();
+	}
+
+	@Override
+	public User updateUser(User user) {
+		return dao.updateUser(user);
 	}
 
 	

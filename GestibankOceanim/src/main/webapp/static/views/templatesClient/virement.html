@@ -1,47 +1,61 @@
 <meta charset="utf-8">
-	<section class="blocCentral">
-		<div class="titreVirement">
-		<h2>Effectuer un virement </h2>
+<section class="blocCentral">
+	<div class="titreVirement">
+		<h2>Effectuer un virement</h2>
+	</div>
+	<div class="blocVirement">
+		<center>
+			<label for="choixCompteDebit"> Compte à  débiter :&nbsp;</label> <select
+				class="form-control" ng-model="infosVirement.compteDebite" autocomplete="on">
+				<option ng-repeat="(key,compte) in listComptes  track by $index " value="{{compte.codeCompte}}">{{compte.codeCompte}}
+					&nbsp;&nbsp;&nbsp; {{compte.solde |currency }}</option>
+			</select>
+		</center>
+		<div class="blocVirement">
+			<center>
+				<label for="choixCompteCredit"> Compte à créditer :&nbsp;</label> <input
+					class="form-control" type="text" name="montantVirement"
+					ng-model="infosVirement.compteCredit" />
+			</center>
 		</div>
-			<div class="blocVirement">
-				<center><label for="choixCompteDebit"> Compte à  débiter :&nbsp;</label>
-				<select class="form-control">
-					 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 12345678910 &nbsp;&nbsp;&nbsp; 250,00â‚¬  </option>
-					 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 6574352689 &nbsp;&nbsp;&nbsp; 900,00â‚¬  </option>
-					</select>
-					</center>
-				<div class="blocVirement">
-			<center><label for="choixCompteCredit"> Compte à créditer :&nbsp;</label>
+		<!--  
 			<select class="form-control">
-				 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 12345678910 &nbsp;&nbsp;&nbsp; 250,00â‚¬  </option>
-				 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 6574352689 &nbsp;&nbsp;&nbsp; 900,00â‚¬  </option>
+				 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 12345678910 &nbsp;&nbsp;&nbsp; 250,00  </option>
+				 <option>{{compte.typeCompte}} {{compte.numCompte}} {{compte.solde}}Compte courant 6574352689 &nbsp;&nbsp;&nbsp; 900,00  </option>
 			</select>
 				</center>
 		</div>
-		<center><form class="formVirement">
-			<label for="montantVirement">Montant:</label>
-			<input class="form-control" type="text" name="montantVirement" ng-model="montantVirement"/>
-			<br>
-			<label for="libelleVirement">Libellé du virement:</label>
-			<input class="form-control" type="text" name="libelleVirement" ng-model="libelleVirement"/>
-				</form></center>
-				<center>
-				<br>
-			<button class="btn btn-secondary btn-lg" >Confirmer</button>
-			<!-- Relier le virement aux transactions -->
-		</div>
-		<div class="titreVirement">
-		<h4>Ajouter un bénéficiaire</h4>
-		</div>
-		<center> <form class="nvBeneficiaire">
-			<label for="nvCompteVirement">Numéro du compte à créditer:</label>
-			<input class="form-control" type="text" name="nvCompteVirement" ng-model="nvCompteVirement"/>
-		</form></center>
-		<br>
+		-->
 		<center>
-			<button class="btn btn-secondary btn-lg" >Confirmer</button>
-			<!-- Ici le bouton enregistre un nouveau compte dans les comptes disponibles Ã  crÃ©diter -->
+			<form class="formVirement">
+				<label for="montantVirement">Montant:</label> <input
+					class="form-control" type="text" name="montantVirement"
+					ng-model="infosVirement.montantVirement" /> EUROS <br> <label
+					for="libelleVirement">Libellé du virement:</label> <input
+					class="form-control" type="text" name="libelleVirement"
+					ng-model="infosVirement.libelleVirement" />
+			</form>
 		</center>
+		<center>
+			<br>
+			<button class="btn btn-secondary btn-lg" ng-click="virement(infosVirement)">Confirmer</button>
+			<!-- Relier le virement aux transactions -->
+	</div>
+	<div class="titreVirement">
+		<h4>Ajouter un bénéficiaire</h4>
+	</div>
+	<center>
+		<form class="nvBeneficiaire">
+			<label for="nvCompteVirement">Numéro du compte à créditer:</label> <input
+				class="form-control" type="text" name="nvCompteVirement"
+				ng-model="nvCompteVirement" />
+		</form>
+	</center>
+	<br>
+	<center>
+		<button class="btn btn-secondary btn-lg" ng-click="virement(infosVirement)">Confirmer</button>
+		<!-- Ici le bouton enregistre un nouveau compte dans les comptes disponibles Ã  crÃ©diter -->
+	</center>
 </section>
-	
-	
+
+
