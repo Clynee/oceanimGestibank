@@ -14,7 +14,7 @@ public class Emis extends Transaction {
 	public Emis() {
 		super();
 		setTypeTransaction(TypeTransaction.EMIS);
-		setLibelle("Virment vers : ");
+		setLibelle("Virement vers : ");
 	}
 
 	public Emis(double montant) {

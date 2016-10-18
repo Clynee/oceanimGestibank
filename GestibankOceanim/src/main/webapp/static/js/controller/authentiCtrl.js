@@ -6,73 +6,73 @@ App.controller('connexionCtrl', function($scope, $location) {
 
 });
 
-App.controller('demandesClientsCtrl', function($scope, $log) {
+//App.controller('demandesClientsCtrl', function($scope, $log) {
+//
+//	$scope.listDemandes = listDemandes;
+//	// $scope.totalItems = 4;
+//	// $scope.currentPage = 4;
+//
+//	$scope.setPage = function(pageNo) {
+//		$scope.currentPage = pageNo;
+//
+//	};
+//
+//	$scope.pageChanged = function() {
+//		$log.log('Page changed to: ' + $scope.currentPage);
+//	};
+//
+//	$scope.itemsPerPage = 4;
+//	$scope.maxSize = 5;
+//	$scope.bigTotalItems = listDemandes.length;
+//	$scope.bigCurrentPage = 1;
+//});
 
-	$scope.listDemandes = listDemandes;
-	// $scope.totalItems = 4;
-	// $scope.currentPage = 4;
+//App.controller('comptesClientsCtrl', function($scope, $log) {
+//
+//	$scope.listComptes = listComptes;
+//	// $scope.totalItems = 4;
+//	// $scope.currentPage = 4;
+//
+//	$scope.setPage = function(pageNo) {
+//		$scope.currentPage = pageNo;
+//
+//	};
+//
+//	$scope.pageChanged = function() {
+//		$log.log('Page changed to: ' + $scope.currentPage);
+//	};
+//
+//	$scope.itemsPerPage = 4;
+//	$scope.maxSize = 5;
+//	$scope.bigTotalItems = listComptes.length;
+//	$scope.bigCurrentPage = 1;
+//});
 
-	$scope.setPage = function(pageNo) {
-		$scope.currentPage = pageNo;
-
-	};
-
-	$scope.pageChanged = function() {
-		$log.log('Page changed to: ' + $scope.currentPage);
-	};
-
-	$scope.itemsPerPage = 4;
-	$scope.maxSize = 5;
-	$scope.bigTotalItems = listDemandes.length;
-	$scope.bigCurrentPage = 1;
-});
-
-App.controller('comptesClientsCtrl', function($scope, $log) {
-
-	$scope.listComptes = listComptes;
-	// $scope.totalItems = 4;
-	// $scope.currentPage = 4;
-
-	$scope.setPage = function(pageNo) {
-		$scope.currentPage = pageNo;
-
-	};
-
-	$scope.pageChanged = function() {
-		$log.log('Page changed to: ' + $scope.currentPage);
-	};
-
-	$scope.itemsPerPage = 4;
-	$scope.maxSize = 5;
-	$scope.bigTotalItems = listComptes.length;
-	$scope.bigCurrentPage = 1;
-});
-
-// Demande Inscriptions
-
-App.controller('inscriptionsCtrl', function($scope, $log) {
-
-	$scope.listdemIns = listdemIns;
-	// $scope.totalItems = 4;
-	// $scope.currentPage = 4;
-
-	$scope.setPage = function(pageNo) {
-		$scope.currentPage = pageNo;
-	};
-
-	$scope.pageChanged = function() {
-		$log.log('Page changed to: ' + $scope.currentPage);
-	};
-
-	$scope.itemsPerPage = 4;
-	$scope.maxSize = 5;
-	$scope.bigTotalItems = listdemIns.length;
-	$scope.bigCurrentPage = 1;
-});
-
+//// Demande Inscriptions
+//
+//App.controller('inscriptionsCtrl', function($scope, $log) {
+//
+//	$scope.listdemIns = listdemIns;
+//	// $scope.totalItems = 4;
+//	// $scope.currentPage = 4;
+//
+//	$scope.setPage = function(pageNo) {
+//		$scope.currentPage = pageNo;
+//	};
+//
+//	$scope.pageChanged = function() {
+//		$log.log('Page changed to: ' + $scope.currentPage);
+//	};
+//
+//	$scope.itemsPerPage = 4;
+//	$scope.maxSize = 5;
+//	$scope.bigTotalItems = listdemIns.length;
+//	$scope.bigCurrentPage = 1;
+//});
+//
 App.filter('offset', function() {
 	return function(input, start) {
-		return input.slice(start);
+//		return input.slice(start);
 	};
 })
 

@@ -1,5 +1,6 @@
 <meta charset="UTF-8">
 <div>
+	<h3>Nouvelles demandes d'inscription</h3>
           <table class="table table-striped">
                 <thead>
                   <tr>
@@ -9,7 +10,6 @@
                   </tr>
                 </thead>
                 <tbody>
-<<<<<<< HEAD
                    <tr>
                    		<td>{{demande.dateDemande}}</td>
                       	<td>{{demande.nomDemandeur}}</td>
@@ -23,14 +23,13 @@
 				          </select></td>
 				        <td><button class="btn btn-secondary">Affecter</button></td>               
 				     </tr>
-=======
                     <tr ng-repeat="(key,cpt) in listComptes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
           
                       <td>{{cpt.nClient}}</td>
                       <td>{{cpt.nom}}</td>
                       <td>{{cpt.solde}}</td>               
                     </tr>
->>>>>>> branch 'master' of https://github.com/Clynee/oceanimGestibank.git
+
                 </tbody>
             </table>
              <ul ng-if="bigTotalItems > itemsPerPage" uib-pagination  total-items="bigTotalItems"  ng-model="bigCurrentPage" items-per-page= "itemsPerPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></ul>

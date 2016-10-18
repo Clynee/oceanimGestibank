@@ -30,7 +30,16 @@ public class BanqueController {
 	private IBanqueService banqueService;
 	
 	
-	
+	@RequestMapping(value="/clients/{idConseiller}", method = RequestMethod.GET)
+    public ResponseEntity<List<Client>> listClients(@PathVariable("idConseiller") long idConseiller){
+    	List<Client> clients = banqueService.findClientsByConseiller(idConseiller);
+    	
+    	if(clients.isEmpty()){
+            return new ResponseEntity<List<Client>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<List<Client>>(clients, HttpStatus.OK);
+    }
+    
 	
 	@RequestMapping(value = "/virement/", method = RequestMethod.POST)
     public ResponseEntity<Void> virement(@RequestBody Map<String,String> infosVirement) {

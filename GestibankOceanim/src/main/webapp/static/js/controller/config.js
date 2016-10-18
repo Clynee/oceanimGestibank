@@ -38,6 +38,23 @@ App.config(function ($stateProvider,$urlRouterProvider){
         controller: ''
     })
     
+    .state('espaceAdmin.ajouterConseiller',{
+    	url:'/ajouterConseiller',
+    	templateUrl:'static/views/templatesAdmin/ajouterConseiller.html',
+    	controller:'ajouterConseillerCtrl'
+    })
+    .state('espaceAdmin.consulterEtatDemande',{
+    	url:'/consulterEtatDemande',
+    	templateUrl:'static/views/templatesAdmin/consulterEtatDemande.html',
+    	controller:'consulterEtatDemandeCtrl'
+    })
+    
+    .state('espaceAdmin.consulterConseiller',{
+    	url:'/consulterConseiller',
+    	templateUrl:'static/views/templatesAdmin/consulterConseiller.html',
+    	controller:'consulterConseillerCtrl'
+    })
+    
     
 	/*-------------------------------------------------------*/
 	/*--------------------- Espace Conseiller -------------------*/
@@ -46,17 +63,21 @@ App.config(function ($stateProvider,$urlRouterProvider){
 	.state('espaceConseiller',{
 		url:'/conseiller',
 		templateUrl:'static/views/espaceConseiller.html',
-		controller: ''
+		controller: 'conseillerCtrl'
 	})
 	
 	.state('espaceConseiller.demandesClients', {
-        url: '/virement',
+        url: '/demandesclients',
         templateUrl: 'static/views/templatesConseiller/demandesClients.html',//'partial-home-list.html',
         controller: 'demandesClientsCtrl'
     })
     
     .state('espaceConseiller.comptesClients', {
         url: '/comptesClients',
+        params:{
+        	listClients:null,
+        	listComptes:null
+        },
         templateUrl: 'static/views/templatesConseiller/comptesClients.html',//'partial-home-list.html',
         controller: 'comptesClientsCtrl'
     })
@@ -74,6 +95,26 @@ App.config(function ($stateProvider,$urlRouterProvider){
             $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
         }
     })
+    
+    .state('espaceAdmin.demandeChequierConseiller',{
+    	url:'/demandeChequierConseiller',
+    	templateUrl:'static/views/templatesAdmin/demandeChequierConseiller.html',
+    	controller:'demandeChequierConseillerCtrl'
+    })
+    
+    
+    .state('espaceAdmin.demandeModifCompte',{
+    	url:'/demandeModifCompte',
+    	templateUrl:'static/views/templatesAdmin/demandeModifCompte.html',
+    	controller:'demandeModifCompteCtrl'
+    })
+    
+    .state('espaceAdmin.demandeOuvertureNouveauCompte',{
+    	url:'/demandeOuvertureNouveauCompte',
+    	templateUrl:'static/views/templatesAdmin/demandeOuvertureNouveauCompte.html',
+    	controller:'demandeOuvertureNouveauCompte'
+    })
+    
 	/*-------------------------------------------------------*/
 	/*--------------------- Espace Client -------------------*/
 	/*-------------------------------------------------------*/

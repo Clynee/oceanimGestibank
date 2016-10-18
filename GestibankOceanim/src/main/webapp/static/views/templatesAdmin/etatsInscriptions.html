@@ -1,5 +1,6 @@
 <meta charset="UTF-8">
 <div>
+	<h3>Gestion des inscriptions</h3>
           <table class="table table-striped">
                 <thead>
                   <tr>
@@ -19,7 +20,7 @@
                       <td>{{ins.nomDemandeur}}</td>
                       <td>{{ins.nomConseiller}}</td>
                       <td>{{ins.etat}}</td>
-                      <td><button class="btn btn-secondary">Consulter</button></td>             
+                      <td><a ui-sref="espaceAdmin.consulterEtatDemande" href="#" class="btn btn-secondary" ng-click="consulterEtatDemande">Consulter</a></td>             
                     </tr>
                 </tbody>
             </table>

@@ -37,7 +37,9 @@
 						name="nomrue" ng-model="form.nomrue" /> <br> <label
 						for="ville">Ville : </label> <input class="form-control"
 						type="text" name="ville" ng-model="form.ville" />
+						<label for="nombre d'enfants"> Nombre d'enfants :&nbsp;</label>
 						<select class="form-control">
+							  <option>0</option>
 							  <option>1</option>
 							  <option>2</option>
 							  <option>3</option>
@@ -51,6 +53,8 @@
 		Joindre la copie de votre dernier avis d'imposition, une copie de votre carte d'identité et un justificatif de domicile.
 		<form action="UploadDownloadFileServlet" method="post" enctype="multipart/form-data">
 			Sélectionner le fichier à télécharger:<input type="file" name="fileName">
+			
+			
 			<br>
 			<input type="submit" value="Upload">
 		</form>

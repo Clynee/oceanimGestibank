@@ -1,19 +1,32 @@
 <meta charset="UTF-8">
 <div id="comptesClients" >
+    <h3>Gestion des comptes clients </h3>
+        <div>
+        <select class="form-control">
+	           <option>Recherche par nom : </option>
+	           <option>Recherche par n° de client : </option>
+          </select>
+          	<input class="form-control" type="text" name="recherche"/>
+          	<button class="btn btn-secondary">Rechercher</button>
+    	 </div>
           <table class="table table-striped">
                 <thead>
                   <tr>
                       <th>N° Client</th>
                       <th>Nom du client</th>
+                      <th>N° de compte</th>
                       <th>Solde</th>
+                      <th></th>
                   </tr>
                 </thead>
-                <tbody>
-                    <tr ng-repeat="(key,cpt) in listComptes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
-          
-                      <td>{{cpt.nClient}}</td>
-                      <td>{{cpt.nom}}</td>
-                      <td>{{cpt.solde}}</td>               
+                <tbody >
+                    <!-- <tr ng-repeat="(key,client) in listClients | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
+          			<tr ng-repeat="(key,compte) in listComptes  track by $index">
+                      <td>{{compte.client.codeClient}}</td>
+                      <td>{{compte.client.nom}}</td>
+                      <td>{{compte.codeCompte}}</td>           
+                      <td>{{compte.solde}}</td>
+                      <td><button class="btn btn-secondary">Consulter</button></td>                   
                     </tr>
                     </tr>
                 </tbody>

@@ -62,6 +62,9 @@ public class HelloWorldRestController {
     	cons.setUsername("celine"); 
     	cons.setPassword("1111");
     	cons.setCodeConseiller(1L);
+    	cons.setNom("Galland");
+    	cons.setPrenom("Céline");
+    	
     	
     	
     	/*-------- Les clients --------*/
@@ -84,9 +87,9 @@ public class HelloWorldRestController {
     	
     	Compte c1 = new CompteCourant("CC1", 9000, 8000);
     	Compte c2 = new CompteRemunere("CE1", 40000,8000, 5.5);
+    	Compte c3 = new CompteRemunere("CE2", 40000,8000, 5.5);
     	
-    	
-    	/*----- La persistence ----*/
+    	/*----- La persistance ----*/
     	
     	banqueService.ajouterConseiller(cons);
     	banqueService.ajouterClient(cli1);
@@ -97,6 +100,7 @@ public class HelloWorldRestController {
     	
     	banqueService.ajouterCompte(c1, 2L);
     	banqueService.ajouterCompte(c2, 2L);
+    	banqueService.ajouterCompte(c3, 3L);
     	
     	//banqueService.crediter(5000, "CC1");
     	//banqueService.debiter(6000, "CC1");
@@ -127,7 +131,6 @@ public class HelloWorldRestController {
         }
         return new ResponseEntity<List<com.wha.springmvc.entities.User>>(users, HttpStatus.OK);
     }
-    
     
     
     @RequestMapping(value="/conseillers", method = RequestMethod.GET)

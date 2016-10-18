@@ -151,7 +151,9 @@ public class BanqueServiceImpl implements IBanqueService{
 		// TODO Auto-generated method stub
 		return dao.getComptesByConseiller(codeConseil);
 	}
-
+	public List<Client> findClientsByConseiller(long idConseiller) {
+	return dao.findClientsByConseiller(idConseiller);
+	}
 
 	@Override
 	public List<Conseiller> getConseillers() {

@@ -37,5 +37,5 @@ public interface IBanqueDao {
 	public List<Conseiller> findConseillersByName(String conseillerName);
 	public void supprimerConseiller(Conseiller conseiller);
 	public void miseAjourConseiller(Conseiller conseiller);
-
+	public  List<Client> findClientsByConseiller(long idConseiller);
 }

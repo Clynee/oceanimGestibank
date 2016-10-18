@@ -23,12 +23,14 @@
           
                       <td>{{conseiller.matricule}}</td>
                       <td>{{conseiller.nomConseiller}</td>
-                      <td>{{conseiller.nbreClient}}</td>
-                      <td><button class="btn btn-secondary">Consulter</button></td>             
+                      <td>{{conseiller.nbreClient}}</td> 
+                      <td><a ui-sref="espaceAdmin.consulterConseiller" href="#" class="btn btn-secondary" ng-click="consulterConseiller">Consulter</a></td>             
                     </tr>
                 </tbody>
             </table>
              <ul ng-if="bigTotalItems > itemsPerPage" uib-pagination  total-items="bigTotalItems"  ng-model="bigCurrentPage" items-per-page= "itemsPerPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></ul>
-  					<button class="btn btn-secondary">Ajouter un conseiller</button>
+  					<a ui-sref="espaceAdmin.ajouterConseiller" href="#" class="btn btn-secondary" ng-click="ajouterconseiller">Ajouter un conseiller</a>
+  					    
+                    </tr>
   	</div>
   </div>

@@ -41,6 +41,13 @@
 <script src="<c:url value='/static/js/service/connexion_service.js' />"></script>
 <script
 	src="<c:url value='/static/js/controller/connexionController.js' />"></script>
+	<script
+	src="<c:url value='/static/js/controller/conseillerControllers.js' />"></script>
+	<script
+	src="<c:url value='/static/js/controller/adminControllers.js' />"></script>
+	<script src="<c:url value='/static/js/service/conseillerServices.js' />"></script>
+
+	
 	
 	
 

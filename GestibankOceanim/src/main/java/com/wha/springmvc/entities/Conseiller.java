@@ -29,7 +29,6 @@ public class Conseiller extends User implements Serializable {
 	//@GeneratedValue
 	@Column(name = "CODE_CONSEIL")
 	private Long codeConseiller;
-	private String nomConseiller;
 	private double salaire;
 	private Date dateCreation;
 	private Date dateMiseAjour;
@@ -44,10 +43,7 @@ public class Conseiller extends User implements Serializable {
 		setRoleUsers(TypeRole.CONSEILLER);
 	}
 
-	public Conseiller(String nomConseiller) {
-		this();
-		this.nomConseiller = nomConseiller;
-	}
+	
 
 	
 	
@@ -74,13 +70,7 @@ public class Conseiller extends User implements Serializable {
 		this.codeConseiller = codeConseiller;
 	}
 
-	public String getNomConseiller() {
-		return nomConseiller;
-	}
 
-	public void setNomConseiller(String nomConseiller) {
-		this.nomConseiller = nomConseiller;
-	}
 
 	public double getSalaire() {
 		return salaire;

@@ -257,4 +257,12 @@ return (List<Conseiller>) q.getResultList();
 		return user;
 	}
 
+	@Override
+	public List<Client> findClientsByConseiller(long idConseiller) {
+		Query req=em.createQuery("select cli from Client cli where cli.conseiller.codeConseiller=:x ");
+		req.setParameter("x",idConseiller);
+		return req.getResultList();
+		
+	}
+
 }

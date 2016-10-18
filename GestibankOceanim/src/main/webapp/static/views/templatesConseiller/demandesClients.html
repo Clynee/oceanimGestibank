@@ -1,14 +1,49 @@
 <meta charset="UTF-8">
-	<h3>Demande {{numDemande}}</h3>
-   <h3>Demandes des clients</h3>
-<div id="demandesClients" class="tab-pane fade in active">
+	
+   <h3>Gestion des demandes</h3>
+   <br>
+   
+
+<div id="demandesClientsChequier" class="tab-pane fade in active">
+	<h4>Demandes de chéquier</h4>
             <table class="table table-striped">
                 <thead>
                   <tr>
                       <th>Date</th>
+                      <th>N° de la demande</th>
                       <th>N° Client</th>
                       <th>Nom du client</th>
-                      <th>Libellé de la demande</th>
+                      <th>Etat</th>
+                      <th></th>
+                     <!--  L'état de la demande permet de mémoriser un historique des demandes et de savoir ce qui a été traité ou pas (validé, refusé, en attente) PAR DEFAUT LE NOTER en attente-->                 
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="(key,dem) in listDemandes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
+                      <td>{{dem.date}}</td>
+                      <td>{{dem.num}}</td>
+                      <td>{{dem.nClient}}</td>
+                      <td>{{dem.nom}}</td>
+                      <td>{{dem.etat}}</td>
+                      <td><a ui-sref="espaceConseiller.demandeChequierConseiller" href="#" class="btn btn-secondary" ng-click="demandeChequierConseiller">Consulter</a></td>  
+                      
+                 <!--  Ici on atterit sur une page ou une autre selon le libellé: il y  a 3 types de demandes (chéquier, modifCompte, ou ouverture nouveau compte)     -->        
+                    </tr>                         
+                </tbody>
+            </table>
+             <ul ng-if="bigTotalItems > itemsPerPage" uib-pagination  total-items="bigTotalItems"  ng-model="bigCurrentPage" items-per-page= "itemsPerPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></ul>
+</div>
+<br>
+<br>
+<div id="demandesClientsModif" class="tab-pane fade in active">
+	<h4>Demandes de modifications de compte</h4>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                      <th>Date</th>
+                      <th>N° de la demande</th>
+                      <th>N° Client</th>
+                     <th>Nom du client</th>                   
                       <th>Etat</th>
                      <!--  L'état de la demande permet de mémoriser un historique des demandes et de savoir ce qui a été traité ou pas (validé, refusé, en attente) PAR DEFAUT LE NOTER en attente-->
                       <th></th>
@@ -17,12 +52,40 @@
                 <tbody>
                     <tr ng-repeat="(key,dem) in listDemandes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
                       <td>{{dem.date}}</td>
+                      <td>{{dem.num}}</td>
+                      <td>{{dem.nClient}}</td>
+                      <td>{{dem.nom}}</td>                   
+                      <td>{{dem.etat}}</td>
+                      <td><a ui-sref="espaceConseiller.demandeModifCompte" href="#" class="btn btn-secondary" ng-click="demandeModifCompte" >Consulter</a></td>  
+                     </tr>                         
+                </tbody>
+            </table>
+             <ul ng-if="bigTotalItems > itemsPerPage" uib-pagination  total-items="bigTotalItems"  ng-model="bigCurrentPage" items-per-page= "itemsPerPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></ul>
+</div>
+<br>
+<br>
+<div id="demandesClientsOuverture" class="tab-pane fade in active">
+	<h4>Demandes d'ouverture de compte</h4>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                      <th>Date</th>
+                      <th>N° de la demande</th>
+                      <th>N° Client</th>
+                      <th>Nom du client</th>                  
+                      <th>Etat</th>
+                     <!--  L'état de la demande permet de mémoriser un historique des demandes et de savoir ce qui a été traité ou pas (validé, refusé, en attente) PAR DEFAUT LE NOTER en attente-->
+                      <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="(key,dem) in listDemandes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
+                      <td>{{dem.date}}</td>
+                      <td>{{dem.num}}</td>
                       <td>{{dem.nClient}}</td>
                       <td>{{dem.nom}}</td>
-                      <td>{{dem.lib}}</td>
                       <td>{{dem.etat}}</td>
-                      <td><button class="btn btn-secondary">Consulter</button></td>  
-                 <!--  Ici on atterit sur une page ou une autre selon le libellé: il y  a 3 types de demandes (chéquier, modifCompte, ou ouverture nouveau compte)     -->        
+                      <td><a ui-sref="espaceConseiller.demandeOuvertureNouveauCompte" href="#" class="btn btn-secondary" ng-click="demandeOuvertureNouveauCompte">Consulter</a></td>                 
                     </tr>                         
                 </tbody>
             </table>

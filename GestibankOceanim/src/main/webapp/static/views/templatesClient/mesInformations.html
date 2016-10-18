@@ -3,6 +3,7 @@
 <div id="Mes_informations">
 	<!-- Vérifier avec nom des variables données car pas finies -->
 	<div class="col-sm-6">
+	    N° de client:&nbsp; {{currentUser.codeClient}} <br><br>
 		Nom :&nbsp; {{currentUser.nom}} <br> <br> Email
 		:&nbsp;{{currentUser.email}} <br> <br> Numéro de la rue :
 		&nbsp; {{currentUser.address.numDeRue}} <br> <br> Code
@@ -11,6 +12,7 @@
 		:&nbsp;{{currentUser.situationMaritale}}&nbsp;&nbsp;&nbsp;
 	</div>
 	<div class="col-sm-6">
+		Mon conseiller:&nbsp; {{currentUser.conseiller.prenom}} {{currentUser.conseiller.nom}}<br><br>
 		Prénom :&nbsp; {{currentUser.prenom}} <br> <br> Téléphone
 		:&nbsp;{{currentUser.tel}} <br> <br> Nom de la rue :
 		&nbsp;{{currentUser.address.nomRue}} <br> <br> Ville
@@ -58,6 +60,7 @@
 				<input class="form-control" type="text" name="ville" value="{{currentUser.address.ville}}" ng-model="currentUser.address.ville"/> <br>
 				<label for="nombre d'enfants"> Nombre d'enfants :&nbsp</label> 
 				<select	class="form-control" ng-model="currentUser.nbrEnfants">
+					<option>0</option>
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
