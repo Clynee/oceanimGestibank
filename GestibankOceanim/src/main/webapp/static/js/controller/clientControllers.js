@@ -110,5 +110,11 @@ App.controller('historiqueCrtl',function($scope,$stateParams,clientServices){
 });
 
 
+App.controller ('messagesConseillerCtrl',function($scope,$location){
+	$scope.consulter= function(){
+		console.log('/messagesConseiller/')
+		$location.path("/messagesConseiller/");
+	}
+})
 
 

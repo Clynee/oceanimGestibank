@@ -17,11 +17,10 @@
 			                </thead>
 			                <tbody>
 			                    <!-- <tr ng-repeat="(key,dem) in listDemandes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
-			                      <td>{{}}</td>
-			                      <td>{{}}</td>
-			                      <td></td>
-			                      <td><button class="btn btn-secondary">Consulter</button></td>
-			                                
+			                      <td>{{email.date}}</td>
+			                      <td>{{email.emetteur}}</td>
+			                      <td>{{email.libelle}}</td>
+			                      <td><a ui-sref="espaceConseiller.detailMessageReçu" href="#" class="btn btn-secondary" ng-click="detailMessageReçu">Consulter</a></td>    
 			                    </tr>
 			                    
 			                </tbody>
@@ -42,10 +41,10 @@
 			                </thead>
 			                <tbody>
 			                    <!-- <tr ng-repeat="(key,dem) in listDemandes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
-			                      <td>{{}}</td>
-			                      <td>{{}}</td>
-			                      <td></td>
-			                      <td><button class="btn btn-secondary">Consulter</button></td>
+			                       <td>{{email.date}}</td>
+			                      <td>{{email.destinataire}}</td>
+			                      <td>{{email.libelle}}</td>
+			                      <td><a ui-sref="espaceConseiller.detailMessageEnvoye" href="#" class="btn btn-secondary" ng-click="detailMessageEnvoye">Consulter</a></td> 
 			                                
 			                    </tr>
 			                    

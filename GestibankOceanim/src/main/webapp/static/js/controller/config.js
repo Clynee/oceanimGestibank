@@ -96,25 +96,52 @@ App.config(function ($stateProvider,$urlRouterProvider){
         }
     })
     
-    .state('espaceAdmin.demandeChequierConseiller',{
+    .state('espaceConseiller.demandeChequierConseiller',{
     	url:'/demandeChequierConseiller',
-    	templateUrl:'static/views/templatesAdmin/demandeChequierConseiller.html',
+    	templateUrl:'static/views/templatesConseiller/demandeChequierConseiller.html',
     	controller:'demandeChequierConseillerCtrl'
     })
     
     
-    .state('espaceAdmin.demandeModifCompte',{
+    .state('espaceConseiller.demandeModifCompte',{
     	url:'/demandeModifCompte',
-    	templateUrl:'static/views/templatesAdmin/demandeModifCompte.html',
+    	templateUrl:'static/views/templatesConseiller/demandeModifCompte.html',
     	controller:'demandeModifCompteCtrl'
     })
     
-    .state('espaceAdmin.demandeOuvertureNouveauCompte',{
+    .state('espaceConseiller.demandeOuvertureNouveauCompte',{
     	url:'/demandeOuvertureNouveauCompte',
-    	templateUrl:'static/views/templatesAdmin/demandeOuvertureNouveauCompte.html',
-    	controller:'demandeOuvertureNouveauCompte'
+    	templateUrl:'static/views/templatesConseiller/demandeOuvertureNouveauCompte.html',
+    	controller:'demandeOuvertureNouveauCompteCtrl'
     })
     
+    
+    
+    .state('espaceConseiller.detailMessageReçu',{
+    	url:'/detailMessageReçu',
+    	templateUrl:'static/views/templatesConseiller/detailMessageReçu.html',
+    	controller:'detailMessageReçuCtrl'
+    })
+    
+    .state('espaceConseiller.detailMessageEnvoye',{
+    	url:'/detailMessageEnvoye',
+    	templateUrl:'static/views/templatesConseiller/detailMessageEnvoye.html',
+    	controller:'detailMessageEnvoyeCtrl'
+    })
+    
+    
+    .state('espaceConseiller.consulterDemandesInscriptions',{
+    	url:'/consulterDemandesInscriptions',
+    	templateUrl:'static/views/templatesConseiller/consulterDemandesInscriptions.html',
+    	controller:'consulterDemandesInscriptionsCtrl'
+    })
+   
+    .state('espaceConseiller.syntheseComptesClient',{
+    	url:'/syntheseComptesClient',
+    	templateUrl:'static/views/templatesConseiller/syntheseComptesClient.html',
+    	controller:' syntheseComptesClientCtrl'
+    })
+  
 	/*-------------------------------------------------------*/
 	/*--------------------- Espace Client -------------------*/
 	/*-------------------------------------------------------*/
@@ -128,6 +155,12 @@ App.config(function ($stateProvider,$urlRouterProvider){
 	})
 	
 	
+	.state('espaceClient.messagesConseiller', {
+        url: '/messagesConseiller',
+        templateUrl: 'static/views/templatesClient/messagesConseiller.html',//'partial-home-list.html',
+        controller: 'messagesConseillerCtrl'
+    })
+    
 	.state('espaceClient.virement', {
         url: '/virement',
         templateUrl: 'static/views/templatesClient/virement.html',//'partial-home-list.html',

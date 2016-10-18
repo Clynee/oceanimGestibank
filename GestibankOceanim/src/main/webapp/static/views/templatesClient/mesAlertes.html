@@ -58,7 +58,7 @@
 	               <!--  Noter fonction ng-repeat dans le controller -->
 	                      <td>{{notification.dateNotif}}</td>
 	                      <td>{{notification.libelleNotif}}</td>
-	                      <td><button class="btn btn-secondary">Consulter</button></td>
+	                      <td><a ui-sref="espaceClient.messagesConseiller" href="#" class="btn btn-secondary" ng-click="messagesConseiller">Consulter</a></td>
 	                    </tr>
 	                </tbody>
     		</table>
