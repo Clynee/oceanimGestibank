@@ -6,8 +6,10 @@
 	<div class="blocVirement">
 		<center>
 			<label for="choixCompteDebit"> Compte à  débiter :&nbsp;</label> <select
-				class="form-control" ng-model="infosVirement.compteDebite" autocomplete="on">
-				<option ng-repeat="(key,compte) in listComptes  track by $index " value="{{compte.codeCompte}}">{{compte.codeCompte}}
+				class="form-control" ng-model="infosVirement.compteDebite"
+				autocomplete="on">
+				<option ng-repeat="(key,compte) in listComptes  track by $index "
+					value="{{compte.codeCompte}}">{{compte.codeCompte}}
 					&nbsp;&nbsp;&nbsp; {{compte.solde |currency }}</option>
 			</select>
 		</center>
@@ -38,7 +40,8 @@
 		</center>
 		<center>
 			<br>
-			<button class="btn btn-secondary btn-lg" ng-click="virement(infosVirement)">Confirmer</button>
+			<button class="btn btn-secondary btn-lg"
+				ng-click="virement(infosVirement)">Confirmer</button>
 			<!-- Relier le virement aux transactions -->
 	</div>
 	<div class="titreVirement">
@@ -53,7 +56,8 @@
 	</center>
 	<br>
 	<center>
-		<button class="btn btn-secondary btn-lg" ng-click="virement(infosVirement)">Confirmer</button>
+		<button class="btn btn-secondary btn-lg"
+			ng-click="virement(infosVirement)">Confirmer</button>
 		<!-- Ici le bouton enregistre un nouveau compte dans les comptes disponibles Ã  crÃ©diter -->
 	</center>
 </section>

@@ -2,7 +2,9 @@ package com.wha.springmvc.service;
 
 import java.util.List;
 
-import com.wha.springmvc.model.User;
+import com.wha.springmvc.entities.User;
+
+
 
 
 

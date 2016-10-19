@@ -5,6 +5,7 @@ import java.util.List;
 import com.wha.springmvc.entities.Client;
 import com.wha.springmvc.entities.Compte;
 import com.wha.springmvc.entities.Conseiller;
+import com.wha.springmvc.entities.Document;
 import com.wha.springmvc.entities.Transaction;
 import com.wha.springmvc.entities.User;
 
@@ -38,4 +39,17 @@ public interface IBanqueDao {
 	public void supprimerConseiller(Conseiller conseiller);
 	public void miseAjourConseiller(Conseiller conseiller);
 	public  List<Client> findClientsByConseiller(long idConseiller);
+	
+	//USER DOCUMENT UPLOAD 
+	
+	  List<Document> findAllDoc();
+    
+      Document findDocById(int id);
+    
+      void saveDoc(Document document);
+//     
+      List<Document> findAllDocByUserId(long userId);
+//     
+      void deleteDocById(int id);
+
 }

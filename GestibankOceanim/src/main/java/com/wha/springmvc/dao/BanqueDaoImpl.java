@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.wha.springmvc.entities.Client;
 import com.wha.springmvc.entities.Compte;
 import com.wha.springmvc.entities.Conseiller;
+import com.wha.springmvc.entities.Document;
 import com.wha.springmvc.entities.Transaction;
 import com.wha.springmvc.entities.User;
 

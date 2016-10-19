@@ -7,11 +7,16 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -24,6 +29,7 @@ import com.wha.springmvc.service.IBanqueService;
 
 @Configuration
 @EnableTransactionManagement
+@ComponentScan(basePackages = "com.wha.springmvc.configuration")
 @PropertySource(value = { "classpath:application.properties" })
 public class JpaConfiguration {
 
@@ -79,6 +85,39 @@ public class JpaConfiguration {
 		return txManager;
 	}
 	
+	/**
+     * Configure MessageSource to lookup any validation/error message in internationalized property files
+     */
+
+	
+//	 @Bean
+//	    public MessageSource messageSource() {
+//	        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+//	        messageSource.setBasename("messages");
+//	        return messageSource;
+//	    }
+    
+    //Put Other Application configuration here.
+    
+//    @Bean
+//    public JavaMailSender getMailSender(){
+//        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+//         
+//        //Using gmail
+//        mailSender.setHost("smtp.gmail.com");
+//        mailSender.setPort(587);
+//        mailSender.setUsername("gestibanktest@gmail.com");
+//        mailSender.setPassword("gestibank");
+//         
+//        Properties javaMailProperties = new Properties();
+//        javaMailProperties.put("mail.smtp.starttls.enable", "true");
+//        javaMailProperties.put("mail.smtp.auth", "true");
+//        javaMailProperties.put("mail.transport.protocol", "smtp");
+//        javaMailProperties.put("mail.debug", "true");//Prints out everything on screen
+//         
+//        mailSender.setJavaMailProperties(javaMailProperties);
+//        return mailSender;
+//    }
 	 
 	
 }

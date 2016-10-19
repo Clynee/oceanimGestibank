@@ -1,117 +1,99 @@
 <meta charset="UTF-8">
 <div>
-	<h3> Conseiller {{conseiller.prenomConseiller}} {{conseiller.nomConseiller}}</h3>
-		<div>
-			<div class="col-sm-6">
-				Matricule : &nbsp;{{conseiller.matricule}} 
-        		Email : &nbsp;{{conseiller.email}}
-        		<br>
-        		<br>
-        		NumÃ©ro de la rue : &nbsp; {{conseiller.numRue}}
-        		<br>
-        		<br>
-        		Code postal : &nbsp;{{conseiller.cp}}&nbsp;&nbsp;&nbsp;
-        		<br>
-        		<br>
-        		
-        	</div>
-          	<div class="col-sm-6">
-	            Date de dÃ©but de contrat : &nbsp; {{conseiller.dateDebutContrat}}
-	            TÃ©lÃ©phone :&nbsp;{{conseiller.telephone}}
-	            <br>
-	            <br>
-	            Nom de la rue : &nbsp;{{conseiller.nomRue}}
-	            <br>
-	            <br>
-	            Ville :&nbsp;{{conseiller.ville}}
-	            <br>
-	            <br>
-	         </div>
-		</div>
-		<!-- Faire comme pour Mes Informations du client ng-show  -->
-			<div>
-        		<center><button class="btn btn-secondary" ng-click="modif()">Modifier</button></center>
-        	
-        	<div ng-show="showMe">
+	<h3>Conseiller {{conseiller.prenomConseiller}}
+		{{conseiller.nomConseiller}}</h3>
+	<div>
+		<div class="col-sm-6">
+			Matricule : &nbsp;{{conseiller.matricule}} Email :
+			&nbsp;{{conseiller.email}} <br> <br> Numéro de la rue :
+			&nbsp; {{conseiller.numRue}} <br> <br> Code postal :
+			&nbsp;{{conseiller.cp}}&nbsp;&nbsp;&nbsp; <br> <br>
 
-        		<form class="formModif">
-	        	<div class="row">
-	   			 <div class="col-sm-6">
-			
-						<label for="name">Nom :&nbsp</label>
-						<input class="form-control" type="text" name="name" />
-						<br>
-						<label for="email">Email : &nbsp</label>
-						<input class="form-control" type="text" name="email"/>
-						<br>
-						<label for="numrue">NumÃ©ro de rue : &nbsp</label>
-						<input class="form-control" type="number" name="numrue"/>
-						<br>
-						<label for="cp">Code postal: &nbsp</label>
-						<input class="form-control" type="number" name="cp"/>
-						<br>
-						</select>
-				</div>
-				<div class="col-sm-6">
-						<label for="lastname">PrÃ©nom :&nbsp</label>
-						<input class="form-control" type="text" name="lastName"/>
-						<br>
-						<label for="tel">TÃ©lÃ©phone : &nbsp</label>
-						<input class="form-control" type="text" name="tel"/>
-						<br>
-						<label for="nomrue">Nom de la rue : &nbsp</label>
-						<input class="form-control" type="text" name="nomrue"/>
-						<br>
-						<label for="ville">Ville :&nbsp </label>
-						<input class="form-control" type="text" name="ville"/>
-						<br>
+		</div>
+		<div class="col-sm-6">
+			Date de début de contrat : &nbsp; {{conseiller.dateDebutContrat}}
+			Téléphone :&nbsp;{{conseiller.telephone}} <br> <br> Nom
+			de la rue : &nbsp;{{conseiller.nomRue}} <br> <br> Ville
+			:&nbsp;{{conseiller.ville}} <br> <br>
+		</div>
+	</div>
+	<!-- Faire comme pour Mes Informations du client ng-show  -->
+	<div>
+		<center>
+			<button class="btn btn-secondary" ng-click="modif()">Modifier</button>
+		</center>
+
+		<div ng-show="showMe">
+
+			<form class="formModif">
+				<div class="row">
+					<div class="col-sm-6">
+
+						<label for="name">Nom :&nbsp</label> <input class="form-control"
+							type="text" name="name" /> <br> <label for="email">Email
+							: &nbsp</label> <input class="form-control" type="text" name="email" /> <br>
+						<label for="numrue">NumÃ©ro de rue : &nbsp</label> <input
+							class="form-control" type="number" name="numrue" /> <br> <label
+							for="cp">Code postal: &nbsp</label> <input class="form-control"
+							type="number" name="cp" /> <br> </select>
+					</div>
+					<div class="col-sm-6">
+						<label for="lastname">PrÃ©nom :&nbsp</label> <input
+							class="form-control" type="text" name="lastName" /> <br> <label
+							for="tel">TÃ©lÃ©phone : &nbsp</label> <input class="form-control"
+							type="text" name="tel" /> <br> <label for="nomrue">Nom
+							de la rue : &nbsp</label> <input class="form-control" type="text"
+							name="nomrue" /> <br> <label for="ville">Ville
+							:&nbsp </label> <input class="form-control" type="text" name="ville" /> <br>
 					</div>
 
 				</div>
-				</form>
-            <br>
-          <center><button class="btn btn-secondary" >Confirmer</button></center>
-       		</div>
+			</form>
+			<br>
+			<center>
+				<button class="btn btn-secondary">Confirmer</button>
+			</center>
+		</div>
 
-       </div>
-        
-        </div>
+	</div>
 
-	       <div>
-	       	<h3>Clients affectés : </h3>
-	       		<table class="table table-striped">
-               	 <thead>
-                  <tr>
-                      <th>Noms des clients</th>
-                      <th></th>
+</div>
 
-                  </tr>
-                </thead>
-                <tbody>
-               <!--  Noter fonction ng-repeat dans le controller -->
-               <!-- Chaque ligne doit Ãªtre cliquable pour aller sur le compte  -->
+<div>
+	<h3>Clients affectés :</h3>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Noms des clients</th>
+				<th></th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<!--  Noter fonction ng-repeat dans le controller -->
+			<!-- Chaque ligne doit Ãªtre cliquable pour aller sur le compte  -->
 
 
-                      <td>{{client.prenomClient}} {{client.nomClient}}</td>
-                 
-			           <td><label for="choixConseiller"> RÃ©affecter Ã   :&nbsp;</label>
-							        <select class="form-control">
-							           <option>{{conseiller.mle}} {{conseiller.nomConseiller}} </option>
-							          <option>{{conseiller.mle}} {{conseiller.nomConseiller}} </option>
-							          <option>{{conseiller.mle}} {{conseiller.nomConseiller}} </option>
-							          <option>{{conseiller.mle}} {{conseiller.nomConseiller}} </option>
-							          <option>{{conseiller.mle}} {{conseiller.nomConseiller}} </option>
-							          </select></td>
-			                      <td><button class="btn btn-secondary">Confirmer</button></td>
+			<td>{{client.prenomClient}} {{client.nomClient}}</td>
 
-			                    <!--   A chaque rÃ©affectation, le client concernÃ© est supprimÃ© de la liste de client attachÃ© au conseiller et donc apparait dans celle du nouveau conseiller.    -->            
-			                    </tr>
-			                </tbody>
-			            </table>
+			<td><label for="choixConseiller"> RÃ©affecter Ã  :&nbsp;</label>
+				<select class="form-control">
+					<option>{{conseiller.mle}} {{conseiller.nomConseiller}}</option>
+					<option>{{conseiller.mle}} {{conseiller.nomConseiller}}</option>
+					<option>{{conseiller.mle}} {{conseiller.nomConseiller}}</option>
+					<option>{{conseiller.mle}} {{conseiller.nomConseiller}}</option>
+					<option>{{conseiller.mle}} {{conseiller.nomConseiller}}</option>
+			</select></td>
+			<td><button class="btn btn-secondary">Confirmer</button></td>
 
-	       </div>
-	       <br>
-	       <button class="btn btn-secondary">Supprimer le conseiller</button>
-	       
+			<!--   A chaque réaffectation, le client concerné est supprimé de la liste de client attachÃ© au conseiller et donc apparait dans celle du nouveau conseiller.    -->
+			</tr>
+		</tbody>
+	</table>
+
+</div>
+<br>
+<button class="btn btn-secondary">Supprimer le conseiller</button>
+
 <!-- Mettre vÃ©rification que tous les clients ont Ã©tÃ© affectÃ©s Ã  un autre conseiller et donc supprimÃ©s de la liste des clients affectÃ©s pour supprimer le conseiller, sinon pas possible. -->
 </div>

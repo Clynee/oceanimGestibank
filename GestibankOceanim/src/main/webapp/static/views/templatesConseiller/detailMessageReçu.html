@@ -1,25 +1,18 @@
 <meta charset="UTF-8">
 <div>
-  <h3>Message reçu:</h3>
-	<div>
-		Message de {{message.prenomEmetteur}} {{client.nomEmetteur}}
-		le {{message.date}}
-		LibellÃ©: {{message.libelle}}
-	</div>
-	<div>
-		{{message.contenu}}
-	</div>
-	<button class="btn btn-secondary">RÃ©pondre</button>
-	<!-- La div du dessous ne s'affiche que quand on click sur rÃ©pondre -->
+	<h3>Message reçu:</h3>
+	<div>Message de {{message.prenomEmetteur}} {{client.nomEmetteur}}
+		le {{message.date}} Libellé: {{message.libelle}}</div>
+	<div>{{message.contenu}}</div>
+	<div></div>
+	<button class="btn btn-secondary">Répondre</button>
+	<!-- La div du dessous ne s'affiche que quand on click sur répondre -->
 	<div class="form-group">
-  			<label for="comment">Ma rÃ©ponse :</label><br>
-  				<label for="libelle">LibellÃ©</label>
-					<input class="form-control" type="text">
-					<br>
-					<br>
-  				<textarea class="form-control" rows="10" cols="60"></textarea>
-  			
-
+		<label for="comment">Ma réponse :</label><br> <label
+			for="libelle">Libellé</label> <input class="form-control" type="text">
+		<br> <br>
+		<textarea class="form-control" rows="10" cols="60"></textarea>
 
 	</div>
+</div>
 </div>

@@ -5,6 +5,7 @@ import java.util.List;
 import com.wha.springmvc.entities.Client;
 import com.wha.springmvc.entities.Compte;
 import com.wha.springmvc.entities.Conseiller;
+import com.wha.springmvc.entities.Document;
 import com.wha.springmvc.entities.Transaction;
 import com.wha.springmvc.entities.User;
 
@@ -62,6 +63,20 @@ public interface IBanqueService {
 	public void crediter(double montant,String cpte);
 	public void debiter(double montant,String cpte);
 	public void virement(double montant,String cpte1,String cpte2);
+	
+	
+	// Methodes Document Upload 
+	
+	  List<Document> findAllDoc();
+	    
+      Document findDocById(int id);
+    
+      void saveDoc(Document document);
+    
+      List<Document> findAllDocByUserId(long userId);
+    
+      void deleteDocById(int id);
+
 	
 	
 

@@ -29,7 +29,7 @@ public class Conseiller extends User implements Serializable {
 	//@GeneratedValue
 	@Column(name = "CODE_CONSEIL")
 	private Long codeConseiller;
-	private double salaire;
+	private Double salaire;
 	private Date dateCreation;
 	private Date dateMiseAjour;
 
@@ -72,11 +72,11 @@ public class Conseiller extends User implements Serializable {
 
 
 
-	public double getSalaire() {
+	public Double getSalaire() {
 		return salaire;
 	}
 
-	public void setSalaire(double salaire) {
+	public void setSalaire(Double salaire) {
 		this.salaire = salaire;
 	}
 

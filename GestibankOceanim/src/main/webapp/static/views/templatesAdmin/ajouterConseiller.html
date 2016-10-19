@@ -1,40 +1,38 @@
 <meta charset="UTF-8">
 <div id="formvisit">
-	<h3>Ajouter un conseiller </h3>
+	<h3>Ajouter un conseiller</h3>
 	<br>
-	<form  name="FormConseiller" ng-submit="formulaireConseiller(FormConseiller, name);" >
-<div class="row">
-    <div class="col-sm-6">
-		
-			<label for="name">Nom :&nbsp;</label>
-			<input class="form-control" type="text" name="name" placeholder="Champ obligatoire" ng-model="form.name" required="required"/>
-			<br>
-			<label for="email">Email : &nbsp;</label>
-			<input class="form-control" type="text" name="email" placeholder="Champ obligatoire" ng-model="form.email" required="required"/>
-			<br>
-			<label for="numrue">Numéro de rue : &nbsp;</label>
-			<input class="form-control" type="number" name="numrue" ng-model="form.numrue"/>
-			<br>
-			<label for="cp">Code postal: &nbsp;</label>
-			<input class="form-control" type="number" name="cp" ng-model="form.cp"/>
-			<br>
-			
-	</div>
-	<div class="col-sm-6">
-			<label for="lastname">Prénom :&nbsp;</label>
-			<input class="form-control" type="text" name="lastName" placeholder="Champ obligatoire" ng-model="form.lastname" required="required"/>
-			<br>
-			<label for="tel">Téléphone : &nbsp;</label>
-			<input class="form-control" type="number" name="tel" ng-model="form.telephone"/>
-			<br>
-			<label for="nomrue">Nom de la rue : &nbsp;</label>
-			<input class="form-control" type="text" name="nomrue" ng-model="form.nomrue"/>
-			<br>
-			<label for="ville">Ville :&nbsp; </label>
-			<input class="form-control" type="text" name="ville" ng-model="form.ville"/>
-			<br>
-			
-	</div>
+	<form name="FormConseiller"
+		ng-submit="formulaireConseiller(FormConseiller, name);">
+		<div class="row">
+			<div class="col-sm-6">
+
+				<label for="name">Nom :&nbsp;</label> <input class="form-control"
+					type="text" name="name" placeholder="Champ obligatoire"
+					ng-model="form.name" required="required" /> <br> <label
+					for="email">Email : &nbsp;</label> <input class="form-control"
+					type="text" name="email" placeholder="Champ obligatoire"
+					ng-model="form.email" required="required" /> <br> <label
+					for="numrue">Numéro de rue : &nbsp;</label> <input
+					class="form-control" type="number" name="numrue"
+					ng-model="form.numrue" /> <br> <label for="cp">Code
+					postal: &nbsp;</label> <input class="form-control" type="number" name="cp"
+					ng-model="form.cp" /> <br>
+
+			</div>
+			<div class="col-sm-6">
+				<label for="lastname">Prénom :&nbsp;</label> <input
+					class="form-control" type="text" name="lastName"
+					placeholder="Champ obligatoire" ng-model="form.lastname"
+					required="required" /> <br> <label for="tel">Téléphone
+					: &nbsp;</label> <input class="form-control" type="number" name="tel"
+					ng-model="form.telephone" /> <br> <label for="nomrue">Nom
+					de la rue : &nbsp;</label> <input class="form-control" type="text"
+					name="nomrue" ng-model="form.nomrue" /> <br> <label
+					for="ville">Ville :&nbsp; </label> <input class="form-control"
+					type="text" name="ville" ng-model="form.ville" /> <br>
+
+			</div>
 	</form>
 	<button class="btn btn-secondary">Valider</button>
 </div>

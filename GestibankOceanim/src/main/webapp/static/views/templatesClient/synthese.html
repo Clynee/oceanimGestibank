@@ -1,30 +1,33 @@
 <meta charset="utf-8">
 <h2>Synthèse de vos compte</h2>
 <div id="synthese" class="tab-pane fade in active">
-        		<table class="table table-striped">
-                <thead>
-                  <tr>
-                      <th>Type de compte</th>
-                      <th>N° de compte</th>
-                      <th>Solde</th>
-                      <th>Devise</th>
-                      <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-               <!--  Noter fonction ng-repeat dans le controller -->
-               <!-- Chaque ligne doit être cliquable pour aller sur l'historique du  compte clické <tr ng-repeat="(key,compte) in listComptesv | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
-                    <tr ng-repeat="(key,compte) in listComptes track by $index">
-                      <td>{{compte.codeCompte}}</td>
-                      <td>{{compte.codeCompte}}</td>
-                      <td>{{compte.solde |currency}}</td>
-                      <td>EUROS</td> 
-                      <td> <a ui-sref="espaceClient.historique({compte: compte,listComptes:listComptes})" href="#" class="btn btn-secondary" ng-click="consulter(compte.codeCompte)">Consulter</a></td>     
-                    </tr>
-                </tbody>
-            </table>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Type de compte</th>
+				<th>N° de compte</th>
+				<th>Solde</th>
+				<th>Devise</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--  Noter fonction ng-repeat dans le controller -->
+			<!-- Chaque ligne doit être cliquable pour aller sur l'historique du  compte clické <tr ng-repeat="(key,compte) in listComptesv | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
+			<tr ng-repeat="(key,compte) in listComptes track by $index">
+				<td>{{compte.codeCompte}}</td>
+				<td>{{compte.codeCompte}}</td>
+				<td>{{compte.solde |currency}}</td>
+				<td>EUROS</td>
+				<td><a
+					ui-sref="espaceClient.historique({compte: compte,listComptes:listComptes})"
+					href="#" class="btn btn-secondary"
+					ng-click="consulter(compte.codeCompte)">Consulter</a></td>
+			</tr>
+		</tbody>
+	</table>
 
-        	</div>
+</div>
 
 
 <!--  

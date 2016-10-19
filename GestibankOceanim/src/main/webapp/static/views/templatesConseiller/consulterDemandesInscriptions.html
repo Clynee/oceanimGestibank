@@ -1,63 +1,49 @@
 <meta charset="UTF-8">
 <div>
-  <h3>Demande d'inscription {{inscription.num}}</h3>
+	<h3>Demande d'inscription {{inscription.num}}</h3>
 	<div>
 		<div class="col-sm-6">
-				Nom : &nbsp;{{ficheInscription.nom}}
-				<br>
-				<br>
-        		Email : &nbsp;{{ficheInscription.email}}
-        		<br>
-        		<br>
-        		NumÃ©ro de la rue : &nbsp; {{ficheInscription.numRue}}
-        		<br>
-        		<br>
-        		Code postal : &nbsp;{{ficheInscription.cp}}&nbsp;&nbsp;&nbsp;
-        		<br>
-        		<br>
-        		Salaire net moyen : &nbsp;{{ficheInscription.salaire}}&nbsp;&nbsp;&nbsp;
-        		<br>
-        		<br>
-        		Situation matrimoniale : &nbsp; {{ficheInscription.situtionMatrimoniale}}
-        		<br>
-        		<br>
-        	</div>
-          	<div class="col-sm-6">
-          		PrÃ©nom : &nbsp; {{ficheInscription.prenom}}
-          		<br>
-          		<br>
-	            TÃ©lÃ©phone :&nbsp;{{ficheInscription.telephone}}
-	            <br>
-	            <br>
-	            Nom de la rue : &nbsp;{{ficheInscription.nomRue}}
-	            <br>
-	            <br>
-	            Ville :&nbsp;{{ficheInscription.ville}}
-	            <br>
-	            <br>
-	            Nombre d'enfants : &nbsp; {{ficheInscription.nbreEnfant}}
-	         </div>
-			<div>
-				
-					<h4>Documents téléchargés</h4>
-				
-					{{ficheInscriptions.documentsUploades}}
-			<br>
-			<br>
-					
-			</div>
+			Nom : &nbsp;{{ficheInscription.nom}} <br> <br> Email :
+			&nbsp;{{ficheInscription.email}} <br> <br> NumÃ©ro de la
+			rue : &nbsp; {{ficheInscription.numRue}} <br> <br> Code
+			postal : &nbsp;{{ficheInscription.cp}}&nbsp;&nbsp;&nbsp; <br> <br>
+			Salaire net moyen :
+			&nbsp;{{ficheInscription.salaire}}&nbsp;&nbsp;&nbsp; <br> <br>
+			Situation matrimoniale : &nbsp;
+			{{ficheInscription.situtionMatrimoniale}} <br> <br>
+		</div>
+		<div class="col-sm-6">
+			PrÃ©nom : &nbsp; {{ficheInscription.prenom}} <br> <br>
+			TÃ©lÃ©phone :&nbsp;{{ficheInscription.telephone}} <br> <br>
+			Nom de la rue : &nbsp;{{ficheInscription.nomRue}} <br> <br>
+			Ville :&nbsp;{{ficheInscription.ville}} <br> <br> Nombre
+			d'enfants : &nbsp; {{ficheInscription.nbreEnfant}}
+		</div>
+		<div>
+
+			<h4>Documents téléchargés</h4>
+
+			{{ficheInscriptions.documentsUploades}} <br> <br>
+
+		</div>
 	</div>
 	<div>
-			<label for="comment">Informations sur l'avancement de l'inscription : </label><br>
-  				<textarea class="form-control" rows="10" cols="60"></textarea>
-  				<button class="btn btn-secondary">Commenter</button>
-  				<!-- Le commentaire s'affiche sur la fiche du client cÃ´tÃ© conseiller et cÃ´tÃ© administrateur. -->
+		<label for="comment">Informations sur l'avancement de
+			l'inscription : </label><br>
+		<textarea class="form-control" rows="10" cols="60"></textarea>
+		<button class="btn btn-secondary">Commenter</button>
+		<!-- Le commentaire s'affiche sur la fiche du client cÃ´tÃ© conseiller et cÃ´tÃ© administrateur. -->
 	</div>
-  			
+
 	<div>
-			<button class="btn btn-secondary">Valider l'inscription</button>
+
+		<a ui-sref="consulterDemandesInscriptions.contacterClient" href="#"
+			class="btn btn-secondary" ng-click="contacterClient">Valider
+			l'inscription</a>
 		<!-- 	Inscrit le client dans les clients du conseiller/ impact sur administrateur gestion conseiller/ notif avec id et mdp envoyÃ© Ã  l'user. Change l'Ã©tat de la demande pour le conseiller et l'administrateur comme "validÃ©" Avant le choix du conseiller, la demande s'affiche comme "en attente" -->
-			<button class="btn btn-secondary">Contacter le demandeur</button>
-			<!-- transforme l'Ã©tat de la demande pour le conseiller et pour l'administrateur en "en cours de traitement" -->
+		<a ui-sref="consulterDemandesInscriptions.contacterClient" href="#"
+			class="btn btn-secondary" ng-click="contacterClient">Demander des
+			informations complémentaires</a>
+		<!-- transforme l'Ã©tat de la demande pour le conseiller et pour l'administrateur en "en cours de traitement" -->
 	</div>
-</div> 
+</div>

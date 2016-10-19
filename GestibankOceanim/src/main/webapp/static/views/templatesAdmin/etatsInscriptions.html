@@ -1,28 +1,33 @@
 <meta charset="UTF-8">
 <div>
 	<h3>Gestion des inscriptions</h3>
-          <table class="table table-striped">
-                <thead>
-                  <tr>
-                      <th>Date</th>
-                      <th>N° de la demande</th>
-                      <th>Demandeur</th>
-                      <th>Conseiller</th>
-                      <th>Etat de la demande</th>
-                      <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="(key,cpt) in listComptes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
-          
-                      <td>{{ins.dateDemande}}</td>
-                      <td>{{ins.num}}</td>
-                      <td>{{ins.nomDemandeur}}</td>
-                      <td>{{ins.nomConseiller}}</td>
-                      <td>{{ins.etat}}</td>
-                      <td><a ui-sref="espaceAdmin.consulterEtatDemande" href="#" class="btn btn-secondary" ng-click="consulterEtatDemande">Consulter</a></td>             
-                    </tr>
-                </tbody>
-            </table>
-             <ul ng-if="bigTotalItems > itemsPerPage" uib-pagination  total-items="bigTotalItems"  ng-model="bigCurrentPage" items-per-page= "itemsPerPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></ul>
-  </div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>N° de la demande</th>
+				<th>Demandeur</th>
+				<th>Conseiller</th>
+				<th>Etat de la demande</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr
+				ng-repeat="(key,ins) in listInscriptions | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
+
+				<td>{{ins.dateDemande}}</td>
+				<td>{{ins.num}}</td>
+				<td>{{ins.nomDemandeur}}</td>
+				<td>{{ins.nomConseiller}}</td>
+				<td>{{ins.etat}}</td>
+				<td><button ui-sref="espaceAdmin.consulterEtatDemande" href="#"
+						class="btn btn-secondary" ng-click="consulterEtatDemande">Consulter</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<ul ng-if="bigTotalItems > itemsPerPage" uib-pagination
+		total-items="bigTotalItems" ng-model="bigCurrentPage"
+		items-per-page="itemsPerPage" max-size="maxSize" class="pagination-sm"
+		boundary-links="true" rotate="false" num-pages="numPages"></ul>
+</div>

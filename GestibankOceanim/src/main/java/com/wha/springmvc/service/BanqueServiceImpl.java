@@ -21,6 +21,7 @@ import com.wha.springmvc.dao.IBanqueDao;
 import com.wha.springmvc.entities.Client;
 import com.wha.springmvc.entities.Compte;
 import com.wha.springmvc.entities.Conseiller;
+import com.wha.springmvc.entities.Document;
 import com.wha.springmvc.entities.Emis;
 import com.wha.springmvc.entities.Recu;
 import com.wha.springmvc.entities.Transaction;
@@ -214,6 +215,36 @@ public class BanqueServiceImpl implements IBanqueService{
 	@Override
 	public User updateUser(User user) {
 		return dao.updateUser(user);
+	}
+
+	@Override
+	public List<Document> findAllDoc() {
+		// TODO Auto-generated method stub
+		return dao.findAllDoc();
+	}
+
+	@Override
+	public Document findDocById(int id) {
+		// TODO Auto-generated method stub
+		return dao.findDocById(id);
+	}
+
+	@Override
+	public void saveDoc(Document document) {
+		// TODO Auto-generated method stub
+		dao.saveDoc(document);
+	}
+
+	@Override
+	public List<Document> findAllDocByUserId(long userId) {
+		// TODO Auto-generated method stub
+		return dao.findAllDocByUserId(userId);
+	}
+
+	@Override
+	public void deleteDocById(int id) {
+		// TODO Auto-generated method stub
+		dao.deleteDocById(id);
 	}
 
 	

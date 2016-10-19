@@ -1,5 +1,8 @@
 package com.wha.springmvc.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -12,6 +15,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
@@ -47,6 +51,16 @@ public class User{
 	@JoinColumn(name = "idAdresse")
 	*/
 	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Document> Documents = new HashSet<Document>();
+
+	public Set<Document> getDocuments() {
+		return Documents;
+	}
+
+	public void setDocuments(Set<Document> Documents) {
+		this.Documents = Documents;
+	}
 
 	private String email;
 	// @Transient

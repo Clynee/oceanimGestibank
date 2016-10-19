@@ -7,7 +7,9 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.stereotype.Service;
 
-import com.wha.springmvc.model.User;
+import com.wha.springmvc.entities.User;
+
+
 
 @Service("userService")
 public class UserServiceImpl implements UserService{
@@ -16,9 +18,6 @@ public class UserServiceImpl implements UserService{
 	
 	private static List<User> users;
 	
-	static{
-		users= populateDummyUsers();
-	}
 
 	public List<User> findAllUsers() {
 		return users;

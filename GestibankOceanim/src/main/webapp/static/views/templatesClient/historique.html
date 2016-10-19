@@ -1,33 +1,41 @@
 
 <meta charset="utf-8">
 <section class="pave">
-              <label for="accesCompte"> Accès rapide à  vos comptes :&nbsp;</label>
-              <select class="form-control" ng-model="compteSelected" ng-options ="compte.codeCompte for compte in listComptes" ng-change="getOperations()">
-                  <option  ng-value= {{compte}} ng-selected="{{compte.codeCompte == compteSelected.codeCompte}}" >
-                  {{compteSelected.codeCompte}} 
-                  </option>
-              </select>
-              <!-- Type et num du compte dont s'affiche l'historique: -->
-                <h4>Compte {{compteSelected.codeCompte}} {{compteSelected.codeCompte}} &nbsp; &nbsp; &nbsp;solde au {{date | date:'yyyy-MM-dd HH:mm:ss'}} &nbsp; &nbsp; &nbsp;{{compteSelected.solde |currency}} </h4><br>
-                <h4>Découvert autorisé : &nbsp; {{compteSelected.decouvert |currency}}</h4>
-            <table class="table table-striped" id="historique">
-              <thead>
-              <th>Historique des opérations</th>
-                <tr>
-                  <th>Date</th>
-                  <th>Libellé</th>
-                  <th>Montant en Euros</th>
-                </tr>
-                </thead>
-                <tbody>
-                   <!--  <tr ng-repeat="(key,transaction) in transactions | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
-                   <tr ng-repeat="(key,transaction) in listOperations  track by $index">
-                  			<td>{{transaction.dateOperation | date:'yyyy-MM-dd HH:mm:ss'}} </td>
-                              <td>{{transaction.libelle}} </td>
-                              <td>{{transaction.montant |currency }}</td>            
-                     </tr>
-                </tbody>
-            </table>
-            <!-- GRAPHIQUE
+	<label for="accesCompte"> Accès rapide à  vos comptes :&nbsp;</label> <select
+		class="form-control" ng-model="compteSelected"
+		ng-options="compte.codeCompte for compte in listComptes"
+		ng-change="getOperations()">
+		<option ng-value={{compte}}
+			ng-selected="{{compte.codeCompte == compteSelected.codeCompte}}">
+			{{compteSelected.codeCompte}}</option>
+	</select>
+	<!-- Type et num du compte dont s'affiche l'historique: -->
+	<h4>Compte {{compteSelected.codeCompte}}
+		{{compteSelected.codeCompte}} &nbsp; &nbsp; &nbsp;solde au {{date |
+		date:'yyyy-MM-dd HH:mm:ss'}} &nbsp; &nbsp;
+		&nbsp;{{compteSelected.solde |currency}}</h4>
+	<br>
+	<h4>Découvert autorisé : &nbsp; {{compteSelected.decouvert
+		|currency}}</h4>
+	<table class="table table-striped" id="historique">
+		<thead>
+			<th>Historique des opérations</th>
+			<tr>
+				<th>Date</th>
+				<th>Libellé</th>
+				<th>Montant en Euros</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--  <tr ng-repeat="(key,transaction) in transactions | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
+			<tr ng-repeat="(key,transaction) in listOperations  track by $index">
+				<td>{{transaction.dateOperation | date:'yyyy-MM-dd HH:mm:ss'}}
+				</td>
+				<td>{{transaction.libelle}}</td>
+				<td>{{transaction.montant |currency }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- GRAPHIQUE
             TELECHARGEMENT RELEVE MENSUEL EN PDF POUR IMPRESSION -->
-        </section>
+</section>

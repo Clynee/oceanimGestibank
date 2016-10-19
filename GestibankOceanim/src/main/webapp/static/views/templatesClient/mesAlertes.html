@@ -2,70 +2,69 @@
 <!-- Ici j'ai fait 3 tableaux distincts afin de classifier les notifications reçues par le client (mouvements du compte car quand un virement passe, il reçoit une alerte; état de ses demandes: commande de chéquier ou autre envoi notif pour dire ok; et les messages de son conseiller) -->
 <div>
 	<div>
-	<h2>Mes alertes</h2>
+		<h2>Mes alertes</h2>
 		<h4>Mouvements de mon compte</h4>
-			<table class="table table-striped">
-	                <thead>
-	                  <tr>
-	                      <th>Date</th>
-	                      <th>Libellé</th>
-	                  </tr>
-	                </thead>
-	                <tbody>
-	               <!--  Noter fonction ng-repeat dans le controller -->
-	               		<tr>
-	                      <td>{{notification.dateNotif}}</td>
-	                      <td>{{notification.libelleNotif}}</td>
-	                    </tr>
-	                </tbody>
-	        </table>
-     </div>
-        <br>
-        <br>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Libellé</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--  Noter fonction ng-repeat dans le controller -->
+				<tr>
+					<td>{{notification.dateNotif}}</td>
+					<td>{{notification.libelleNotif}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br> <br>
 
-    <div>
-    	<h4>Etat de mes demandes</h4>
-	        <table class="table table-striped">
-	        	<thead>
-	                  <tr>
-	                      <th>Date</th>
-	                      <th>N° de la demande</th>
-	                      <th>Libellé</th>
-	                      <th>Etat</th>
-	                  </tr>
-	                </thead>
-	                <tbody>
-	               <!--  Noter fonction ng-repeat dans le controller -->
-	                      <td>{{notification.dateNotif}}</td>
-	                      <td>{{demande.num}}</td>
-	                      <td>{{notification.libelleNotif}}</td>
-	                      <td>{{demande.etat}}</td>
-	                    </tr>
-	                </tbody>
-	        </table>
-    </div>
-    <div>
-    	<h4>Messages de mon conseiller</h4>
-    		<table class="table table-striped">
-    			<thead>
-	                  <tr>
-	                      <th>Date</th>
-	                      <th>Libellé</th>
-	                      <th></th>
-	                  </tr>
-	                </thead>
-	                <tbody>
-	               <!--  Noter fonction ng-repeat dans le controller -->
-	                      <td>{{notification.dateNotif}}</td>
-	                      <td>{{notification.libelleNotif}}</td>
-	                      <td><a ui-sref="espaceClient.messagesConseiller" href="#" class="btn btn-secondary" ng-click="messagesConseiller">Consulter</a></td>
-	                    </tr>
-	                </tbody>
-    		</table>
-    </div>
+	<div>
+		<h4>Etat de mes demandes</h4>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>N° de la demande</th>
+					<th>Libellé</th>
+					<th>Etat</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--  Noter fonction ng-repeat dans le controller -->
+				<td>{{notification.dateNotif}}</td>
+				<td>{{demande.num}}</td>
+				<td>{{notification.libelleNotif}}</td>
+				<td>{{demande.etat}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<h4>Messages de mon conseiller</h4>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Libellé</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--  Noter fonction ng-repeat dans le controller -->
+				<td>{{notification.dateNotif}}</td>
+				<td>{{notification.libelleNotif}}</td>
+				<td><a ui-sref="espaceClient.messagesConseiller" href="#"
+					class="btn btn-secondary" ng-click="messagesConseiller">Consulter</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
 
 <!-- 
 <img src="static/images/chantier.jpg" style="width: 804px; height: 408px">
 -->
- 
