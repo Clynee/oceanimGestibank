@@ -266,4 +266,34 @@ return (List<Conseiller>) q.getResultList();
 		
 	}
 
+	@Override
+	public List<Document> findAllDoc() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Document findDocById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void saveDoc(Document document) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Document> findAllDocByUserId(long userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteDocById(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

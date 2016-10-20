@@ -6,18 +6,25 @@
 	</center>
 	<center>
 		<label for="editerRIB"> Choix du compte :&nbsp;</label> <select
-			class="form-control">
-			<option>{{compte.typeCompte}} {{compte.numCompte}} Compte
-				courant 12345678910 &nbsp;&nbsp;&nbsp;</option>
-			<option>{{compte.typeCompte}} {{compte.numCompte}} Compte
-				courant 6574352689 &nbsp;&nbsp;&nbsp;</option>
-		</select><br>
-		<br>
-		<button class="btn btn-secondary">Confirmer</button>
+			class="form-control" ng-model="compteSelected"
+			ng-options="compte.codeCompte for compte in listComptes"> <
+			<option ng-value={{compte}}
+				ng-selected="{{compte.codeCompte == compteSelected.codeCompte}}">
+				{{compteSelected.codeCompte}}</option>
+		</select><br> <br>
+		<form>
+			<button class="btn btn-secondary" ng-click="showme=true">Afficher
+				le RIB</button>
+		</form>
 	</center>
+
+	<div ng-show="showme">
+		Compte {{compteSelected.codeCompte}}
+		{{compteSelected.codeCompte}}
+		
+		<a href="#" OnClick="javascript:window.print()">Imprimer</a>
+	</div>
+	
 </div>
-
-
-
 
 

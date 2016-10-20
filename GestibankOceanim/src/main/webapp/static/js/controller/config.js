@@ -172,15 +172,27 @@ App
 							{
 								url : '/syntheseComptesClient',
 								templateUrl : 'static/views/templatesConseiller/syntheseComptesClient.html',
-								controller : ' syntheseComptesClientCtrl'
+								controller : ''
 							})
 
 					.state(
-							'espaceConseiller.contacterClient',
+							'espaceConseiller.contacterDemandeurInscription',
 							{
-								url : '/contacterClient',
-								templateUrl : 'static/views/templatesConseiller/contacterClient.html',
-								controller : ' contacterClientCtrl'
+								url : '/contacterDemandeurInscription',
+								templateUrl : 'static/views/templatesConseiller/contacterDemandeurInscription.html',
+								controller : 'contacterDemandeurInscriptionCtrl'
+							})
+							
+							.state(
+							'espaceConseiller.historiqueConseiller',
+							{
+								url : '/historiqueConseiller',
+								params : {
+									compte : null,
+									listComptes : null
+								},
+								templateUrl : 'static/views/templatesConseiller/historiqueConseiller.html',// 'partial-home-list.html',
+								controller : 'historiqueConseillerCrtl'
 							})
 
 					/*-------------------------------------------------------*/

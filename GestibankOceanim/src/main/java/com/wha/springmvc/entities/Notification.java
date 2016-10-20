@@ -2,7 +2,7 @@ package com.wha.springmvc.entities;
 
 public class Notification {
 
-	
+//	TOI
 	   private String notifId;
      
 	    private String notificationName;

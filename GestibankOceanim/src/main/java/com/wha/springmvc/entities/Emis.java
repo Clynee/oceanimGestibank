@@ -20,7 +20,7 @@ public class Emis extends Transaction {
 	public Emis(double montant) {
 		super(-montant);
 		setTypeTransaction(TypeTransaction.EMIS);
-		setLibelle("Virment vers : ");
+		setLibelle("Virement vers : ");
 	}
 
 	@Override

@@ -19,10 +19,10 @@
 				<td>{{compte.codeCompte}}</td>
 				<td>{{compte.solde |currency}}</td>
 				<td>EUROS</td>
-				<td><a
+				<td><button
 					ui-sref="espaceClient.historique({compte: compte,listComptes:listComptes})"
 					href="#" class="btn btn-secondary"
-					ng-click="consulter(compte.codeCompte)">Consulter</a></td>
+					ng-click="consulter(compte.codeCompte)">Consulter</button></td>
 			</tr>
 		</tbody>
 	</table>

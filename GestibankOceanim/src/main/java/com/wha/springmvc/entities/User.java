@@ -19,6 +19,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "ROLE", discriminatorType = DiscriminatorType.STRING, length = 2)
@@ -53,7 +55,7 @@ public class User{
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Document> Documents = new HashSet<Document>();
-
+	@JsonIgnore
 	public Set<Document> getDocuments() {
 		return Documents;
 	}

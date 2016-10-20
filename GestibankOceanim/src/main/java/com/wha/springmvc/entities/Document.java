@@ -12,6 +12,8 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -35,6 +37,7 @@ public class Document {
 	    @Column(name="content", nullable=false)
 	    private byte[] content;
 	 
+	    
 	    @ManyToOne(optional = false)
 	    @JoinColumn(name = "USER_ID")
 	    private User user;
@@ -79,7 +82,7 @@ public class Document {
 	    public void setContent(byte[] content) {
 	        this.content = content;
 	    }
-	 
+	    @JsonIgnore
 	    public User getUser() {
 	        return user;
 	    }
