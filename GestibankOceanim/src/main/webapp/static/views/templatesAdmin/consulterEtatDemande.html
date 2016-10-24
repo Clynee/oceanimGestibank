@@ -13,28 +13,28 @@
 		</thead>
 		<tbody>
 			<!--   PAS DE BOUCLE ICI SEULES LES INFOS DE LA DEMANDE SELECTIONNEE SONT AFFICHEES -->
-			<td>{{demandeInscription.dateDemande}}</td>
-			<td>{{inscription.num}}</td>
-			<td>{{demandeInscription.user}}</td>
-			<td>{{demandeInscription.conseillerAffecte}}</td>
-			<td>{{demandeInscription.etat}}</td>
+			<td>{{demande.dateDemande | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+			<td>{{demande.ref}}</td>
+			<td>{{demande.ficheInsc.nom}} {{demande.ficheInsc.prenom}}</td>
+			<td>{{demande.exp.nom}} {{demande.exp.prenom}} </td>
+			<td>{{demande.etatDemande}}</td>
 		</tbody>
 	</table>
 	<div>
 		<div class="col-sm-6">
-			Nom : &nbsp;{{ficheInscription.nom}} <br> <br> Email :
-			&nbsp;{{ficheInscription.email}} <br> <br> Numéro de la rue
-			: &nbsp; {{ficheInscription.numRue}} <br> <br> Code postal
-			: &nbsp;{{ficheInscription.cp}}&nbsp;&nbsp;&nbsp; <br> <br>
+			Nom : &nbsp;{{demande.ficheInsc.nom}} <br> <br> Email :
+			&nbsp;{{demande.ficheInsc.email}} <br> <br> Numéro de la rue
+			: &nbsp; {{demande.ficheInsc.adresse.numDeRue}} <br> <br> Code postal
+			: &nbsp;{{demande.ficheInsc.adresse.codePostale}}&nbsp;&nbsp;&nbsp; <br> <br>
 			Situation matrimoniale : &nbsp;
-			{{ficheInscription.situtionMatrimoniale}} <br> <br>
+			{{demande.ficheInsc.situationMaritale}} <br> <br>
 		</div>
 		<div class="col-sm-6">
-			Prénom : &nbsp; {{ficheInscription.prenom}} <br> <br>
-			Téléphone :&nbsp;{{ficheInscription.telephone}} <br> <br>
-			Nom de la rue : &nbsp;{{ficheInscription.nomRue}} <br> <br>
-			Ville :&nbsp;{{ficheInscription.ville}} <br> <br> Nombre
-			d'enfants : &nbsp; {{ficheInscription.nbreEnfant}}
+			Prénom : &nbsp; {{demande.ficheInsc.prenom}} <br> <br>
+			Téléphone :&nbsp;{{demande.ficheInsc.tel}} <br> <br>
+			Nom de la rue : &nbsp;{{demande.ficheInsc.adresse.nomRue}} <br> <br>
+			Ville :&nbsp;{{demande.ficheInsc.adresse.ville}} <br> <br> Nombre
+			d'enfants : &nbsp; {{demande.ficheInsc.nbrEnfants}}
 		</div>
 		<br> <br>
 	</div>
@@ -51,16 +51,13 @@
 	</div>
 	<br> <br>
 	<div>
-		<label for="choixConseiller"> Réaffecter à  :&nbsp;</label> <select
-			class="form-control">
-			<option>{{conseiller.mle}} {{conseiller.nomConseiller}}</option>
-			<option>{{conseiller.mle}} {{conseiller.nomConseiller}}</option>
-			<option>{{conseiller.mle}} {{conseiller.nomConseiller}}</option>
-			<option>{{conseiller.mle}} {{conseiller.nomConseiller}}</option>
-			<option>{{conseiller.mle}} {{conseiller.nomConseiller}}</option>
-		</select>
+		<label for="choixConseiller"> Réaffecter à  :&nbsp;</label> 
+		<select class="form-control" ng-model="conseillerSelected"
+					ng-options="conseiller.username for conseiller in listConseillers">
+						<option>{{conseiller.username}}</option>
+				</select>
 		</td>
-		<td><button class="btn btn-secondary">Confirmer</button>
+		<td><button class="btn btn-secondary" ng-click="affecter({idDemande:demande.ref,idConseiller:conseillerSelected.id})">Confirmer</button>
 	</div>
 
 </div>

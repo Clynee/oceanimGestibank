@@ -4,9 +4,7 @@
 	<h4>Envoi d'un message à  {{client.prenom}} {{client.nom}}</h4>
 	<div>
 		<label for="comment">Message: </label><br>
-		<textarea class="form-control" rows="10" cols="60"></textarea>
-		<button class="btn btn-secondary">Envoyer</button>
+		<textarea class="form-control" ng-model = "message.contenu" rows="10" cols="60"></textarea><br>
+		<button class="btn btn-secondary" ng-click="envoyerMessage(message)">Envoyer</button>
 	</div>
-
-	<!-- Message envoyÃ© au client dans mes alertes et va se mettre dans Mes messages du conseiller "messages envoyÃ©s" -->
 </div>

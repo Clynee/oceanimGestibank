@@ -1,32 +1,55 @@
 <meta charset="utf-8">
 <section class="FormulaireVisiteur">
 	<div class="row" id="formvisit">
-		<h3>Ouvrir un compte</h3>
+	 	<h3>Ouvrir un compte</h3>
 		<form name="FormVisiteur"
-			ng-submit="formulaireVisiteur(FormVisiteur, name);">
+
+			ng-submit="inscription(form);">
 			<div class="col-sm-6">
 				<label for="name">Nom :</label> <input class="form-control"
 					type="text" name="name" placeholder="Champ obligatoire"
-					ng-model="form.name" required="required" /> <br> <label
+					ng-model="form.nom" required="required" /> <br> <label
 					for="email">Email :</label> <input class="form-control" type="text"
 					name="email" placeholder="Champ obligatoire" ng-model="form.email"
 					required="required" /> <br> <label for="numrue">Numéro
 					de rue : </label> <input class="form-control" type="number" name="numrue"
-					ng-model="form.numrue" /> <br> <label for="cp">Code
+					ng-model="form.adresse.numDeRue" /> <br> <label for="cp">Code
 					postal: </label> <input class="form-control" type="number" name="cp"
-					ng-model="form.cp" /> <label for="salaire">Salaire moyen
+					ng-model="form.adresse.codePostale" /> <label for="salaire">Salaire moyen
 					net</label><input class="form-control" type="text" name="salaire"
-					ng-model="form.salaire" />EUROS <br>
-				<label for="situation matrimoniale"> Situation matrimoniale
-					:&nbsp;</label> <select class="form-control">
-					<option>Célibataire</option>
-					<option>Concubinage</option>
-					<option>Pacte civil de solidarité</option>
-					<option>Vie maritale</option>
+					ng-model="form.salaireMoyen" />EUROS <br> <label
+					for="situation matrimoniale"> Situation matrimoniale
+					:&nbsp;</label> <select class="form-control" ng-model="form.situationMaritale">
+					<option value="Célibataire">Célibataire</option>
+					<option value="Concubinage">Concubinage</option>
+					<option value="Pacte civil de solidarité">Pacte civil de solidarité</option>
+					<option value="Vie maritale">Vie maritale</option>
 				</select>
 			</div>
-			<br>
+			  <br>
+			   
 			<div class="col-sm-6">
+				<label for="lastname">Prénom :</label> <input class="form-control"
+					type="text" name="lastName" placeholder="Champ obligatoire"
+					ng-model="form.prenom" required="required" /> <br> <label
+					for="tel">Téléphone : </label> <input class="form-control"
+					type="number" name="tel" ng-model="form.tel" /> <br> <label
+					for="nomrue">Nom de la rue : </label> <input class="form-control"
+					type="text" name="nomrue" ng-model="form.adresse.nomRue" /> <br> <label
+					for="ville">Ville : </label> <input class="form-control"
+					type="text" name="ville" ng-model="form.adresse.ville" /> <label
+					for="nombre d'enfants"> Nombre d'enfants :&nbsp;</label> <select
+					class="form-control" ng-model="form.nbrEnfants">
+					<option value ="0">0</option>
+					<option value ="1">1</option>
+					<option value ="2">2</option>
+					<option value ="3">3</option>
+					<option value ="4">4</option>
+					<option value ="5"> 5 et plus</option> 
+					</select>
+ 				
+ 				 <!--
+			 <div class="col-sm-6">
 				<label for="lastname">Prénom :</label> <input class="form-control"
 					type="text" name="lastName" placeholder="Champ obligatoire"
 					ng-model="form.lastname" required="required" /> <br> <label
@@ -36,16 +59,18 @@
 					type="text" name="nomrue" ng-model="form.nomrue" /> <br> <label
 					for="ville">Ville : </label> <input class="form-control"
 					type="text" name="ville" ng-model="form.ville" /> <label
-					for="nombre d'enfants"> Nombre d'enfants :&nbsp;</label> <select
-					class="form-control">
+					for="nombre d'enfants"> Nombre d'enfants :&nbsp;</label> 
+				<select class="form-control">
 					<option>0</option>
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
 					<option>4</option>
 					<option>5 et plus</option>
+
 				</select>
-			</div>
+				-->
+			</div> 
 		</form>
 	</div>
 	<div class="row">
@@ -60,10 +85,13 @@
 
 		<center>
 			<button class="btn btn-primary btn-lg"
-				ng-disabled="FormVisiteur.$invalid">Valider</button>
+				ng-disabled="FormVisiteur.$invalid" ng-click="inscription(form)">Valider</button>
 			<!--Ici mettre fonction reset sur le bouton réinitialiser-->
-			<button ng-click="resetForm()" ng-disabled="!isPersonChanged()"
-				class="btn btn-primary btn-lg ">Réinitialiser</button>
+
+			<button ng-click="reinitialiser()" class="btn btn-primary btn-lg"> Réinitialiser</button>
+			<!--  
+			<button ng-click="resetForm()" ng-disabled="!isPersonChanged()" class="btn btn-primary btn-lg ">Réinitialiser</button>
+			-->
 		</center>
 	</div>
 

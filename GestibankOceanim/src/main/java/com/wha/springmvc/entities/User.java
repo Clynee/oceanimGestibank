@@ -1,6 +1,7 @@
 package com.wha.springmvc.entities;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -33,7 +34,14 @@ public class User{
 	private String nom;
 	private String prenom;
 	private String tel;
-
+	private String email;
+	
+	
+	
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "Exp")
+	private List<Demande> demandes;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinTable(
@@ -53,6 +61,10 @@ public class User{
 	@JoinColumn(name = "idAdresse")
 	*/
 	
+	
+	
+	
+	@JsonIgnore
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Document> Documents = new HashSet<Document>();
 	@JsonIgnore
@@ -64,7 +76,7 @@ public class User{
 		this.Documents = Documents;
 	}
 
-	private String email;
+	
 	// @Transient
 
 	// @Transient
@@ -74,10 +86,10 @@ public class User{
 		id = 0;
 	}
 
-	public User(long id, String username, Adresse address, String email) {
+	public User(long id, String username, String email) {
 		this.id = id;
 		this.username = username;
-		this.address = address;
+		//this.address = address;
 		this.email = email;
 	}
 

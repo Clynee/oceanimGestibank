@@ -18,14 +18,25 @@ import org.springframework.transaction.annotation.Transactional;
 //et ca grace a la dependence que ont a ajouter ds le fichier pom.xml:spring-tx
 
 import com.wha.springmvc.dao.IBanqueDao;
+import com.wha.springmvc.entities.Admin;
 import com.wha.springmvc.entities.Client;
 import com.wha.springmvc.entities.Compte;
 import com.wha.springmvc.entities.Conseiller;
+import com.wha.springmvc.entities.Demande;
+import com.wha.springmvc.entities.DemandeChequier;
+import com.wha.springmvc.entities.DemandeInscription;
 import com.wha.springmvc.entities.Document;
 import com.wha.springmvc.entities.Emis;
+import com.wha.springmvc.entities.FicheInscription;
+import com.wha.springmvc.entities.Message;
+import com.wha.springmvc.entities.Notification;
+import com.wha.springmvc.entities.NotificationDemande;
+import com.wha.springmvc.entities.NotificationMessage;
+import com.wha.springmvc.entities.NotificationTransaction;
 import com.wha.springmvc.entities.Recu;
 import com.wha.springmvc.entities.Transaction;
 import com.wha.springmvc.entities.User;
+import com.wha.springmvc.enums.EtatDemande;
 
 @Service("banqueService")
 @Transactional
@@ -40,6 +51,41 @@ public class BanqueServiceImpl implements IBanqueService{
 	}
 	
 	//les methodes
+	
+	
+	@Override
+	public void inscription(FicheInscription fiche) {
+		
+		DemandeInscription demande = new DemandeInscription();
+		
+		Admin admin = (Admin)dao.getUser(1L);
+		demande.setExp(admin);
+		demande.setMessage("Une nouvelle demande");
+		demande.setDateDemande(new java.util.Date());
+		demande.setFicheInsc(fiche);
+		ajouterDemande(demande);
+	}
+	
+	
+	@Override
+	public User ajouterUser(User user) {
+		return dao.ajouterUser(user);
+	}
+	
+	@Override
+	public Demande affectDemandeToUser(Integer idDemande, Long idConseiller) {
+		return dao.affectDemandeToUser(idDemande, idConseiller);
+	}
+
+	@Override
+	public List<Demande> getDemandeByUser(long idUser) {
+		return dao.getDemandeByUser(idUser);
+	}
+	
+	@Override
+	public Demande ajouterDemande(Demande demande) {
+		return dao.ajouterDemande(demande);
+	}
 	
 	@Override
 	
@@ -111,10 +157,19 @@ public class BanqueServiceImpl implements IBanqueService{
 			opEmis.setLibelle(opEmis.getLibelle() + cpte2);
 			Recu opRecu = new Recu(montant);
 			opRecu.setLibelle(opRecu.getLibelle() + cpte1);
-			dao.ajouterOperation(opEmis, cpte1);
+			Transaction tra = dao.ajouterOperation(opEmis, cpte1);
+			if(tra!=null){
 			dao.ajouterOperation(opRecu, cpte2);
 			//debiter(montant,cpte1);
 			//crediter(montant,cpte2);
+			Compte c = consulterCompte(cpte2);
+			Compte c1 = consulterCompte(cpte1);
+			NotificationTransaction notif = new NotificationTransaction();
+			notif.setLibelle("Vous avez reçu un virement de " + c1.getClient().getNom() + "  " +c1.getClient().getPrenom());
+			notif.setTransaction(opRecu);
+			notif.setDestinateur(c.getClient());
+			ajouterNotification(notif);
+			}
 		}
 	}
 
@@ -245,6 +300,86 @@ public class BanqueServiceImpl implements IBanqueService{
 	public void deleteDocById(int id) {
 		// TODO Auto-generated method stub
 		dao.deleteDocById(id);
+	}
+
+	@Override
+	public List<Demande> getDemandesAffectes(long idUser) {
+		
+		return dao.getDemandesAffectes(idUser);
+	}
+
+	@Override
+	public Notification ajouterNotification(Notification notif) {
+		// TODO Auto-generated method stub
+		return dao.ajouterNotification(notif);
+	}
+
+	@Override
+	public Message ajouterMessage(Message message) {
+		// TODO Auto-generated method stub
+		return dao.ajouterMessage(message);
+	}
+
+	@Override
+	public List<Notification> getNotificationsByDestinateur(long idUser) {
+		// TODO Auto-generated method stub
+		return dao.getNotificationsByDestinateur(idUser);
+	}
+
+	@Override
+	public void commanderChequier(Compte compte) {
+		Compte c = consulterCompte(compte.getCodeCompte());
+		DemandeChequier demande = new DemandeChequier();
+		demande.setCompte(c);
+		Conseiller cons = dao.findConseillerById(c.getClient().getConseiller().getId());
+		demande.setExp(cons);
+		ajouterDemande(demande);
+	}
+
+	@Override
+	public void confirmerDemande(Demande demande) {
+		Demande d = findDemandeByRef(demande.getRef());
+		d.setEtatDemande(EtatDemande.Validee);
+		NotificationDemande notif = new NotificationDemande("Votre demande de "+ d.getType() + " a été validée");
+		notif.setDemande(d);
+		notif.setDestinateur(((DemandeChequier)d).getCompte().getClient());
+		ajouterNotification(notif);
+	}
+
+	@Override
+	public Demande findDemandeByRef(int ref) {
+		return dao.findDemandeByRef(ref);
+	}
+
+	@Override
+	public void envoyerMessage(Message message, User cli) {
+		User u = findUserById(cli.getId());
+		NotificationMessage notif = new NotificationMessage();
+		message.setConcerne(u);
+		ajouterMessage(message);
+		notif.setMessage(message);
+		notif.setLibelle("Message de votre conseiller");
+		notif.setDestinateur(u);
+		ajouterNotification(notif);
+	}
+
+	@Override
+	public User findUserById(long id) {
+		return dao.getUser(id);
+	}
+
+	@Override
+	public void envoyerMessage(Message message) {
+		User u = findUserById(message.getConcerne().getId());
+		NotificationMessage notif = new NotificationMessage();
+		
+		message.setConcerne(u);
+		ajouterMessage(message);
+		notif.setMessage(message);
+		notif.setLibelle("Message de votre conseiller");
+		notif.setDestinateur(u);
+		ajouterNotification(notif);
+		
 	}
 
 	

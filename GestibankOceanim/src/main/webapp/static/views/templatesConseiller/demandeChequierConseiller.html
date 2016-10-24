@@ -1,12 +1,11 @@
 <meta charset="UTF-8">
 <div>
-
 	<h3>Demande de chéquier</h3>
-	<h4>Demande {{numDemande}}</h4>
-	Demande de {{client.prenom}} {{client.nom}} Le {{dem.date}} Concernant
-	le compte : {{client.numCompte}}
+	<h4>Demande {{demande.ref}}</h4>
+	Demande de {{demande.compte.client.nom}} {{demande.compte.client.prenom}}  Le {{demande.dateDemande | date:'yyyy-MM-dd HH:mm:ss'}} Concernant
+	le compte : {{demande.compte.codeCompte}}
 	<div>
-		<button class="btn btn-secondary">Commander</button>
+		<button class="btn btn-secondary" ng-click="confirmerDemande(demande)">Commander</button>
 		<!-- Envoi notification au client rÃ©ception sous 5 jours par courrier -->
 		<!-- Indique dans tableau du conseiller demandeClients.html dans la colonne Etat : acceptÃ©e -->
 		<button class="btn btn-secondary>">Refuser</button>

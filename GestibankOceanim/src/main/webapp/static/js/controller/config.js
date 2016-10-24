@@ -20,7 +20,7 @@ App
 					.state('espaceAdmin', {
 						url : '/admin',
 						templateUrl : 'static/views/espaceAdmin.html',
-						controller : ''
+						controller : 'adminCtrl'
 					})
 
 					.state(
@@ -35,16 +35,19 @@ App
 							'espaceAdmin.nouvellesInscriptions',
 							{
 								url : '/nouvellesInscriptions',
+								params : {
+									demandesInscription : null,
+									listConseillers : null
+								},
 								templateUrl : 'static/views/templatesAdmin/nouvellesInscriptions.html',// 'partial-home-list.html',
-								controller : ''
+								controller : 'demandesInscriptionsCtrl'
 							})
-
 					.state(
 							'espaceAdmin.etatsInscriptions',
 							{
 								url : '/etatsInscriptions',
 								templateUrl : 'static/views/templatesAdmin/etatsInscriptions.html',// 'partial-home-list.html',
-								controller : ''
+								controller : 'etatsInscriptionsCtrl'
 							})
 
 					.state(
@@ -58,6 +61,9 @@ App
 							'espaceAdmin.consulterEtatDemande',
 							{
 								url : '/consulterEtatDemande',
+								params : {
+									demande : null
+								},
 								templateUrl : 'static/views/templatesAdmin/consulterEtatDemande.html',
 								controller : 'consulterEtatDemandeCtrl'
 							})
@@ -84,6 +90,11 @@ App
 							'espaceConseiller.demandesClients',
 							{
 								url : '/demandesclients',
+								params: {
+									demandesChequier:null,
+									demandesModif:null,
+									demandesNCompte:null
+								},
 								templateUrl : 'static/views/templatesConseiller/demandesClients.html',// 'partial-home-list.html',
 								controller : 'demandesClientsCtrl'
 							})
@@ -104,6 +115,9 @@ App
 							'espaceConseiller.inscriptions',
 							{
 								url : '/inscriptions',
+								params : {
+									demandesInscription : null
+								},
 								templateUrl : 'static/views/templatesConseiller/inscriptions.html',// 'partial-home-list.html',
 								controller : 'inscriptionsCtrl'
 							})
@@ -113,16 +127,16 @@ App
 							{
 								url : '/messages',
 								templateUrl : 'static/views/templatesConseiller/messages.html',// 'partial-home-list.html',
-								controller : function($scope) {
-									$scope.dogs = [ 'Bernese', 'Husky',
-											'Goldendoodle' ];
-								}
+								controller : 'messagesCtrl'
 							})
 
 					.state(
 							'espaceConseiller.demandeChequierConseiller',
 							{
 								url : '/demandeChequierConseiller',
+								params : {
+									demande : null
+								},
 								templateUrl : 'static/views/templatesConseiller/demandeChequierConseiller.html',
 								controller : 'demandeChequierConseillerCtrl'
 							})
@@ -163,6 +177,9 @@ App
 							'espaceConseiller.consulterDemandesInscriptions',
 							{
 								url : '/consulterDemandesInscriptions',
+								params : {
+									demande : null							
+								},
 								templateUrl : 'static/views/templatesConseiller/consulterDemandesInscriptions.html',
 								controller : 'consulterDemandesInscriptionsCtrl'
 							})
@@ -193,6 +210,17 @@ App
 								},
 								templateUrl : 'static/views/templatesConseiller/historiqueConseiller.html',// 'partial-home-list.html',
 								controller : 'historiqueConseillerCrtl'
+							})
+							
+					.state(
+							'espaceConseiller.contacterClient',
+							{
+								url : '/contacterClient',
+								params : {
+									client : null
+								},
+								templateUrl : 'static/views/templatesConseiller/contacterClient.html',
+								controller : 'contacterClientCtrl'
 							})
 
 					/*-------------------------------------------------------*/
@@ -238,33 +266,34 @@ App
 							'espaceClient.demandeModifCompte',
 							{
 								url : '/demandeModifCompte',
+								params : {
+									listComptes : null
+								},
 								templateUrl : 'static/views/templatesClient/demandeModifCompte.html',// 'partial-home-list.html',
-								controller : function($scope) {
-									$scope.dogs = [ 'Bernese', 'Husky',
-											'Goldendoodle' ];
-								}
+								controller : 'demandeModifCompteCtrl'
+								
 							})
 
 					.state(
 							'espaceClient.demandeChequier',
 							{
 								url : '/demandeChequier',
+								params : {
+									listComptes : null
+								},
 								templateUrl : 'static/views/templatesClient/demandeChequier.html',// 'partial-home-list.html',
-								controller : function($scope) {
-									$scope.dogs = [ 'Bernese', 'Husky',
-											'Goldendoodle' ];
-								}
+								controller : 'demandeChequierCtrl'
 							})
 
 					.state(
 							'espaceClient.demandeOuvertureCompte',
 							{
 								url : '/demandeOuvertureCompte',
+								params : {
+									listComptes : null
+								},
 								templateUrl : 'static/views/templatesClient/demandeOuvertureCompte.html',// 'partial-home-list.html',
-								controller : function($scope) {
-									$scope.dogs = [ 'Bernese', 'Husky',
-											'Goldendoodle' ];
-								}
+								controller : 'demandeOuvertureCompteCtrl'
 							})
 
 					.state(
@@ -280,12 +309,45 @@ App
 							{
 								url : '/mesAlertes',
 								templateUrl : 'static/views/templatesClient/mesAlertes.html',// 'partial-home-list.html',
-								controller : function($scope) {
-									$scope.dogs = [ 'Bernese', 'Husky',
-											'Goldendoodle' ];
-								}
+								controller : 'mesAlertesCtrl'
+															
 							})
-
+							
+					.state(
+							'espaceClient.notifictionDemande',
+							{
+								url : '/notifictionDemande',
+								params : {
+									notif : null
+								},
+								templateUrl : 'static/views/templatesClient/notifictionDemande.html',// 'partial-home-list.html',
+								controller : 'notificationDemandeCtrl'							
+							})	
+							
+					.state(
+							'espaceClient.notifictionMessage',
+							{
+								url : '/notifictionMessage',
+								params : {
+									notif : null
+								},
+								templateUrl : 'static/views/templatesClient/notifictionMessage.html',// 'partial-home-list.html',
+								controller : 'notifictionMessageCtrl'
+															
+							})	
+							
+					.state(
+							'espaceClient.notifictionTransaction',
+							{
+								url : '/notifictionTransaction',
+								params : {
+									notif : null
+								},
+								templateUrl : 'static/views/templatesClient/notifictionTransaction.html',// 'partial-home-list.html',
+								controller : 'notifictionTransactionCtrl'
+															
+							})
+							
 					.state(
 							'espaceClient.synthese',
 							{

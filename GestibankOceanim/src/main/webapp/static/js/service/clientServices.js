@@ -7,13 +7,42 @@ App
 						function($http, $q) {
 							var REST_SERVICE_URI = 'http://localhost:8080/SpringAngularStartProject/';
 							var factory = {
-								updateInfos : updateInfos,
-								getComptes : getComptes,
+								updateInfos: updateInfos,
+								getComptes: getComptes,
 								getOperations: getOperations,
-								virement : virement
+								virement: virement,
+								getNotifications: getNotifications,
+								demandeChequier: demandeChequier
 							};
 
 							return factory;
+							
+							
+							function demandeChequier(compte){
+								var deferred = $q.defer();
+								$http.post(REST_SERVICE_URI + 'demandeChequier/',compte)
+								.then(function(response){
+									deferred.resolve(response.data);
+								}, function(errResponse){
+									console.error('Erreur de virement !!!')
+									deferred.reject(errResponse);
+								})
+							return deferred.promise;
+							}
+							
+							
+							function getNotifications(idUser){
+								var deferred = $q.defer();
+								$http.get(REST_SERVICE_URI + 'notifications/' + idUser)
+									.then(function(response){
+										deferred.resolve(response.data);
+									}, function(errResponse){
+										console.error('Erreur de notifications !!!')
+										deferred.reject(errResponse);
+									})
+								return deferred.promise;
+							}
+							
 							
 							
 							function virement(infosVirement){

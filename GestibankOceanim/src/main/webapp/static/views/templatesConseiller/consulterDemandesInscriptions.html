@@ -1,23 +1,23 @@
 <meta charset="UTF-8">
 <div>
-	<h3>Demande d'inscription {{inscription.num}}</h3>
+	<h3>Demande d'inscription N°: {{demande.ref}}</h3>
 	<div>
 		<div class="col-sm-6">
-			Nom : &nbsp;{{ficheInscription.nom}} <br> <br> Email :
-			&nbsp;{{ficheInscription.email}} <br> <br> Numéro de la
-			rue : &nbsp; {{ficheInscription.numRue}} <br> <br> Code
-			postal : &nbsp;{{ficheInscription.cp}}&nbsp;&nbsp;&nbsp; <br> <br>
+			Nom : &nbsp;{{demande.ficheInsc.nom}} <br> <br> Email :
+			&nbsp;{{demande.ficheInsc.email}} <br> <br> Numéro de la
+			rue : &nbsp; {{demande.ficheInsc.adresse.numDeRue}} <br> <br> Code
+			postal : &nbsp;{{demande.ficheInsc.adresse.codePostale}}&nbsp;&nbsp;&nbsp; <br> <br>
 			Salaire net moyen :
-			&nbsp;{{ficheInscription.salaire}}&nbsp;&nbsp;&nbsp; <br> <br>
+			&nbsp;{{demande.ficheInsc.salaireMoyen}}&nbsp;&nbsp;&nbsp; <br> <br>
 			Situation matrimoniale : &nbsp;
-			{{ficheInscription.situtionMatrimoniale}} <br> <br>
+			{{demande.ficheInsc.situationMaritale}} <br> <br>
 		</div>
 		<div class="col-sm-6">
-			Prénom : &nbsp; {{ficheInscription.prenom}} <br> <br>
-			Téléphone :&nbsp;{{ficheInscription.telephone}} <br> <br>
-			Nom de la rue : &nbsp;{{ficheInscription.nomRue}} <br> <br>
-			Ville :&nbsp;{{ficheInscription.ville}} <br> <br> Nombre
-			d'enfants : &nbsp; {{ficheInscription.nbreEnfant}}
+			Prénom : &nbsp; {{demande.ficheInsc.prenom}} <br> <br>
+			Téléphone :&nbsp;{{demande.ficheInsc.tel}} <br> <br>
+			Nom de la rue : &nbsp;{{demande.ficheInsc.adresse.nomRue}} <br> <br>
+			Ville :&nbsp;{{demande.ficheInsc.adresse.ville}} <br> <br> Nombre
+			d'enfants : &nbsp; {{demande.ficheInsc.nbrEnfants}}
 		</div>
 		<div>
 

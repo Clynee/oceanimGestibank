@@ -15,7 +15,11 @@ import org.springframework.stereotype.Repository;
 import com.wha.springmvc.entities.Client;
 import com.wha.springmvc.entities.Compte;
 import com.wha.springmvc.entities.Conseiller;
+import com.wha.springmvc.entities.Demande;
+import com.wha.springmvc.entities.DemandeInscription;
 import com.wha.springmvc.entities.Document;
+import com.wha.springmvc.entities.Message;
+import com.wha.springmvc.entities.Notification;
 import com.wha.springmvc.entities.Transaction;
 import com.wha.springmvc.entities.User;
 
@@ -29,6 +33,33 @@ public class BanqueDaoImpl implements IBanqueDao{
 
 	//les methodes
 	
+	@Override
+	public User getUser(long idUser) {
+		return em.find(User.class, idUser);
+	}
+	
+	
+	@Override
+	public Demande affectDemandeToUser(Integer idDemande, Long idConseiller) {
+		DemandeInscription demande = em.find(DemandeInscription.class, idDemande);
+		System.out.println(idConseiller);
+		User user = em.find(Conseiller.class, idConseiller);
+		demande.setExp(user);
+		return demande;
+	}
+	
+	@Override
+	public User ajouterUser(User user) {
+		em.persist(user);
+		return user;
+	}
+	
+	@Override
+	public List<Demande> getDemandeByUser(long idUser) {
+		Query req = em.createQuery("select d from Demande d where d.Exp.id=:x");
+		req.setParameter("x", idUser);
+		return req.getResultList();
+	}
 	
 	@Override
 	
@@ -100,7 +131,7 @@ public class BanqueDaoImpl implements IBanqueDao{
 			c.setSolde(c.getSolde()+op.getMontant());
 			em.persist(op);
 		}else{
-			new RuntimeException();
+			return null;//new RuntimeException();
 		}
 		return op;
 	}
@@ -137,10 +168,9 @@ return (List<Conseiller>) q.getResultList();
 	
 	@Override
 	public Conseiller findConseillerById(long conseillerId){
-		
-		Query q = em.createNamedQuery("conseiller.findConseillerById");
-        q.setParameter("id", conseillerId);
-           return (Conseiller) q.getSingleResult();
+		//Query q = em.createNamedQuery("conseiller.findConseillerById");
+        //q.setParameter("id", conseillerId);
+           return em.find(Conseiller.class, conseillerId); //(Conseiller) q.getSingleResult();
 	}
 	
 	@Override
@@ -164,7 +194,11 @@ return (List<Conseiller>) q.getResultList();
 	}
 	
 	
-	
+	@Override
+	public Demande ajouterDemande(Demande demande) {
+		em.persist(demande);
+		return demande;
+	}
 	
 	
 	@Override
@@ -260,10 +294,9 @@ return (List<Conseiller>) q.getResultList();
 
 	@Override
 	public List<Client> findClientsByConseiller(long idConseiller) {
-		Query req=em.createQuery("select cli from Client cli where cli.conseiller.codeConseiller=:x ");
+		Query req=em.createQuery("select cli from Client cli where cli.conseiller.id=:x ");
 		req.setParameter("x",idConseiller);
 		return req.getResultList();
-		
 	}
 
 	@Override
@@ -294,6 +327,43 @@ return (List<Conseiller>) q.getResultList();
 	public void deleteDocById(int id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public List<Demande> getDemandesAffectes(long idUser) {
+		Query req = em.createQuery("select d from Demande d where d.Exp.id!=:x");
+		req.setParameter("x", idUser);
+		return req.getResultList();
+	}
+
+
+	@Override
+	public Notification ajouterNotification(Notification notif) {
+		em.persist(notif);
+		return notif;
+	}
+
+
+	@Override
+	public Message ajouterMessage(Message message) {
+		em.persist(message);
+		return message;
+	}
+
+
+	@Override
+	public List<Notification> getNotificationsByDestinateur(long idUser) {
+		
+		Query req=em.createQuery("select notif from Notification notif where destinateur.id=:x ");
+		req.setParameter("x",idUser);
+		return req.getResultList();
+	}
+
+
+	@Override
+	public Demande findDemandeByRef(int ref) {
+		return em.find(Demande.class, ref);
 	}
 
 }

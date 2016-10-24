@@ -13,16 +13,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr
+			<tr ng-repeat="(key,demande) in demandesInscription track by $index">
+			<!--  
 				ng-repeat="(key,ins) in listInscriptions | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
-
-				<td>{{ins.dateDemande}}</td>
-				<td>{{ins.num}}</td>
-				<td>{{ins.nomDemandeur}}</td>
-				<td>{{ins.nomConseiller}}</td>
-				<td>{{ins.etat}}</td>
-				<td><button ui-sref="espaceAdmin.consulterEtatDemande" href="#"
-						class="btn btn-secondary" ng-click="consulterEtatDemande">Consulter</button></td>
+			-->
+				<td>{{demande.dateDemande | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+				<td>{{demande.ref}}</td>
+				<td>{{demande.ficheInsc.nom}} {{demande.ficheInsc.prenom}}</td>
+				<td>{{demande.exp.nom}} {{demande.exp.prenom}} </td>
+				<td>{{demande.etatDemande}}</td>
+				<td><button ui-sref="espaceAdmin.consulterEtatDemande({demande:demande})" href="#"
+						class="btn btn-secondary" ng-click="">Consulter</button></td>
 			</tr>
 		</tbody>
 	</table>

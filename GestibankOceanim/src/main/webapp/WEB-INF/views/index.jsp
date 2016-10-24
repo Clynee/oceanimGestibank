@@ -21,8 +21,14 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- 
+<script type="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.min.js"></script>
+-->
+ 
 <script
 	src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.1.4.js"></script>
+
+
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
 
@@ -41,11 +47,14 @@
 <script src="<c:url value='/static/js/service/connexion_service.js' />"></script>
 <script
 	src="<c:url value='/static/js/controller/connexionController.js' />"></script>
+	<script src="<c:url value='/static/js/service/conseillerServices.js' />"></script>
+	<script src="<c:url value='/static/js/service/adminServices.js' />"></script>
+	<script src="<c:url value='/static/js/service/inscriptionService.js' />"></script>
 	<script
 	src="<c:url value='/static/js/controller/conseillerControllers.js' />"></script>
 	<script
 	src="<c:url value='/static/js/controller/adminControllers.js' />"></script>
-	<script src="<c:url value='/static/js/service/conseillerServices.js' />"></script>
+	
 
 	
 	

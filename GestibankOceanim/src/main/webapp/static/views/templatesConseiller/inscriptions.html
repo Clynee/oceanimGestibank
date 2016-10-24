@@ -11,21 +11,23 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr
-				ng-repeat="(key,ins) in listdemIns | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
-
-				<td>{{ins.date}}</td>
-				<td>{{ins.nom}}</td>
-				<td>{{ins.etat}}</td>
-				<button
-						ui-sref="espaceConseiller.consulterDemandesInscriptions" href="#"
+		<!--  
+			<tr ng-repeat="(key,demande) in listdemIns | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
+		-->
+		<tr ng-repeat="(key,demande) in demandesInscription track by $index" >
+				<td>{{demande.dateDemande | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+				<td>{{demande.ficheInsc.nom}} {{demande.ficheInsc.prenom}}</td>
+				<td></td>
+				<td> <button ui-sref="espaceConseiller.consulterDemandesInscriptions({demande:demande})" href="#"
 						class="btn btn-secondary" ng-click="consulterDemandesInscriptions">Consulter</button>
+				</td>
 			</tr>
 		</tbody>
 	</table>
+	<!--  
 	<ul ng-if="bigTotalItems > itemsPerPage" uib-pagination
 		total-items="bigTotalItems" ng-model="bigCurrentPage"
 		items-per-page="itemsPerPage" max-size="maxSize" class="pagination-sm"
 		boundary-links="true" rotate="false" num-pages="numPages"></ul>
-
+	-->
 </div>

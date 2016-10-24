@@ -10,6 +10,28 @@
 			</tr>
 		</thead>
 		<tbody>
+
+			<tr ng-repeat="(key,demande) in demandesInscription  track by $index">
+				<td>{{demande.dateDemande | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+				<td>{{demande.ficheInsc.nom}} {{demande.ficheInsc.prenom}}</td>
+				<!--<td><label for="choixConseiller"> Choix du conseiller :&nbsp;</label> 	</td>                 	 -->
+				<td><select class="form-control" ng-model="conseillerSelected"
+					ng-options="conseiller.username for conseiller in listConseillers">
+						<option>{{conseiller.username}}</option>
+				</select></td>
+				<td><button class="btn btn-secondary"
+						ng-click="affecter({idDemande:demande.ref,idConseiller:conseillerSelected.id})">Affecter</button></td>
+			</tr>
+
+			<!--
+                      <tr ng-repeat="(key,cpt) in listComptes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
+          			-->
+
+		</tbody>
+	</table>
+	<!--   <ul ng-if="bigTotalItems > itemsPerPage" uib-pagination  total-items="bigTotalItems"  ng-model="bigCurrentPage" items-per-page= "itemsPerPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></ul>
+  			 
+
 			<tr>
 				<td>{{demande.dateDemande}}</td>
 				<td>{{demande.nomDemandeur}}</td>
@@ -33,8 +55,10 @@
 
 		</tbody>
 	</table>
+	-->
 	<ul ng-if="bigTotalItems > itemsPerPage" uib-pagination
 		total-items="bigTotalItems" ng-model="bigCurrentPage"
 		items-per-page="itemsPerPage" max-size="maxSize" class="pagination-sm"
 		boundary-links="true" rotate="false" num-pages="numPages"></ul>
+
 </div>

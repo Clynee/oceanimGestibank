@@ -5,6 +5,7 @@ package com.wha.springmvc.entities;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -38,6 +39,15 @@ public class Compte implements Serializable {
 	@OneToMany(mappedBy="compte")
 	private Collection<Transaction> operations;
 	
+	@JsonIgnore
+	@OneToMany(mappedBy="compte")
+	private List<DemandeModifications> demandesModifs;
+	
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="compte")
+	private List<DemandeChequier> demandesChequiers;
+	
 	
 	public Compte() {
 		super();
@@ -54,6 +64,22 @@ public class Compte implements Serializable {
 	
 	
 	
+	public List<DemandeModifications> getDemandesModifs() {
+		return demandesModifs;
+	}
+
+	public void setDemandesModifs(List<DemandeModifications> demandesModifs) {
+		this.demandesModifs = demandesModifs;
+	}
+
+	public List<DemandeChequier> getDemandesChequiers() {
+		return demandesChequiers;
+	}
+
+	public void setDemandesChequiers(List<DemandeChequier> demandesChequiers) {
+		this.demandesChequiers = demandesChequiers;
+	}
+
 	public double getDecouvert() {
 		return decouvert;
 	}
@@ -104,6 +130,9 @@ public class Compte implements Serializable {
 	public void setOperations(Collection<Transaction> operations) {
 		this.operations = operations;
 	}
+
+	
+	
 	
 	
 }

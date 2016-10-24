@@ -36,8 +36,14 @@ import com.wha.springmvc.entities.Compte;
 import com.wha.springmvc.entities.CompteCourant;
 import com.wha.springmvc.entities.CompteRemunere;
 import com.wha.springmvc.entities.Conseiller;
+import com.wha.springmvc.entities.DemandeInscription;
 import com.wha.springmvc.entities.Document;
+import com.wha.springmvc.entities.FicheInscription;
 import com.wha.springmvc.entities.FileContainer;
+import com.wha.springmvc.entities.Message;
+import com.wha.springmvc.entities.MessageRecu;
+import com.wha.springmvc.entities.Notification;
+import com.wha.springmvc.entities.NotificationMessage;
 import com.wha.springmvc.entities.User;
 import com.wha.springmvc.service.BanqueServiceImpl;
 import com.wha.springmvc.service.IBanqueService;
@@ -55,72 +61,157 @@ public class HelloWorldRestController {
     @RequestMapping(value="/test", method = RequestMethod.GET)
     public ResponseEntity<Client> monTest(){
     	/*----- Les addresses ------*/
-    	Adresse adresse1 = new Adresse();
-    	adresse1.setNumDeRue(5); adresse1.setNomRue("Camilles Desmoulins");
-    	adresse1.setCodePostale(35000); adresse1.setVille("Rennes");
-    	
-    	Adresse adresse2 = new Adresse();
-    	adresse2.setNumDeRue(7); adresse2.setNomRue("Albert Einstein");
-    	adresse2.setCodePostale(44300); adresse2.setVille("Nantes");
-    	
-    	
-    	
-    	/*---- L'admin ---*/
-    	Admin admin = new Admin();
-    	admin.setUsername("wajii");
-    	admin.setPassword("1111");
-    	
-    	
-    	/*---- Les conseillers ----- */
-    	Conseiller cons = new Conseiller();
-    	cons.setUsername("celine"); 
-    	cons.setPassword("1111");
-    	cons.setCodeConseiller(1L);
-    	cons.setNom("Galland");
-    	cons.setPrenom("Céline");
-    	
-    	
-    	
-    	/*-------- Les clients --------*/
-    	Client cli1 = new Client();
-    	cli1.setUsername("aissa"); cli1.setPassword("1111");
-    	cli1.setAddress(adresse1);cli1.setEmail("aissa@gesti.com");
-    	cli1.setNom("MEDJKOUNE"); cli1.setPrenom("Aissa");
-    	cli1.setSituationMaritale("marié");cli1.setNbrEnfants(3);
-    	cli1.setAddress(adresse1);cli1.setTel("0621345653");
-    	cli1.setCodeClient(1L);
-    	
-    	Client cli2 = new Client();
-    	cli2.setUsername("noufel"); cli2.setPassword("1111");
-    	cli2.setAddress(adresse2);cli2.setEmail("noufel@gesti.com");
-    	cli2.setNom("ADNANE"); cli2.setPrenom("Noufel");
-    	cli2.setSituationMaritale("marié");cli2.setNbrEnfants(3);
-    	cli2.setAddress(adresse2);cli2.setTel("0695385170");
-    	cli2.setCodeClient(2L);
-    	/*--- Les comptes ----*/ 
-    	
-    	Compte c1 = new CompteCourant("CC1", 9000, 8000);
-    	Compte c2 = new CompteRemunere("CE1", 40000,8000, 5.5);
-    	Compte c3 = new CompteRemunere("CE2", 40000,8000, 5.5);
-    	
-    	/*----- La persistance ----*/
-    	
-    	banqueService.ajouterConseiller(cons);
-    	banqueService.ajouterClient(cli1);
-    	banqueService.ajouterClient(cli2);
-    	banqueService.affectConseillerToClient(1L, 2L);
-    	banqueService.affectConseillerToClient(1L, 3L);
-    	
-    	banqueService.ajouterCompte(c1, 2L);
-    	banqueService.ajouterCompte(c2, 2L);
-    	banqueService.ajouterCompte(c3, 3L);
-    	
-    	//banqueService.crediter(5000, "CC1");
-    	//banqueService.debiter(6000, "CC1");
-    	banqueService.virement(4000, "CC1", "CE1");
-    	banqueService.virement(2000, "CE1", "CC1");
-    	banqueService.virement(4000, "CC1", "CE1");
-    	banqueService.virement(2000, "CE1", "CC1");
+		Adresse adresse1 = new Adresse();
+		adresse1.setNumDeRue(5);
+		adresse1.setNomRue("Camilles Desmoulins");
+		adresse1.setCodePostale(35000);
+		adresse1.setVille("Rennes");
+
+		Adresse adresse2 = new Adresse();
+		adresse2.setNumDeRue(7);
+		adresse2.setNomRue("Albert Einstein");
+		adresse2.setCodePostale(44300);
+		adresse2.setVille("Nantes");
+
+		Adresse adresse3 = new Adresse();
+		adresse3.setNumDeRue(5);
+		adresse3.setNomRue("Camilles Desmoulins");
+		adresse3.setCodePostale(35000);
+		adresse3.setVille("Rennes");
+
+		Adresse adresse4 = new Adresse();
+		adresse4.setNumDeRue(34);
+		adresse4.setNomRue("Gambetta");
+		adresse4.setCodePostale(69300);
+		adresse4.setVille("Lyon");
+
+		/*---- L'admin ---*/
+		Admin admin = new Admin();
+		admin.setUsername("wajii");
+		admin.setPassword("1111");
+
+		/*---- Les conseillers ----- */
+		Conseiller cons = new Conseiller();
+		cons.setUsername("celine");
+		cons.setPassword("1111");
+		cons.setCodeConseiller(1L);
+		cons.setNom("Galland");
+		cons.setPrenom("Céline");
+
+		Conseiller cons1 = new Conseiller();
+		cons1.setUsername("boubou");
+		cons1.setPassword("1111");
+		cons1.setCodeConseiller(2L);
+		cons1.setNom("BOUBOU");
+		cons1.setPrenom("Doudou");
+
+		/*-------- Les clients --------*/
+		Client cli1 = new Client();
+		cli1.setUsername("aissa");
+		cli1.setPassword("1111");
+		cli1.setAddress(adresse3);
+		cli1.setEmail("aissa@gesti.com");
+		cli1.setNom("MEDJKOUNE");
+		cli1.setPrenom("Aissa");
+		cli1.setSituationMaritale("marié");
+		cli1.setNbrEnfants(3);
+		cli1.setAddress(adresse1);
+		cli1.setTel("0621345653");
+		cli1.setCodeClient(1L);
+
+		Client cli2 = new Client();
+		cli2.setUsername("noufel");
+		cli2.setPassword("1111");
+		cli2.setAddress(adresse1);
+		cli2.setEmail("noufel@gesti.com");
+		cli2.setNom("ADNANE");
+		cli2.setPrenom("Noufel");
+		cli2.setSituationMaritale("marié");
+		cli2.setNbrEnfants(3);
+		cli2.setAddress(adresse2);
+		cli2.setTel("0695385170");
+		cli2.setCodeClient(2L);
+		/*--- Les comptes ----*/
+
+		Compte c1 = new CompteCourant("CC1", 9000, 8000);
+		Compte c2 = new CompteRemunere("CE1", 40000, 8000, 5.5);
+		Compte c3 = new CompteRemunere("CE2", 40000, 8000, 5.5);
+
+		/*-- Les Fiches d'inscription -- */
+
+		FicheInscription fiche = new FicheInscription();
+		fiche.setAdresse(adresse3);
+		fiche.setDate(new Date((new java.util.Date()).getTime()));
+		fiche.setEmail("ficheP@gestibank.oceanim");
+		fiche.setNom("BRAHIM");
+		fiche.setPrenom("Lemine");
+		fiche.setSalaireMoyen(5000);
+
+		FicheInscription fiche1 = new FicheInscription();
+		fiche1.setAdresse(adresse4);
+		fiche1.setDate(new Date((new java.util.Date()).getTime()));
+		fiche1.setEmail("ficheD@gestibank.oceanim");
+		fiche1.setNom("ADNANE");
+		fiche1.setPrenom("SP");
+		fiche1.setSalaireMoyen(5000);
+
+		/* --- Les Demandes --- */
+		DemandeInscription demande1 = new DemandeInscription();
+
+		demande1.setExp(admin);
+		demande1.setMessage("Ma première demande");
+		demande1.setDateDemande(new java.util.Date());
+		demande1.setFicheInsc(fiche1);
+
+		DemandeInscription demande2 = new DemandeInscription();
+		demande2.setExp(admin);
+		demande2.setMessage("Ma deuxieme demande");
+		demande2.setDateDemande(new java.util.Date());
+		demande2.setFicheInsc(fiche);
+		
+		
+		/*-- Les notifications ----*/
+		NotificationMessage notif = new NotificationMessage();
+		
+		/*--- Message ---*/
+		Message message = new MessageRecu();
+		
+		/*----- La persistence ----*/
+		
+		banqueService.ajouterUser(admin);
+
+		banqueService.ajouterConseiller(cons);
+		banqueService.ajouterConseiller(cons1);
+		
+		
+		
+		banqueService.ajouterClient(cli1);
+		banqueService.ajouterClient(cli2);
+
+		banqueService.affectConseillerToClient(2L, 4L);
+		banqueService.affectConseillerToClient(2L, 5L);
+
+		banqueService.ajouterCompte(c1, 4L);
+		banqueService.ajouterCompte(c2, 4L);
+		banqueService.ajouterCompte(c3, 5L);
+
+		banqueService.ajouterDemande(demande1);
+		banqueService.ajouterDemande(demande2);
+
+		// banqueService.crediter(5000, "CC1");
+		// banqueService.debiter(6000, "CC1");
+		banqueService.virement(4000, "CC1", "CE1");
+		banqueService.virement(2000, "CE1", "CC1");
+		banqueService.virement(4000, "CC1", "CE1");
+		banqueService.virement(2000, "CE1", "CC1");
+		
+		//
+		message.setConcerne(cli1);
+		banqueService.ajouterMessage(message);
+		notif.setDestinateur(cli1);
+		notif.setMessage(message);
+		banqueService.ajouterNotification(notif);
+		
     	return new ResponseEntity<Client>(cli1,HttpStatus.OK);
     }
     

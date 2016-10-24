@@ -68,7 +68,7 @@ App
 						} ]);
 
 App.controller('LoginController', function($scope, $location, $rootScope,
-		$state, AUTH_EVENTS, AuthService, clientServices) {
+		$state, AUTH_EVENTS, AuthService, clientServices,inscriptionService) {
 
 	$scope.connexionPopover = {
 		content : 'Hello, World!',
@@ -87,16 +87,16 @@ App.controller('LoginController', function($scope, $location, $rootScope,
 		templateUrl : 'static/views/templatesAcceuil/FormulaireVisiteur.html',// 'myPopoverTemplate.html',//
 		title : "Demande d'ouverture de compte"
 	};
-	$scope.form = {}
-	var oriPerson = angular.copy($scope.form);
-	$scope.resetForm = function() {
-		$scope.form = angular.copy(oriPerson);
-		$scope.FormVisiteur.$setPristine();
-	};
-
-	$scope.isPersonChanged = function() {
-		return !angular.equals($scope.form, oriPerson);
-	};
+//	$scope.form = {}
+//	var oriPerson = angular.copy($scope.form);
+//	$scope.resetForm = function() {
+//		$scope.form = angular.copy(oriPerson);
+//		$scope.FormVisiteur.$setPristine();
+//	};
+//
+//	$scope.isPersonChanged = function() {
+//		return !angular.equals($scope.form, oriPerson);
+//	};
 
 	$scope.credentials = {
 		username : '',
@@ -129,4 +129,26 @@ App.controller('LoginController', function($scope, $location, $rootScope,
 			$rootScope.$broadcast(AUTH_EVENTS.loginFailed);
 		});
 	};
+	
+	
+	/*  ------ Formulaire ----- */
+	$scope.form={}
+	$scope.reinitialiser = function(){
+		console.log($scope.form)
+		$scope.form={}
+	}
+	
+	
+	$scope.inscription = function(form){
+		console.log($scope.form)
+		
+		inscriptionService.inscription(form).then(function(d){
+			console.log("Bien enregistré !!!")
+			$scope.form={}
+		},function(errResponse){
+			console.error("Error lors de l'iscription !!")
+		}
+				
+		)
+	}
 })

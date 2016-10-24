@@ -6,13 +6,11 @@
 			<h2>Demande de modifications de compte :</h2>
 		</center>
 		<label for="choixCompte"> Choix du compte :&nbsp;</label> <select
-			class="form-control">
-			<option>{{compte.typeCompte}} {{compte.numCompte}} Compte
-				courant 12345678910 &nbsp;&nbsp;&nbsp;</option>
-			<option>{{compte.typeCompte}} {{compte.numCompte}} Compte
-				courant 6574352689 &nbsp;&nbsp;&nbsp;</option>
-		</select><br>
-		<br>
+			class="form-control" ng-model="compteSelected"
+			ng-options="compte.codeCompte for compte in listComptes">
+			<option ng-value={{compte}}>{{compteSelected.codeCompte}}</option>
+		</select> <br> <br>
+		
 		<div class="checkbox">
 			<label> <input type="checkbox" id="modifDecouvert"
 				value="modifDecouvert"> Demander une modification du montant

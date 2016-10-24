@@ -33,17 +33,17 @@ public class ApplicationTestServiceMail {
 
 	public static Notification getDummyOrder() {
 		Notification notif = new Notification();
-		notif.setNotifId("Demande chequier N°: 1111");
+	//	notif.setNotifId("Demande chequier N°: 1111");
 		
 		
 	
 		
-		notif.setNotificationName("Demande Chéquier");
+		//notif.setNotificationName("Demande Chéquier");
 
 		
-		notif.setNotificationName("Demande chequier ");
+		//notif.setNotificationName("Demande chequier ");
 	
-		notif.setStatus("confirmed");
+		//notif.setStatus("confirmed");
 
 		Client infoclient = new Client();
 		infoclient.setNom("CELINE ");
@@ -52,7 +52,7 @@ public class ApplicationTestServiceMail {
 
 		infoclient.setEmail("b.aissamedjkoune@gmail.com");
 
-		notif.setInfoClient(infoclient);
+		//notif.setInfoClient(infoclient);
 
 		return notif;
 	}

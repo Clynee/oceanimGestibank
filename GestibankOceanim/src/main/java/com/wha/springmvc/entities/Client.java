@@ -1,8 +1,10 @@
 package com.wha.springmvc.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -38,14 +40,29 @@ public class Client extends User implements Serializable  {
 	@JsonIgnore
 	@OneToMany(mappedBy="client") 
 	private Collection<Compte> comptes;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="destinateur")
+	private List<Notification> notification;
 
 	@ManyToOne
 	@JoinColumn(name = "CODE_CONSEIL")
 	private Conseiller conseiller;
-
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="concerne")
+	private List<Message> messages; 
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="client")
+	private List<DemandeOuvertureCompte> demandesOvertureComptes;
+	
+	
 	public Client() {
 		super();
 		setRoleUsers(TypeRole.CLIENT);
+		notification = new ArrayList<Notification>();
+		messages = new ArrayList<Message>();
 	}
 	
 	public Client(String nomClient, Adresse adresseClient) {
@@ -53,6 +70,34 @@ public class Client extends User implements Serializable  {
 		super.setAddress(adresseClient); // adresseClient = adresseClient;
 	}
 	
+	
+	
+	
+	
+	public List<DemandeOuvertureCompte> getDemandesOvertureComptes() {
+		return demandesOvertureComptes;
+	}
+
+	public void setDemandesOvertureComptes(List<DemandeOuvertureCompte> demandesOvertureComptes) {
+		this.demandesOvertureComptes = demandesOvertureComptes;
+	}
+
+	public List<Notification> getNotification() {
+		return notification;
+	}
+
+	public void setNotification(List<Notification> notification) {
+		this.notification = notification;
+	}
+
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
+
 	public String getSituationMaritale() {
 		return situationMaritale;
 	}

@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <!-- Ici j'ai fait 3 tableaux distincts afin de classifier les notifications reçues par le client (mouvements du compte car quand un virement passe, il reçoit une alerte; état de ses demandes: commande de chéquier ou autre envoi notif pour dire ok; et les messages de son conseiller) -->
 <div>
+<!-- <!--  
 	<div>
 		<h2>Mes alertes</h2>
 		<h4>Mouvements de mes comptes</h4>
@@ -8,15 +9,15 @@
 			<thead>
 				<tr>
 					<th>Date</th>
-					<th>N° de compte<th>
+					<th>N° de compte <!--  <th>
 					<th>Libellé</th>
 				</tr>
 			</thead>
 			<tbody>
-				<!--  Noter fonction ng-repeat dans le controller -->
+				 Noter fonction ng-repeat dans le controller
 				<tr>
 					<td>{{transaction.dateNotif}}</td>
-					<td><{{transaction.compte}}/td>
+					<td>{{transaction.compte}}</td>
 					<td>{{transaction.libelleNotif}}</td>
 				</tr>
 			</tbody>
@@ -36,31 +37,33 @@
 				</tr>
 			</thead>
 			<tbody>
-				<!--  Noter fonction ng-repeat dans le controller -->
-				<td>{{notification.dateNotif}}</td>
-				<td>{{demande.num}}</td>
-				<td>{{notification.libelleNotif}}</td>
-				<td>{{demande.etat}}</td>
+				 Noter fonction ng-repeat dans le controller
+				<tr>
+					<td>{{notification.dateNotif}}</td>
+					<td>{{demande.num}}</td>
+					<td>{{notification.libelleNotif}}</td>
+					<td>{{demande.etat}}</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
+	--> 
 	<div>
-		<h4>Messages de mon conseiller</h4>
+		<!--  <h4>Messages de mon conseiller</h4> -->
 		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>Date</th>
 					<th>Libellé</th>
-					<th></th>
+					  <th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<!--  Noter fonction ng-repeat dans le controller -->
-				<td>{{notification.dateNotif}}</td>
-				<td>{{notification.libelleNotif}}</td>
-				<td><a ui-sref="espaceClient.messagesConseiller" href="#"
-					class="btn btn-secondary" ng-click="messagesConseiller">Consulter</a></td>
+				<tr ng-repeat="(key,notif) in listNotifications |orderBy:'dateNotification':true track by $index">
+					<td>{{notif.dateNotification | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+					<td>{{notif.libelle}}</td>
+					<td><button class="btn btn-secondary" ng-click="consulterNotification(notif)">Consulter</button></td>
 				</tr>
 			</tbody>
 		</table>

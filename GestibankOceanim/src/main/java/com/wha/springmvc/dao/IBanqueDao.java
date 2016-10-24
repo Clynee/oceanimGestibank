@@ -5,7 +5,10 @@ import java.util.List;
 import com.wha.springmvc.entities.Client;
 import com.wha.springmvc.entities.Compte;
 import com.wha.springmvc.entities.Conseiller;
+import com.wha.springmvc.entities.Demande;
 import com.wha.springmvc.entities.Document;
+import com.wha.springmvc.entities.Message;
+import com.wha.springmvc.entities.Notification;
 import com.wha.springmvc.entities.Transaction;
 import com.wha.springmvc.entities.User;
 
@@ -13,7 +16,8 @@ public interface IBanqueDao {
 	
 	public List<User> findAllUsers();
 	public User updateUser(User user);
-	
+	public User ajouterUser(User user);
+	public User getUser(long idUser);
 	
 	public void miseAjourClient(Client client);
 	public void miseAjourCompte(Compte cpte);
@@ -40,6 +44,20 @@ public interface IBanqueDao {
 	public void miseAjourConseiller(Conseiller conseiller);
 	public  List<Client> findClientsByConseiller(long idConseiller);
 	
+	
+	//  Demandes 
+	public Demande ajouterDemande(Demande demande);
+	public List<Demande> getDemandeByUser(long idUser);
+	public Demande affectDemandeToUser(Integer idDemande, Long idConseiller);
+	public List<Demande> getDemandesAffectes(long idUser);
+	
+	//Notification
+	public Notification ajouterNotification(Notification notif);
+	
+	//Messages
+	
+	public Message ajouterMessage(Message message);
+	
 	//USER DOCUMENT UPLOAD 
 	
 	  List<Document> findAllDoc();
@@ -50,6 +68,8 @@ public interface IBanqueDao {
 //     
       List<Document> findAllDocByUserId(long userId);
 //     
-      void deleteDocById(int id);
+    public void deleteDocById(int id);
+	public List<Notification> getNotificationsByDestinateur(long idUser);
+	public Demande findDemandeByRef(int ref);
 
 }

@@ -24,9 +24,9 @@
 			</ul>
 		</li>
 		-->
-			<li><a ui-sref=".demandeChequier" href="#Demande_modif_compte">Demander
+			<li><a ui-sref=".demandeChequier({listComptes:listComptes})" href="#Demande_modif_compte">Demander
 					un chéquier</a></li>
-			<li><a ui-sref=".demandeModifCompte" href="#Demande_chequier">Modification
+			<li><a ui-sref=".demandeModifCompte({listComptes:listComptes})" href="#Demande_chequier">Modification
 					de compte</a></li>
 			<li><a ui-sref=".demandeOuvertureCompte"
 				href="#Demande_ouverture_compte">Ouverture de compte</a></li>
@@ -41,7 +41,7 @@
 				<ul class="nav nav-tabs">
 					<li><a ui-sref=".mesInformations">Mes informations</a></li>
 					<li><a ui-sref=".mesAlertes" href="#Mes_alertes">Mes
-							alertes</a></li>
+							alertes <span class="badge">{{nonlus.length}}</span> </a></li>
 					<li><a ui-sref=".synthese({listComptes:listComptes})"
 						href="#synthese">Synthèse des comptes</a></li>
 					<!--  Renvoi à la même page que "Mes comptes" du menu vertical -->

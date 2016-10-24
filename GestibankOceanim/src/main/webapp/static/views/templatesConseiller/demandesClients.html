@@ -8,6 +8,7 @@
 	<h4>Demandes de chéquier</h4>
 	<table class="table table-striped">
 		<thead>
+		
 			<tr>
 				<th>Date</th>
 				<th>N° de la demande</th>
@@ -19,15 +20,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr
-				ng-repeat="(key,dem) in listDemandes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
-				<td>{{dem.date}}</td>
-				<td>{{dem.num}}</td>
-				<td>{{dem.nClient}}</td>
-				<td>{{dem.nom}}</td>
-				<td>{{dem.etat}}</td>
+			<!--  
+			<tr	ng-repeat="(key,dem) in listDemandes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
+				-->
+				<tr ng-repeat="(key,dem) in demandesChequier track by $index">
+				<td>{{dem.dateDemande | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+				<td>{{dem.ref}}</td>
+				<td>{{dem.compte.client.id}}</td>
+				<td>{{dem.compte.client.nom}}</td>
+				<td>{{dem.etatDemande}}</td>
 				<td><button
-						ui-sref="espaceConseiller.demandeChequierConseiller" href="#"
+						ui-sref="espaceConseiller.demandeChequierConseiller({demande:dem})" href="#"
 						class="btn btn-secondary" ng-click="demandeChequierConseiller">Consulter</button></td>
 
 				<!--  Ici on atterit sur une page ou une autre selon le libellé: il y  a 3 types de demandes (chéquier, modifCompte, ou ouverture nouveau compte)     -->

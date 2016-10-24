@@ -88,14 +88,14 @@ public class MailServiceImpl implements MailService {
 	 
 	                helper.setSubject("Votre demande chequier avec piece jointe ");
 	                helper.setFrom("gestibanktest@gmail.com");
-	                helper.setTo(notif.getInfoClient().getEmail());
+	              //  helper.setTo(notif.getInfoClient().getEmail());
 	                		
-	                String content = "Cher " + notif.getInfoClient().getNom()
+	              /*  String content = "Cher " + notif.getInfoClient().getNom()
 	                	
 	                        + ", MERCI POUR VOTRE DEMANDE CHEQIER DEMANDE N°:" + notif.getNotifId()+".";
-	                    
+	                   */ 
 	 
-	                helper.setText(content);
+	 //               helper.setText(content);
 	 
 	                // Add a resource as an attachment
 	                helper.addAttachment("cutie.png", new ClassPathResource("linux-icon.png"));
@@ -116,17 +116,17 @@ public class MailServiceImpl implements MailService {
 	 
 	                helper.setSubject("VOTRE DEMANDE DE CHEQUIER EN LIGNE :");
 	                helper.setFrom("gestibanktest@gmail.com");
-	                helper.setTo(notif.getInfoClient().getEmail());
-	                		
+	              //  helper.setTo(notif.getInfoClient().getEmail());
+	                /*		
 	 
 	                String content = "cher " + notif.getInfoClient().getNom()
 	                		
 	                        + ", MERCI POUR VOTRE DEMANDE CHEQUIER N°:" + notif.getNotifId()+".";
-	                       
+	                  */     
 	 
 	                // Add an inline resource.
 	                // use the true flag to indicate you need a multipart message
-	                helper.setText("<html><body><p>" + content + "</p><img src='cid:company-logo'></body></html>", true);
+	            //    helper.setText("<html><body><p>" + content + "</p><img src='cid:company-logo'></body></html>", true);
 	                helper.addInline("company-logo", new ClassPathResource("linux-icon.png"));
 	            }
 	        };

@@ -7,13 +7,15 @@
 	</div>
 </div>
 <div class="row">
+
 	<div>
 		<ul class="nav nav-tabs">
-			<li><a ui-sref=".demandesClients" href="#demandesClients">Gestion
+			<li><a ui-sref=".demandesClients({demandesChequier:demandesChequier,demandesModif:demandesModif,demandesNCompte:demandesNCompte})" 
+			href="#demandesClients">Gestion
 					des demandes</a></li>
 			<li><a ui-sref=".comptesClients({listClients:listClients})"
 				href="#comptesClients">Gestion des comptes clients</a></li>
-			<li><a ui-sref=".inscriptions" href="#inscriptions">Gestion
+			<li><a ui-sref=".inscriptions({demandesInscription:demandesInscription})" href="#inscriptions">Gestion
 					des inscriptions</a></li>
 			<li><a ui-sref=".messages" href="#messages">Mes messages</a></li>
 		</ul>

@@ -35,12 +35,12 @@ public class TestMail2 {
 	
 	public static Notification getDummyOrder() {
 		Notification notif = new Notification();
-		notif.setNotificationName("1235");
+	//	notif.setNotificationName("1235");
 
 		
-		notif.setNotificationName("Demande chequier ");
+	//	notif.setNotificationName("Demande chequier ");
 	
-		notif.setStatus("confirmed");
+	//	notif.setStatus("confirmed");
 
 		Client infoclient = new Client();
 		infoclient.setNom("aissa");
@@ -49,7 +49,7 @@ public class TestMail2 {
 
 		infoclient.setEmail("b.aissamedjkoune@gmail.com");
 
-		notif.setInfoClient(infoclient);
+	//	notif.setInfoClient(infoclient);
 
 		return notif;
 	}

@@ -2,7 +2,7 @@
 
 <!-- Ici le conseiller reçoit les messages des clients suite à des refus de modifications. Il y trouve également l'historique des ses messages -->
 <div>
-	<h3>Mes messages</h3>
+<!-- 	<h3>Mes messages</h3>
 	<div>
 		<h4>Messages reçus</h4>
 		<table class="table table-striped">
@@ -16,7 +16,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<!-- <tr ng-repeat="(key,dem) in listDemandes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
+				<tr ng-repeat="(key,dem) in listDemandes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
 				<td>{{email.date}}</td>
 				<td>{{email.emetteur}}</td>
 				<td>{{email.libelle}}</td>
@@ -26,7 +26,7 @@
 
 			</tbody>
 		</table>
-		<!--  <ul ng-if="bigTotalItems > itemsPerPage" uib-pagination  total-items="bigTotalItems"  ng-model="bigCurrentPage" items-per-page= "itemsPerPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></ul> -->
+		 <ul ng-if="bigTotalItems > itemsPerPage" uib-pagination  total-items="bigTotalItems"  ng-model="bigCurrentPage" items-per-page= "itemsPerPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></ul>
 	</div>
 	<div>
 		<h4>Messages envoyés</h4>
@@ -41,7 +41,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<!-- <tr ng-repeat="(key,dem) in listDemandes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index"> -->
+				<tr ng-repeat="(key,dem) in listDemandes | filter:search | offset: (bigCurrentPage - 1) * itemsPerPage | limitTo:itemsPerPage track by $index">
 				<td>{{email.date}}</td>
 				<td>{{email.destinataire}}</td>
 				<td>{{email.libelle}}</td>
@@ -52,6 +52,19 @@
 
 			</tbody>
 		</table>
+	</div> -->
+
+<div>
+	<h3>Contacter un client</h3>
+	<label for="contacterClient"> Choix du client :&nbsp;</label> <select
+			class="form-control" ng-model="clientSelected"
+			ng-options="client.nom for client in listClients"> 
+			<option ng-value={{client}}
+				ng-selected="{{client.nom == clientSelected.nom}}">
+				{{clientSelected.nom}} </option>
+		</select><br>
+			<button ui-sref="espaceConseiller.contacterClient({client:clientSelected})"
+						href="#" class="btn btn-secondary" ng-click="">Contacter</button>
 	</div>
 </div>
 
